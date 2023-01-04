@@ -11,9 +11,9 @@ const ProductCard = ({ product }) => {
 
     return (
       <span key={i}>
-        {rating.rate >= i + 1 ? (
+        {rating?.rate >= i + 1 ? (
           <FaStar />
-        ) : rating.rate >= number ? (
+        ) : rating?.rate >= number ? (
           <FaStarHalfAlt />
         ) : (
           <AiOutlineStar />
@@ -24,25 +24,29 @@ const ProductCard = ({ product }) => {
 
   return (
     <div>
-      <Link to={`/product/${id}`}>
-        <div class="bg-white shadow-md rounded-lg h-full dark:bg-gray-800 dark:border-gray-700">
-          <img class="rounded-t-lg p-8 product-image" src={image} alt={title} />
-          <div class="px-5 pb-5">
+      <Link to={`/products/${id}`}>
+        <div className="bg-white shadow-md rounded-lg h-full dark:bg-gray-800 dark:border-gray-700">
+          <img
+            className="rounded-t-lg p-8 product-image"
+            src={image}
+            alt={title}
+          />
+          <div className="px-5 pb-5">
             <a href="#">
-              <h3 class="text-gray-700 font-medium text-lg tracking-tight dark:text-white">
+              <h3 className="text-gray-700 font-medium text-lg tracking-tight dark:text-white">
                 {title}
               </h3>
             </a>
-            <div class="flex items-center space-y-2">
-              <div className="flex text-yellow-500 font-bold items-center">
+            <div className="flex items-center space-y-2">
+              <div className="flex text-red-500 font-bold items-center">
                 {ratingStar}
               </div>
-              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+              <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
                 {rating.rate}
               </span>
             </div>
-            <div class="flex items-center justify-between">
-              <span class="text-xl font-semibold text-gray-800 dark:text-white">
+            <div className="flex items-center justify-between">
+              <span className="text-xl font-semibold text-gray-800 dark:text-white">
                 ${price}
               </span>
             </div>

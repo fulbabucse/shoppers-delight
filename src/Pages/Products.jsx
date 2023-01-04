@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
+import Spinner from "../components/Spinner";
 import { setProducts } from "../redux/actions/actions";
 import ProductCard from "./Shared/ProductCard";
 
@@ -20,10 +21,18 @@ const Products = ({ products }) => {
   });
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
-      {allProducts?.map((product) => (
-        <ProductCard product={product} key={product.id} />
-      ))}
+    <div>
+      {allProducts.length === 0 ? (
+        <>
+          <Spinner />
+        </>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
+          {allProducts?.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
