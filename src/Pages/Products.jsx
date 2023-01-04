@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/actions";
+import ProductCard from "./Shared/ProductCard";
 
 const Products = ({ products }) => {
   const allProducts = products.products;
@@ -19,8 +20,10 @@ const Products = ({ products }) => {
   });
 
   return (
-    <div>
-      <h1>Products Page {allProducts.length}</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
+      {allProducts?.map((product) => (
+        <ProductCard product={product} key={product.id} />
+      ))}
     </div>
   );
 };
