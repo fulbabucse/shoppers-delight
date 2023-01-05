@@ -49,12 +49,6 @@ const Navbar = () => {
                   Products
                 </Link>
                 <Link
-                  to="/about"
-                  className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
-                >
-                  About
-                </Link>
-                <Link
                   to="/contact"
                   className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
                 >

@@ -15,7 +15,6 @@ const ProductDetails = ({ product }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { title, image, price, rating, category, description } = product;
-  console.log(rating);
 
   const url = `https://fakestoreapi.com/products/${id}`;
   const fetchSingleProduct = async () => {
@@ -77,9 +76,9 @@ const ProductDetails = ({ product }) => {
                     <p className="text-gray-500">
                       <svg
                         fill="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -89,9 +88,9 @@ const ProductDetails = ({ product }) => {
                     <p className="ml-2 text-gray-500">
                       <svg
                         fill="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -101,9 +100,9 @@ const ProductDetails = ({ product }) => {
                     <p className="ml-2 text-gray-500">
                       <svg
                         fill="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -133,9 +132,9 @@ const ProductDetails = ({ product }) => {
                         <svg
                           fill="none"
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           className="w-4 h-4"
                           viewBox="0 0 24 24"
                         >
@@ -155,9 +154,9 @@ const ProductDetails = ({ product }) => {
                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
