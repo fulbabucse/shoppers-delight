@@ -32,11 +32,10 @@ const ProductCard = ({ product }) => {
             alt={title}
           />
           <div className="px-5 pb-5">
-            <a href="#">
-              <h3 className="text-gray-700 font-medium text-lg tracking-tight dark:text-white">
-                {title}
-              </h3>
-            </a>
+            <h3 className="text-gray-700 font-medium text-lg tracking-tight dark:text-white">
+              {title}
+            </h3>
+
             <div className="flex items-center space-y-2">
               <div className="flex text-red-500 font-bold items-center">
                 {ratingStar}
