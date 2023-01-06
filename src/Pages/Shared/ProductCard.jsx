@@ -5,15 +5,15 @@ import { AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { id, title, image, price, rating } = product;
+  const { id, title, thumbnail, price, rating } = product;
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
 
     return (
       <span key={i}>
-        {rating?.rate >= i + 1 ? (
+        {rating >= i + 1 ? (
           <FaStar />
-        ) : rating?.rate >= number ? (
+        ) : rating >= number ? (
           <FaStarHalfAlt />
         ) : (
           <AiOutlineStar />
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         <div className="bg-white shadow-md rounded-lg h-full dark:bg-gray-800 dark:border-gray-700">
           <img
             className="rounded-t-lg p-8 product-image"
-            src={image}
+            src={thumbnail}
             alt={title}
           />
           <div className="px-5 pb-5">

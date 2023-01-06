@@ -9,7 +9,7 @@ const Products = ({ products }) => {
   const allProducts = products.products;
   const dispatch = useDispatch();
 
-  const url = "https://fakestoreapi.com/products";
+  const url = "https://dummyjson.com/products?limit=100";
 
   const fetchProducts = async () => {
     const res = await axios.get(url).catch((err) => console.log(err.message));
@@ -22,13 +22,13 @@ const Products = ({ products }) => {
 
   return (
     <div>
-      {allProducts.length === 0 ? (
+      {allProducts.products?.length === 0 ? (
         <>
           <Spinner />
         </>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
-          {allProducts?.map((product) => (
+          {allProducts.products?.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>
