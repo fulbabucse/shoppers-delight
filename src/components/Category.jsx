@@ -8,11 +8,11 @@ const Category = () => {
         <div class="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
           <div role="main" class="flex flex-col items-center justify-center">
             <h1 class="text-4xl font-semibold leading-9 text-center text-gray-800 dark:text-gray-50">
-              Our Categories
+              Top Categories
             </h1>
             <p class="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
-              If you're looking for random paragraphs, you've come to the right
-              place. When a random word or a random sentence isn't quite enough
+              These are top of our category. You can get the product of your
+              choice from here.
             </p>
           </div>
           <div class="lg:flex items-stretch md:mt-12 mt-8">
@@ -98,12 +98,12 @@ const Category = () => {
               <div class="relative">
                 <div>
                   <div class="absolute bottom-0 left-0 md:p-10 p-6">
-                    <h2 class="text-xl font-semibold text-red-500">
-                      Men's & Women's Fashion
+                    <h2 class="text-xl font-semibold text-white">
+                      Women's Fashion
                     </h2>
                     <Link
-                      to="/category/fashions"
-                      class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-red-400 hover:text-red-600 hover:underline"
+                      to="/category/womens-dresses"
+                      class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-200 hover:text-gray-400 hover:underline"
                     >
                       <p class="pr-2 text-sm font-medium leading-none">
                         Show More
@@ -128,7 +128,7 @@ const Category = () => {
                   </div>
                 </div>
                 <img
-                  src="https://img.freepik.com/free-photo/trendy-fashionable-couple-isolated-white-studio-background_155003-41890.jpg?w=740&t=st=1673030410~exp=1673031010~hmac=d1a53d931844ca4e095b17ac9d7c5eb2554e6e265552d7fc85609cd2b91e9b48"
+                  src="https://img.freepik.com/free-photo/woman-black-trousers-purple-blouse-laughs-leaning-stand-with-elegant-clothes-pink-background_197531-17614.jpg?w=740&t=st=1673034656~exp=1673035256~hmac=0e8dc2022101df12f1472b801661409901209d63e7050f6ed7489b47205b78ea"
                   alt="sitting place"
                   class="w-full mt-8 md:mt-6 hidden sm:block"
                 />
