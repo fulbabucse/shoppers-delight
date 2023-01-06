@@ -21,12 +21,12 @@ const Category = () => {
                 <div class="sm:w-1/2 relative">
                   <div>
                     <div class="absolute bottom-0 left-0 p-6">
-                      <h2 class="text-xl font-semibold 5 text-white">
+                      <h2 class="text-xl font-semibold 5 text-gray-900">
                         Jewellery
                       </h2>
                       <Link
                         to="/category/womens-jewellery"
-                        class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
+                        class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-500 hover:text-gray-800 hover:underline"
                       >
                         <p class="pr-2 text-sm font-medium leading-none">
                           Show More
@@ -59,12 +59,12 @@ const Category = () => {
                 <div class="sm:w-1/2 sm:mt-0 mt-4 relative">
                   <div>
                     <div class="absolute bottom-0 left-0 p-6">
-                      <h2 class="text-xl font-semibold 5 text-white">
+                      <h2 class="text-xl font-semibold 5 text-gray-900">
                         Laptops
                       </h2>
                       <Link
                         to="/category/laptops"
-                        class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
+                        class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-gray-500 hover:text-gray-800 hover:underline"
                       >
                         <p class="pr-2 text-sm font-medium leading-none">
                           Show More
@@ -98,12 +98,12 @@ const Category = () => {
               <div class="relative">
                 <div>
                   <div class="absolute bottom-0 left-0 md:p-10 p-6">
-                    <h2 class="text-xl font-semibold 5 text-white">
+                    <h2 class="text-xl font-semibold text-red-500">
                       Men's & Women's Fashion
                     </h2>
                     <Link
                       to="/category/fashions"
-                      class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
+                      class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-red-400 hover:text-red-600 hover:underline"
                     >
                       <p class="pr-2 text-sm font-medium leading-none">
                         Show More
