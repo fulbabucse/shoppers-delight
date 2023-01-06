@@ -1,4 +1,5 @@
 import {
+  CATEGORY_PRODUCTS,
   DETAILS_PRODUCT,
   REMOVE_SELECTED_PRODUCT,
   SET_PRODUCTS,
@@ -29,6 +30,25 @@ export const detailsProductReducer = (state = {}, action) => {
       };
     case REMOVE_SELECTED_PRODUCT:
       return {};
+    default:
+      return state;
+  }
+};
+
+const initialCategoryProductsState = {
+  categoryProducts: [],
+};
+
+export const categoryProductsReducer = (
+  state = initialCategoryProductsState,
+  action
+) => {
+  switch (action.type) {
+    case CATEGORY_PRODUCTS:
+      return {
+        ...state,
+        categoryProducts: action.payload,
+      };
     default:
       return state;
   }

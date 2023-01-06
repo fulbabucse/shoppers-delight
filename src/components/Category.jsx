@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   return (
@@ -23,8 +24,8 @@ const Category = () => {
                       <h2 class="text-xl font-semibold 5 text-white">
                         Jewellery
                       </h2>
-                      <a
-                        href="javascript:void(0)"
+                      <Link
+                        to="/category/womens-jewellery"
                         class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p class="pr-2 text-sm font-medium leading-none">
@@ -46,7 +47,7 @@ const Category = () => {
                             stroke-linejoin="round"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <img
@@ -59,10 +60,10 @@ const Category = () => {
                   <div>
                     <div class="absolute bottom-0 left-0 p-6">
                       <h2 class="text-xl font-semibold 5 text-white">
-                        Beauty And Personal Care
+                        Laptops
                       </h2>
-                      <a
-                        href="javascript:void(0)"
+                      <Link
+                        to="/category/laptops"
                         class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p class="pr-2 text-sm font-medium leading-none">
@@ -84,7 +85,7 @@ const Category = () => {
                             stroke-linejoin="round"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <img
@@ -97,9 +98,11 @@ const Category = () => {
               <div class="relative">
                 <div>
                   <div class="absolute bottom-0 left-0 md:p-10 p-6">
-                    <h2 class="text-xl font-semibold 5 text-white">Clothes</h2>
-                    <a
-                      href="javascript:void(0)"
+                    <h2 class="text-xl font-semibold 5 text-white">
+                      Men's & Women's Fashion
+                    </h2>
+                    <Link
+                      to="/category/fashions"
                       class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                     >
                       <p class="pr-2 text-sm font-medium leading-none">
@@ -121,7 +124,7 @@ const Category = () => {
                           stroke-linejoin="round"
                         />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <img
@@ -144,8 +147,8 @@ const Category = () => {
                     <h2 class="text-xl font-semibold 5 text-white">
                       Smart Phones
                     </h2>
-                    <a
-                      href="javascript:void(0)"
+                    <Link
+                      to="/category/smartphones"
                       class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                     >
                       <p class="pr-2 text-sm font-medium leading-none">
@@ -167,7 +170,7 @@ const Category = () => {
                           stroke-linejoin="round"
                         />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <img
@@ -188,8 +191,8 @@ const Category = () => {
                       <h2 class="text-xl font-semibold 5 text-white">
                         Smart Home
                       </h2>
-                      <a
-                        href="javascript:void(0)"
+                      <Link
+                        to="/category/furniture"
                         class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p class="pr-2 text-sm font-medium leading-none">
@@ -211,7 +214,7 @@ const Category = () => {
                             stroke-linejoin="round"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <img
@@ -226,8 +229,8 @@ const Category = () => {
                       <h2 class="text-xl font-semibold 5 text-white">
                         Automotive
                       </h2>
-                      <a
-                        href="javascript:void(0)"
+                      <Link
+                        to={`/category/automotive`}
                         class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
                       >
                         <p class="pr-2 text-sm font-medium leading-none">
@@ -249,7 +252,7 @@ const Category = () => {
                             stroke-linejoin="round"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <img

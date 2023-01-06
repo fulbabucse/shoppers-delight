@@ -2,6 +2,7 @@ import {
   SET_PRODUCTS,
   DETAILS_PRODUCT,
   REMOVE_SELECTED_PRODUCT,
+  CATEGORY_PRODUCTS,
 } from "../actionTypes/actionTypes";
 
 export const setProducts = (products) => {
@@ -21,5 +22,12 @@ export const detailsProduct = (product) => {
 export const removeSelectedProduct = () => {
   return {
     type: REMOVE_SELECTED_PRODUCT,
+  };
+};
+
+export const categoryProducts = (products) => {
+  return {
+    type: CATEGORY_PRODUCTS,
+    payload: products,
   };
 };
