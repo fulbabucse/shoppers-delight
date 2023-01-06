@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
             alt={title}
           />
           <div className="px-5 pb-5">
-            <h3 className="text-gray-700 font-medium text-lg tracking-tight dark:text-white">
+            <h3 className="text-gray-700 font-medium text-lg tracking-tight dark:text-white capitalize">
               {title}
             </h3>
 

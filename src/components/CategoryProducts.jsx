@@ -4,7 +4,10 @@ import { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import ProductCard from "../Pages/Shared/ProductCard";
-import { categoryProducts } from "../redux/actions/actions";
+import {
+  categoryProducts,
+  removeSelectedProduct,
+} from "../redux/actions/actions";
 import Spinner from "./Spinner";
 
 const CategoryProducts = ({ products }) => {
@@ -18,6 +21,9 @@ const CategoryProducts = ({ products }) => {
 
   useEffect(() => {
     fetchCategoryProducts();
+    return () => {
+      dispatch(removeSelectedProduct());
+    };
   }, [name]);
 
   const allProducts = products?.categoryProducts?.products;

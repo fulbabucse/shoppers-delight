@@ -51,8 +51,8 @@ const Category = () => {
                     </div>
                   </div>
                   <img
-                    src="https://i.ibb.co/DYxtCJq/img-1.png"
-                    class="w-full"
+                    src="https://img.freepik.com/free-photo/traditional-indian-wedding-jewelry_8353-9762.jpg?w=740&t=st=1673030665~exp=1673031265~hmac=f0bcbc0d8cedf84856e6ee047c8a45e49b6ae3cff27ce84ebce7a00cdb277e89"
+                    class="w-full lg:h-[260px]"
                     alt="chair"
                   />
                 </div>
@@ -89,7 +89,7 @@ const Category = () => {
                     </div>
                   </div>
                   <img
-                    src="https://i.ibb.co/3C5HvxC/img-2.png"
+                    src="https://img.freepik.com/free-photo/high-angle-desk-arrangement-with-laptop_23-2148128346.jpg?w=740&t=st=1673030740~exp=1673031340~hmac=f5e889075e669f47adaaf7e2a374a7cf4b8324eb57ec011ce5586254d4b1b720"
                     class="w-full"
                     alt="wall design"
                   />
@@ -128,7 +128,7 @@ const Category = () => {
                   </div>
                 </div>
                 <img
-                  src="https://i.ibb.co/Ms4qyXp/img-3.png"
+                  src="https://img.freepik.com/free-photo/trendy-fashionable-couple-isolated-white-studio-background_155003-41890.jpg?w=740&t=st=1673030410~exp=1673031010~hmac=d1a53d931844ca4e095b17ac9d7c5eb2554e6e265552d7fc85609cd2b91e9b48"
                   alt="sitting place"
                   class="w-full mt-8 md:mt-6 hidden sm:block"
                 />
@@ -174,7 +174,7 @@ const Category = () => {
                   </div>
                 </div>
                 <img
-                  src="https://i.ibb.co/6Wfjf2w/img-4.png"
+                  src="https://img.freepik.com/free-photo/elegant-smartphone-composition_23-2149437134.jpg?1&w=740&t=st=1673030604~exp=1673031204~hmac=c3af4b08cc0441c3c5aa3bff455f5c3fd785a60fc676d49c22e94eeb7d053b6f"
                   alt="sitting place"
                   class="w-full sm:block hidden"
                 />
@@ -218,8 +218,8 @@ const Category = () => {
                     </div>
                   </div>
                   <img
-                    src="https://i.ibb.co/3yvZBpm/img-5.png"
-                    class="w-full"
+                    src="https://img.freepik.com/free-photo/scandinavian-living-room-interior-design-zoom-background_53876-143147.jpg?w=740&t=st=1673030835~exp=1673031435~hmac=af44c5a182a60b9aa8c805adb6917e59b40eebacddf0e18b34127fd52058eb5c"
+                    class="w-full lg:h-[260px]"
                     alt="chair"
                   />
                 </div>
@@ -256,8 +256,8 @@ const Category = () => {
                     </div>
                   </div>
                   <img
-                    src="https://i.ibb.co/gDdnJb5/img-6.png"
-                    class="w-full"
+                    src="https://img.freepik.com/free-photo/man-woman-fixing-car-together_23-2148327530.jpg?w=740&t=st=1673030926~exp=1673031526~hmac=b7e4bd715b8e242d4fc8584203e9fed1bba506a0659013ef2745baedaffb189c"
+                    class="w-full lg:h-[260px]"
                     alt="wall design"
                   />
                 </div>
