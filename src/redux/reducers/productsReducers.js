@@ -1,6 +1,8 @@
 import {
   CATEGORY_PRODUCTS,
   DETAILS_PRODUCT,
+  QUANTITY_DECREMENT,
+  QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
   SET_PRODUCTS,
 } from "../actionTypes/actionTypes";
@@ -48,6 +50,30 @@ export const categoryProductsReducer = (
       return {
         ...state,
         categoryProducts: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialQuantityState = {
+  quantity: 1,
+};
+
+export const productQuantityReducer = (
+  state = initialQuantityState,
+  action
+) => {
+  switch (action.type) {
+    case QUANTITY_INCREMENT:
+      return {
+        ...state,
+        quantity: state.quantity + 1,
+      };
+    case QUANTITY_DECREMENT:
+      return {
+        ...state,
+        quantity: state.quantity - 1,
       };
     default:
       return state;

@@ -4,6 +4,8 @@ import { connect, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
   detailsProduct,
+  quantityDecrement,
+  quantityIncrement,
   removeSelectedProduct,
 } from "../../redux/actions/actions";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
@@ -11,7 +13,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import "../../assets/styles.css";
 import Spinner from "../../components/Spinner";
 
-const ProductDetails = ({ product }) => {
+const ProductDetails = ({ product, quantity }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const {
@@ -19,7 +21,6 @@ const ProductDetails = ({ product }) => {
     thumbnail,
     price,
     rating,
-    category,
     description,
     brand,
     discountPercentage,
@@ -157,28 +158,61 @@ const ProductDetails = ({ product }) => {
                   </div>
                 </div> */}
                 <div className="flex">
-                  <div class="flex items-center space-x-4 my-4">
+                  <div className="flex items-center space-x-4 my-4">
                     <div>
-                      <div class="rounded-lg bg-gray-100 flex py-2 px-3">
-                        <span class="text-red-400 mr-1 mt-1">$</span>
-                        <span class="font-bold text-red-600 text-3xl">
+                      <div className="rounded-lg bg-gray-100 flex py-2 px-3">
+                        <span className="text-red-400 mr-1 mt-1">$</span>
+                        <span className="font-bold text-red-600 text-3xl">
                           {Math.ceil(discountedPrice)}
                         </span>
                       </div>
                     </div>
-                    <div class="flex-1">
-                      <p class="text-red-500 text-xl font-semibold">
+                    <div className="flex-1">
+                      <p className="text-red-500 text-xl font-semibold">
                         Save {discountPercentage}%
                       </p>
-                      <p class="text-gray-400 text-sm">
+                      <p className="text-gray-400 text-sm">
                         Inclusive of all Taxes.
                       </p>
                     </div>
                   </div>
                 </div>
-                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                  Buy Now
-                </button>
+                <div className="flex items-center justify-between">
+                  <div className="flex justify-center w-1/5">
+                    <button
+                      disabled={quantity.quantity === 1}
+                      onClick={() => dispatch(quantityDecrement())}
+                    >
+                      <svg
+                        className="fill-current text-gray-600 w-3"
+                        viewBox="0 0 448 512"
+                      >
+                        <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                      </svg>
+                    </button>
+
+                    <input
+                      className="mx-2 border text-center w-8"
+                      type="text"
+                      value={quantity.quantity}
+                    />
+
+                    <button
+                      disabled={quantity.quantity === 5}
+                      onClick={() => dispatch(quantityIncrement())}
+                    >
+                      <svg
+                        className="fill-current text-gray-600 w-3"
+                        viewBox="0 0 448 512"
+                      >
+                        <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                    Buy Now
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -191,6 +225,7 @@ const ProductDetails = ({ product }) => {
 const mapStateToProps = (state) => {
   return {
     product: state.product,
+    quantity: state.quantity,
   };
 };
 

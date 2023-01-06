@@ -3,6 +3,8 @@ import {
   DETAILS_PRODUCT,
   REMOVE_SELECTED_PRODUCT,
   CATEGORY_PRODUCTS,
+  QUANTITY_INCREMENT,
+  QUANTITY_DECREMENT,
 } from "../actionTypes/actionTypes";
 
 export const setProducts = (products) => {
@@ -29,5 +31,17 @@ export const categoryProducts = (products) => {
   return {
     type: CATEGORY_PRODUCTS,
     payload: products,
+  };
+};
+
+export const quantityIncrement = () => {
+  return {
+    type: QUANTITY_INCREMENT,
+  };
+};
+
+export const quantityDecrement = () => {
+  return {
+    type: QUANTITY_DECREMENT,
   };
 };
