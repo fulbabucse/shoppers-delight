@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hind+Siliguri:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&family=Poppins:wght@200;300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Moon+Dance&family=Pacifico&family=Passions+Conflict&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
 
 /*
-font-family: 'Bebas Neue', cursive;
-font-family: 'Hind Siliguri', sans-serif;
-font-family: 'Lato', sans-serif;
+font-family: 'Great Vibes', cursive;
+font-family: 'Moon Dance', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Passions Conflict', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Mono', monospace;
 */
 
 body {
@@ -23,4 +23,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.collections-font {
+  font-family: "Great Vibes", cursive;
 }

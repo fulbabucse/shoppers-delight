@@ -33,7 +33,7 @@ const TopProductCard = ({ product }) => {
               <p class="text-gray-600 font-bold text-sm ml-1">{rating}</p>
             </div>
           </div>
-          <h3 class="text-gray-600 text-sm">{title}</h3>
+          <h3 class="text-gray-600 text-sm capitalize">{title}</h3>
           <p class="text-xl font-black text-gray-800">${price}</p>
         </div>
       </div>
