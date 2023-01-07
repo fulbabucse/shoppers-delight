@@ -1,13 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 import "../assets/styles.css";
 
-// import required modules
 import { Pagination, Autoplay } from "swiper";
 
 const Collections = () => {
@@ -25,7 +23,7 @@ const Collections = () => {
           pagination={true}
           modules={[Pagination, Autoplay]}
           autoplay={{
-            delay: 2500,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           className="mySwiper"
@@ -36,7 +34,7 @@ const Collections = () => {
                 <h3 className="text-xl text-gray-800 uppercase tracking-wide">
                   The Cool Collections
                 </h3>
-                <h1 className="text-6xl font-semibold text-gray-800 collections-font">
+                <h1 className="text-6xl font-medium text-gray-800 collections-font">
                   Printed On Red Hoodie
                 </h1>
                 <button className="text-white">
@@ -52,7 +50,7 @@ const Collections = () => {
                 <h3 className="text-xl text-gray-800 uppercase tracking-wide">
                   The Cool Collections
                 </h3>
-                <h1 className="text-6xl font-semibold text-gray-800 collections-font">
+                <h1 className="text-6xl font-medium text-gray-800 collections-font">
                   Chain Bucket Bag
                 </h1>
                 <button className="text-white">
@@ -68,7 +66,7 @@ const Collections = () => {
                 <h3 className="text-xl text-gray-800 uppercase tracking-wide">
                   The Cool Collections
                 </h3>
-                <h1 className="text-6xl font-semibold text-gray-800 collections-font">
+                <h1 className="text-6xl font-medium text-gray-800 collections-font">
                   Young Woman Wearing Beanie Mockup
                 </h1>
                 <button className="text-white">
