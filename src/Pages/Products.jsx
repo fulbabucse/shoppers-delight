@@ -13,14 +13,13 @@ const Products = ({ products }) => {
 
   const url = "https://dummyjson.com/products?limit=100";
 
-  const fetchProducts = async () => {
-    const res = await axios.get(url).catch((err) => console.log(err.message));
-    dispatch(setProducts(res.data));
-  };
-
   useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await axios.get(url).catch((err) => console.log(err.message));
+      dispatch(setProducts(res.data));
+    };
     fetchProducts();
-  });
+  }, [url]);
 
   const sliceProducts = allProducts.products?.slice(0, showMore);
 
@@ -30,10 +29,8 @@ const Products = ({ products }) => {
 
   return (
     <div className="my-10">
-      {allProducts.products?.length === 0 ? (
-        <>
-          <Spinner />
-        </>
+      {allProducts?.products?.length === 0 ? (
+        <Spinner />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
           {sliceProducts?.map((product) => (
@@ -41,14 +38,17 @@ const Products = ({ products }) => {
           ))}
         </div>
       )}
-      <div className="flex justify-center">
-        <button
-          onClick={() => handleShowMore()}
-          className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
-        >
-          Show More
-        </button>
-      </div>
+
+      {sliceProducts?.length > 1 && (
+        <div className="flex justify-center">
+          <button
+            onClick={() => handleShowMore()}
+            className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+          >
+            Show More
+          </button>
+        </div>
+      )}
     </div>
   );
 };

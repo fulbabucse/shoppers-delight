@@ -82,7 +82,7 @@ const ProductDetails = ({ product, quantity }) => {
                 <div className="flex mb-4">
                   <span className="flex items-center text-red-500">
                     {ratingStar}
-                    <span className="text-gray-600 ml-3">4 Reviews</span>
+                    <span className="text-gray-600 ml-3">{rating} Reviews</span>
                   </span>
                   <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                     <p className="text-gray-500">
