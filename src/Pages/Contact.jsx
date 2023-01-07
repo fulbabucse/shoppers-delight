@@ -50,8 +50,8 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button class="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                  get in touch
+                <button class="w-full block mt-4 rounded-full bg-red-500 px-8 py-3 font-medium text-white transition hover:bg-red-600">
+                  Send
                 </button>
               </form>
             </div>

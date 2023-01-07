@@ -7,7 +7,7 @@ import { setProducts } from "../redux/actions/actions";
 import ProductCard from "./Shared/ProductCard";
 
 const Products = ({ products }) => {
-  const [showMore, setShowMore] = useState(12);
+  const [showMore, setShowMore] = useState(10);
   const allProducts = products.products;
   const dispatch = useDispatch();
 
@@ -43,7 +43,7 @@ const Products = ({ products }) => {
         <div className="flex justify-center">
           <button
             onClick={() => handleShowMore()}
-            className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+            className="mt-4 rounded-full bg-red-500 px-8 py-3 font-medium text-white transition hover:bg-red-600"
           >
             Show More
           </button>
