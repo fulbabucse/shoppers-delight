@@ -3,8 +3,8 @@ import React from "react";
 const Features = () => {
   return (
     <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
-      <div class="container">
-        <section class="text-gray-800 text-center">
+      <div className="container">
+        <section className="text-gray-800 text-center">
           <div
             role="main"
             className="flex flex-col items-center justify-center mb-5"
@@ -18,11 +18,11 @@ const Features = () => {
             </p>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
-            <div class="mb-12 lg:mb-0">
-              <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
+            <div className="mb-12 lg:mb-0">
+              <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
                 <svg
-                  class="w-5 h-5 text-white"
+                  className="w-5 h-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
                 >
@@ -32,17 +32,17 @@ const Features = () => {
                   ></path>
                 </svg>
               </div>
-              <h5 class="text-lg font-bold mb-4">Support 24/7</h5>
-              <p class="text-gray-500">
+              <h5 className="text-lg font-bold mb-4">Support 24/7</h5>
+              <p className="text-gray-500">
                 Dedicated support, customers can get help and find answers to
                 questions as soon as they come up—24/7 and in real-time.
               </p>
             </div>
 
-            <div class="mb-12 lg:mb-0">
-              <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
+            <div className="mb-12 lg:mb-0">
+              <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
                 <svg
-                  class="w-5 h-5 text-white"
+                  className="w-5 h-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
                 >
@@ -52,8 +52,8 @@ const Features = () => {
                   ></path>
                 </svg>
               </div>
-              <h5 class="text-lg font-bold mb-4">Safe and solid</h5>
-              <p class="text-gray-500">
+              <h5 className="text-lg font-bold mb-4">Safe and solid</h5>
+              <p className="text-gray-500">
                 100% secure payment, Since credit cards are easy and mostly safe
                 to use, the high popularity of using them in online purchases is
                 no surprise. Shoppers only need to enter their card details to
@@ -61,10 +61,10 @@ const Features = () => {
               </p>
             </div>
 
-            <div class="mb-12 md:mb-0">
-              <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
+            <div className="mb-12 md:mb-0">
+              <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
                 <svg
-                  class="w-5 h-5 text-white"
+                  className="w-5 h-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 512"
                 >
@@ -74,8 +74,8 @@ const Features = () => {
                   ></path>
                 </svg>
               </div>
-              <h5 class="text-lg font-bold mb-4">Free Delivery</h5>
-              <p class="text-gray-500">
+              <h5 className="text-lg font-bold mb-4">Free Delivery</h5>
+              <p className="text-gray-500">
                 For all oder over $199, The delivery of mail directly to the
                 recipient's address without charge to the recipient. Before free
                 delivery people had to pick up their mail at the post office or
@@ -83,10 +83,10 @@ const Features = () => {
               </p>
             </div>
 
-            <div class="mb-12 md:mb-0">
-              <div class="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
+            <div className="mb-12 md:mb-0">
+              <div className="p-4 bg-blue-600 rounded-full shadow-lg inline-block mb-6">
                 <svg
-                  class="w-5 h-5 text-white"
+                  className="w-5 h-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 544 512"
                 >
@@ -96,8 +96,8 @@ const Features = () => {
                   ></path>
                 </svg>
               </div>
-              <h5 class="text-lg font-bold mb-4">Live analytics</h5>
-              <p class="text-gray-500">
+              <h5 className="text-lg font-bold mb-4">Live analytics</h5>
+              <p className="text-gray-500">
                 Enterprise tools cost more, are difficult to use, and take
                 longer to implement.
               </p>

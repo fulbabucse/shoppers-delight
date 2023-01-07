@@ -45,9 +45,9 @@ const Category = () => {
                           <path
                             d="M5.75 12.5L10.25 8L5.75 3.5"
                             stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       </Link>
@@ -83,9 +83,9 @@ const Category = () => {
                           <path
                             d="M5.75 12.5L10.25 8L5.75 3.5"
                             stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       </Link>
@@ -122,9 +122,9 @@ const Category = () => {
                         <path
                           d="M5.75 12.5L10.25 8L5.75 3.5"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </Link>
@@ -168,9 +168,9 @@ const Category = () => {
                         <path
                           d="M5.75 12.5L10.25 8L5.75 3.5"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </Link>
@@ -212,9 +212,9 @@ const Category = () => {
                           <path
                             d="M5.75 12.5L10.25 8L5.75 3.5"
                             stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       </Link>
@@ -250,9 +250,9 @@ const Category = () => {
                           <path
                             d="M5.75 12.5L10.25 8L5.75 3.5"
                             stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                       </Link>

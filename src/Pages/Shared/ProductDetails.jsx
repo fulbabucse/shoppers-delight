@@ -194,7 +194,7 @@ const ProductDetails = ({ product, quantity }) => {
                     <input
                       className="mx-2 border text-center w-8"
                       type="text"
-                      value={quantity.quantity}
+                      defaultValue={quantity.quantity}
                     />
 
                     <button

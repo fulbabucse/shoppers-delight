@@ -21,20 +21,24 @@ const TopProductCard = ({ product }) => {
     );
   });
   return (
-    <div class="flex flex-col justify-center">
-      <div class="relative flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 rounded-xl p-3 bg-transparent">
-        <div class="bg-white grid place-items-center">
-          <img src={image} alt={title} class="rounded-sm w-[100px] h-[100px]" />
+    <div className="flex flex-col justify-center">
+      <div className="relative flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 rounded-xl p-3 bg-transparent">
+        <div className="bg-white grid place-items-center">
+          <img
+            src={image}
+            alt={title}
+            className="rounded-sm w-[100px] h-[100px]"
+          />
         </div>
-        <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-          <div class="flex justify-between item-center">
-            <div class="flex items-center">
+        <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+          <div className="flex justify-between item-center">
+            <div className="flex items-center">
               <p className="text-red-500 flex">{ratingStar}</p>
-              <p class="text-gray-600 font-bold text-sm ml-1">{rating}</p>
+              <p className="text-gray-600 font-bold text-sm ml-1">{rating}</p>
             </div>
           </div>
-          <h3 class="text-gray-600 text-sm capitalize">{title}</h3>
-          <p class="text-xl font-black text-gray-800">${price}</p>
+          <h3 className="text-gray-600 text-sm capitalize">{title}</h3>
+          <p className="text-xl font-black text-gray-800">${price}</p>
         </div>
       </div>
     </div>
