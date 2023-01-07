@@ -46,19 +46,19 @@ const Timer = () => {
       <h1 className="flex items-center justify-center gap-1">
         <p className="text-center py-2 px-3 text-gray-800 font-medium text-4xl">
           {flashDays < 10 ? `0${flashDays}` : `${flashDays}`}
-          <span className="text-lg text-gray-700">Day</span>
+          <span className="text-sm text-gray-700">Day</span>
         </p>
         <p className="text-center py-2 px-3 text-gray-800 font-medium text-4xl">
           {flashHours < 10 ? `0${flashHours}` : `${flashHours}`}
-          <span className="text-lg text-gray-700">Hours</span>
+          <span className="text-sm text-gray-700">Hours</span>
         </p>
         <p className="text-center py-2 px-3 text-gray-800 font-medium text-4xl">
           {flashMinutes < 10 ? `0${flashMinutes}` : `${flashMinutes}`}
-          <span className="text-lg text-gray-700">Minutes</span>
+          <span className="text-sm text-gray-700">Minutes</span>
         </p>
         <p className="text-center py-2 px-3 text-gray-800 font-medium text-4xl">
           {flashSeconds < 10 ? `0${flashSeconds}` : `${flashSeconds}`}
-          <span className="text-lg text-gray-700">Seconds</span>
+          <span className="text-sm text-gray-700">Seconds</span>
         </p>
       </h1>
     </div>

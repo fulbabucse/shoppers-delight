@@ -6,6 +6,7 @@ import {
   QUANTITY_INCREMENT,
   QUANTITY_DECREMENT,
   TOP_PRODUCTS,
+  LATEST_ARTICLE,
 } from "../actionTypes/actionTypes";
 
 export const setProducts = (products) => {
@@ -51,5 +52,12 @@ export const topProducts = (products) => {
   return {
     type: TOP_PRODUCTS,
     payload: products,
+  };
+};
+
+export const latestArticle = (articles) => {
+  return {
+    type: LATEST_ARTICLE,
+    payload: articles,
   };
 };

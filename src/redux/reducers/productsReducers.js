@@ -1,6 +1,7 @@
 import {
   CATEGORY_PRODUCTS,
   DETAILS_PRODUCT,
+  LATEST_ARTICLE,
   QUANTITY_DECREMENT,
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
@@ -91,6 +92,21 @@ export const topProductsReducer = (state = initialTopProductsState, action) => {
       return {
         ...state,
         topProducts: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialArticleState = {
+  articles: [],
+};
+export const latestArticleReducer = (state = initialArticleState, action) => {
+  switch (action.type) {
+    case LATEST_ARTICLE:
+      return {
+        ...state,
+        articles: action.payload,
       };
     default:
       return state;

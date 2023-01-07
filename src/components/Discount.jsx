@@ -3,7 +3,7 @@ import Timer from "./Timer";
 
 const Discount = () => {
   return (
-    <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
+    <div className="2xl:mx-auto 2xl:container lg:px-20 md:px-6 px-4 w-96 sm:w-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div>
           <img

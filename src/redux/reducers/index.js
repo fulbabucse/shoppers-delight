@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import {
   categoryProductsReducer,
   detailsProductReducer,
+  latestArticleReducer,
   productQuantityReducer,
   productsReducers,
   topProductsReducer,
@@ -13,4 +14,5 @@ export const reducers = combineReducers({
   categoryProducts: categoryProductsReducer,
   quantity: productQuantityReducer,
   topProducts: topProductsReducer,
+  articles: latestArticleReducer,
 });
