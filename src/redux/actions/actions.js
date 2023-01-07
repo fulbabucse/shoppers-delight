@@ -5,6 +5,7 @@ import {
   CATEGORY_PRODUCTS,
   QUANTITY_INCREMENT,
   QUANTITY_DECREMENT,
+  TOP_PRODUCTS,
 } from "../actionTypes/actionTypes";
 
 export const setProducts = (products) => {
@@ -43,5 +44,12 @@ export const quantityIncrement = () => {
 export const quantityDecrement = () => {
   return {
     type: QUANTITY_DECREMENT,
+  };
+};
+
+export const topProducts = (products) => {
+  return {
+    type: TOP_PRODUCTS,
+    payload: products,
   };
 };

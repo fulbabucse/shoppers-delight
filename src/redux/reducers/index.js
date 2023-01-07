@@ -4,6 +4,7 @@ import {
   detailsProductReducer,
   productQuantityReducer,
   productsReducers,
+  topProductsReducer,
 } from "./productsReducers";
 
 export const reducers = combineReducers({
@@ -11,4 +12,5 @@ export const reducers = combineReducers({
   product: detailsProductReducer,
   categoryProducts: categoryProductsReducer,
   quantity: productQuantityReducer,
+  topProducts: topProductsReducer,
 });

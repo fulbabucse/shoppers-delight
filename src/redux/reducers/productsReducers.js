@@ -5,6 +5,7 @@ import {
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
   SET_PRODUCTS,
+  TOP_PRODUCTS,
 } from "../actionTypes/actionTypes";
 
 const initialState = {
@@ -74,6 +75,22 @@ export const productQuantityReducer = (
       return {
         ...state,
         quantity: state.quantity - 1,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialTopProductsState = {
+  topProducts: [],
+};
+
+export const topProductsReducer = (state = initialTopProductsState, action) => {
+  switch (action.type) {
+    case TOP_PRODUCTS:
+      return {
+        ...state,
+        topProducts: action.payload,
       };
     default:
       return state;

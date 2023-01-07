@@ -1,0 +1,23 @@
+[
+  {
+    "id": "63b929c2552faade525e242f",
+    "image": "https://img.freepik.com/premium-psd/young-woman-wearing-beanie-mockup_23-2149282257.jpg?w=360",
+    "title": "Young woman wearing beanie mockup",
+    "price": 399,
+    "rating": 4.8
+  },
+  {
+    "id": "63b929c2739645e276d3c4b8",
+    "image": "https://img.freepik.com/free-photo/bff-printed-red-hoodie_53876-105408.jpg?w=740&t=st=1673079327~exp=1673079927~hmac=25ed0d79580fa2fb4310adb44b422631a691d6d819530081d70c66dad87d4327",
+    "title": "Printed on red hoodie",
+    "price": 410,
+    "rating": 4.7
+  },
+  {
+    "id": "63b929c28a06edca5dfa1833",
+    "image": "https://static-01.daraz.com.bd/p/ba31943afd568cd1ccf787d5d8ae4026.jpg",
+    "title": "Chain bucket bag",
+    "price": 259,
+    "rating": 4.6
+  }
+]
