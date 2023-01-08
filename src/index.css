@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Great+Vibes&family=Moon+Dance&family=Pacifico&family=Passions+Conflict&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Great+Vibes&family=Moon+Dance&family=Pacifico&family=Passions+Conflict&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
 
 /*
 font-family: 'Cookie', cursive;
@@ -10,6 +10,7 @@ font-family: 'Great Vibes', cursive;
 font-family: 'Moon Dance', cursive;
 font-family: 'Pacifico', cursive;
 font-family: 'Passions Conflict', cursive;
+font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
@@ -26,8 +27,12 @@ code {
     monospace;
 }
 
-.collections-font {
+.cookie-font {
   font-family: "Cookie", cursive;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
 }
 
 /* ::-webkit-scrollbar {

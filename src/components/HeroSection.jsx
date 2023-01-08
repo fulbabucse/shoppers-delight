@@ -17,6 +17,7 @@ const HeroSection = () => {
         "iPhone 14 Pro raises the bar for what 48 megapixels can do — delivering 4x the resolution in ProRAW for mind-blowing detail in every crop.",
       price: 999,
       image: iphone14,
+      link: "category/smartphones",
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ const HeroSection = () => {
         "Find a great collection of Laptops at HP. Enjoy Low Prices and Free Shipping when you buy now online.",
       price: 899,
       image: hpLaptop,
+      link: "category/laptops",
     },
     {
       id: 3,
@@ -34,16 +36,17 @@ const HeroSection = () => {
       price: 501,
       image:
         "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
+      link: "category/mens-watches",
     },
     {
       id: 4,
-      title:
-        "The pursuit of tactile perfection with balanced weight distribution",
+      title: "The pursuit of tactile perfection.",
       sub_title:
         "Wear modelling consists of the development of wear equations, determination of wear factors/coefficients, contact modelling and numerical calculations of wear.",
       price: 99,
       image:
         "https://img.freepik.com/free-photo/closeup-shot-pretty-afro-american-girl-holding-some-shopping-bags-feeling-happy_181624-44670.jpg?w=740&t=st=1667658645~exp=1667659245~hmac=deaa630155b33252e9fd5eef060757804c94c67c5f9d8249bcba0db7cf661b90",
+      link: "category/womens-dresses",
     },
   ];
   return (
@@ -65,14 +68,14 @@ const HeroSection = () => {
               <div className="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
                 <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
                   <div className="max-w-lg lg:mx-12 lg:order-2">
-                    <h1 className="text-2xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl">
+                    <h1 className="text-xl font-bold tracking-wider playfair-display text-gray-800 dark:text-white lg:text-6xl uppercase">
                       {data.title}
                     </h1>
                     <p className="mt-4 text-gray-600 dark:text-gray-300">
                       {data.sub_title}
                     </p>
                     <div className="mt-6">
-                      <Link to={`/category/smartphones`}>
+                      <Link to={`/${data.link}`}>
                         <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
                           Buy Now
                         </button>

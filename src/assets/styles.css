@@ -34,3 +34,17 @@
   height: 100%;
   object-fit: cover;
 }
+
+.collectionsStyles {
+  background-image: url("https://img.freepik.com/free-photo/portrait-hipster-girl-glasses-pink-wall_169016-1401.jpg?w=900&t=st=1673088373~exp=1673088973~hmac=025cf10f640656e232777a583503664b401e790c3156053bd3641ca9de557a34");
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 640px) {
+  .collectionsStyles {
+    height: 100vh;
+  }
+}

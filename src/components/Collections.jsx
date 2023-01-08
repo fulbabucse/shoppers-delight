@@ -9,15 +9,8 @@ import "../assets/styles.css";
 import { Pagination, Autoplay } from "swiper";
 
 const Collections = () => {
-  const collectionsStyles = {
-    backgroundImage: `url("https://img.freepik.com/free-photo/portrait-hipster-girl-glasses-pink-wall_169016-1401.jpg?w=900&t=st=1673088373~exp=1673088973~hmac=025cf10f640656e232777a583503664b401e790c3156053bd3641ca9de557a34")`,
-    height: "90vh",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
   return (
-    <div style={collectionsStyles}>
+    <div className="collectionsStyles my-8 lg:mt-0">
       <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
         <Swiper
           pagination={true}
@@ -34,12 +27,11 @@ const Collections = () => {
                 <h3 className="text-xl text-gray-800 uppercase tracking-wide">
                   The Cool Collections
                 </h3>
-                <h1 className="text-6xl font-medium text-gray-800 collections-font">
+                <h1 className="text-6xl font-medium text-gray-800 cookie-font">
                   Printed On Red Hoodie
                 </h1>
-                <button className="text-white">
+                <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
                   Shop Now
-                  <p className="h-[2px] w-20 bg-white"></p>
                 </button>
               </div>
             </div>
@@ -50,12 +42,11 @@ const Collections = () => {
                 <h3 className="text-xl text-gray-800 uppercase tracking-wide">
                   The Cool Collections
                 </h3>
-                <h1 className="text-6xl font-medium text-gray-800 collections-font">
+                <h1 className="text-6xl font-medium text-gray-800 cookie-font">
                   Chain Bucket Bag
                 </h1>
-                <button className="text-white">
+                <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
                   Shop Now
-                  <p className="h-[2px] w-20 bg-white"></p>
                 </button>
               </div>
             </div>
@@ -66,12 +57,11 @@ const Collections = () => {
                 <h3 className="text-xl text-gray-800 uppercase tracking-wide">
                   The Cool Collections
                 </h3>
-                <h1 className="text-6xl font-medium text-gray-800 collections-font">
+                <h1 className="text-6xl font-medium text-gray-800 cookie-font">
                   Young Woman Wearing Beanie Mockup
                 </h1>
-                <button className="text-white">
+                <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
                   Shop Now
-                  <p className="h-[2px] w-20 bg-white"></p>
                 </button>
               </div>
             </div>

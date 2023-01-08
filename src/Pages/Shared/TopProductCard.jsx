@@ -21,9 +21,9 @@ const TopProductCard = ({ product }) => {
     );
   });
   return (
-    <div className="flex flex-col justify-center">
-      <div className="relative flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0 rounded-xl p-3 bg-transparent">
-        <div className="bg-white grid place-items-center">
+    <div>
+      <div className="flex items-center">
+        <div>
           <img
             src={image}
             alt={title}
