@@ -68,7 +68,7 @@ const HeroSection = () => {
               <div className="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
                 <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
                   <div className="max-w-lg lg:mx-12 lg:order-2">
-                    <h1 className="text-xl font-bold tracking-wider playfair-display text-gray-800 dark:text-white lg:text-6xl uppercase">
+                    <h1 className="text-2xl font-bold tracking-wider playfair-display text-gray-800 dark:text-white lg:text-6xl uppercase">
                       {data.title}
                     </h1>
                     <p className="mt-4 text-gray-600 dark:text-gray-300">
