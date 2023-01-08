@@ -7,6 +7,9 @@ import Contact from "../Pages/Contact";
 import Home from "../Pages/Home";
 import Products from "../Pages/Products";
 import ProductDetails from "../Pages/Shared/ProductDetails";
+import AccountSettings from "../Pages/User/AccountSettings";
+import SignIn from "../Pages/User/SignIn";
+import SignUp from "../Pages/User/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +24,9 @@ export const router = createBrowserRouter([
       { path: "cart", element: <Cart /> },
       { path: "/products/:id", element: <ProductDetails /> },
       { path: "/category/:name", element: <CategoryProducts /> },
+      { path: "account-settings", element: <AccountSettings /> },
+      { path: "sign-in", element: <SignIn /> },
+      { path: "sign-up", element: <SignUp /> },
     ],
   },
 ]);
