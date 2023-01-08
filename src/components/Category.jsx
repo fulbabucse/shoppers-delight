@@ -4,16 +4,13 @@ import { Link } from "react-router-dom";
 const Category = () => {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div>
         <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
-          <div
-            role="main"
-            className="flex flex-col items-center justify-center"
-          >
-            <h1 className="text-4xl font-semibold leading-9 text-center text-gray-800 dark:text-gray-50">
+          <div role="main" className="">
+            <h1 className="text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font">
               Top Categories
             </h1>
-            <p className="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
+            <p className="text-base leading-normal text-gray-600 mt-1">
               These are top of our category. You can get the product of your
               choice from here.
             </p>

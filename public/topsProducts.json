@@ -2,7 +2,7 @@
   {
     "id": "63b929c2552faade525e242f",
     "image": "https://img.freepik.com/premium-psd/young-woman-wearing-beanie-mockup_23-2149282257.jpg?w=360",
-    "title": "Young woman wearing beanie mockup",
+    "title": "Young woman wearing beanie",
     "price": 399,
     "rating": 4.8
   },
@@ -19,5 +19,26 @@
     "title": "Chain bucket bag",
     "price": 259,
     "rating": 4.6
+  },
+  {
+    "id": "63b929c28a06edcapdfa1833",
+    "image": "https://img.freepik.com/free-photo/tattooed-biker-hand-holds-hang-with-blank-black-t-shirt-from-premium-thin-cotton-isolated-white_346278-1809.jpg?w=360&t=st=1673196701~exp=1673197301~hmac=74e08de31e6d6c4d5500f0bc90e8d5866e05f6a4c503049602dc637a418e7461",
+    "title": "Cotton T-Shirt",
+    "price": 239,
+    "rating": 4.5
+  },
+  {
+    "id": "63b929c28a06edcakdfa1833",
+    "image": "https://img.freepik.com/free-photo/camera-leather-cover-space_23-2147647097.jpg?w=740&t=st=1673196870~exp=1673197470~hmac=9a8cc714c5ec286434e0d3adef55b92c65329ba77e2fa6f6c00837d913f3e80e",
+    "title": "Zip-pockets pebbled tote briefcase",
+    "price": 199,
+    "rating": 4.8
+  },
+  {
+    "id": "63b929c28a06edcasdfa1833",
+    "image": "https://i.etsystatic.com/18955071/c/416/332/0/248/il/96ef45/2939361032/il_340x270.2939361032_5oyd.jpg",
+    "title": "Round leather bag",
+    "price": 99,
+    "rating": 4.3
   }
 ]
