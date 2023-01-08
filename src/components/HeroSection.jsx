@@ -6,6 +6,7 @@ import "../assets/styles.css";
 import { Pagination, Autoplay } from "swiper";
 import iphone14 from "../assets/images/iphone-14-pro-max.jpg";
 import hpLaptop from "../assets/images/hp-laptop.png";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const carouselData = [
@@ -71,9 +72,11 @@ const HeroSection = () => {
                       {data.sub_title}
                     </p>
                     <div className="mt-6">
-                      <button className="rounded-full bg-red-500 px-8 py-3 font-medium text-white transition hover:bg-red-600">
-                        Buy Now
-                      </button>
+                      <Link to={`/category/smartphones`}>
+                        <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
+                          Buy Now
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -82,7 +82,7 @@ const ProductDetails = ({ product, quantity }) => {
                 <div className="flex mb-4">
                   <span className="flex items-center text-red-500">
                     {ratingStar}
-                    <span className="text-gray-600 ml-3">{rating} Reviews</span>
+                    <span className="text-gray-600 ml-3">{rating}</span>
                   </span>
                   <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                     <p className="text-gray-500">
@@ -194,7 +194,7 @@ const ProductDetails = ({ product, quantity }) => {
                     <input
                       className="mx-2 border text-center w-8"
                       type="text"
-                      defaultValue={quantity.quantity}
+                      value={quantity.quantity}
                     />
 
                     <button
@@ -209,8 +209,8 @@ const ProductDetails = ({ product, quantity }) => {
                       </svg>
                     </button>
                   </div>
-                  <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                    Buy Now
+                  <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full">
+                    Add to Cart
                   </button>
                 </div>
               </div>

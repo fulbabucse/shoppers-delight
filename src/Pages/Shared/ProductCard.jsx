@@ -5,7 +5,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { id, title, thumbnail, price, rating } = product;
+  const { id, title, thumbnail, price, rating, discountPercentage } = product;
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
 
@@ -16,43 +16,45 @@ const ProductCard = ({ product }) => {
         ) : rating >= number ? (
           <FaStarHalfAlt />
         ) : (
-          <AiOutlineStar />
+          <AiOutlineStar className="text-lg" />
         )}
       </span>
     );
   });
+  const discountedPrice = price - price / discountPercentage;
 
   return (
-    <div>
-      <Link to={`/products/${id}`}>
-        <div className="bg-white shadow-md rounded-lg h-full dark:bg-gray-800 dark:border-gray-700">
+    <section class="mx-auto border">
+      <div class="w-72 h-fit group">
+        <div class="relative overflow-hidden">
           <img
-            className="rounded-t-lg p-8 product-image"
+            class="h-[260px] w-full object-cover"
             src={thumbnail}
             alt={title}
           />
-          <div className="px-5 pb-5">
-            <h3 className="text-gray-700 font-medium text-lg tracking-tight dark:text-white capitalize">
-              {title}
-            </h3>
-
-            <div className="flex items-center space-y-2">
-              <div className="flex text-red-500 font-bold items-center">
-                {ratingStar}
-              </div>
-              <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-                {rating}
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-xl font-semibold text-gray-800 dark:text-white">
-                ${price}
-              </span>
-            </div>
+          <div class="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <Link to={`/products/${id}`}>
+              <button class="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
+                Quick View
+              </button>
+            </Link>
           </div>
         </div>
-      </Link>
-    </div>
+        <div className="px-4 py-3">
+          <h2 class="text-lg capitalize">{title}</h2>
+          <p class="text-xl font-medium mr-1 inline-block">
+            ${Math.ceil(discountedPrice)}
+          </p>
+          <del class="text-red-700 text-sm">${price}</del>
+          <div className="flex items-center space-x-1">
+            <div className="flex text-red-500 font-bold items-center">
+              {ratingStar}
+            </div>
+            <span className="">{rating}</span>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

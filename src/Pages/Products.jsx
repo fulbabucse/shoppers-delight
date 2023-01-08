@@ -43,7 +43,7 @@ const Products = ({ products }) => {
         <div className="flex justify-center">
           <button
             onClick={() => handleShowMore()}
-            className="mt-4 rounded-full bg-red-500 px-8 py-3 font-medium text-white transition hover:bg-red-600"
+            className="mt-4 rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600"
           >
             Show More
           </button>
