@@ -139,7 +139,8 @@ const Contact = () => {
                 <div className="flex mt-4 -mx-1.5 ">
                   <a
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                    href="#"
+                    href="https://twitter.com/im_fulbabu"
+                    target="_blank"
                   >
                     <svg
                       className="w-10 h-10 fill-current"
@@ -153,7 +154,8 @@ const Contact = () => {
 
                   <a
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                    href="#"
+                    href="https://www.linkedin.com/in/fulbabu"
+                    target="_blank"
                   >
                     <svg
                       className="w-8 h-8"
@@ -178,7 +180,8 @@ const Contact = () => {
 
                   <a
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                    href="#"
+                    href="https://web.facebook.com/imFahim.95"
+                    target="_blank"
                   >
                     <svg
                       className="w-8 h-8"
@@ -195,7 +198,8 @@ const Contact = () => {
 
                   <a
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
-                    href="#"
+                    href="https://www.instagram.com/imfulbabu"
+                    target="_blank"
                   >
                     <svg
                       className="w-8 h-8"

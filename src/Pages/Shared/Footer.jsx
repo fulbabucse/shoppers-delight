@@ -229,7 +229,7 @@ const Footer = () => {
           <ul className="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
             <li>
               <a
-                href="/"
+                href="https://web.facebook.com/imFahim.95"
                 rel="noreferrer"
                 target="_blank"
                 className="text-teal-700 transition hover:text-teal-700/75"
@@ -252,7 +252,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href="https://www.instagram.com/imfulbabu"
                 rel="noreferrer"
                 target="_blank"
                 className="text-teal-700 transition hover:text-teal-700/75"
@@ -275,7 +275,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href="https://twitter.com/im_fulbabu"
                 rel="noreferrer"
                 target="_blank"
                 className="text-teal-700 transition hover:text-teal-700/75"
@@ -294,7 +294,7 @@ const Footer = () => {
 
             <li>
               <a
-                href="/"
+                href="https://github.com/fulbabucse"
                 rel="noreferrer"
                 target="_blank"
                 className="text-teal-700 transition hover:text-teal-700/75"
