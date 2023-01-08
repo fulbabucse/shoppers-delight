@@ -59,6 +59,7 @@ const Category = () => {
                     alt="chair"
                   />
                 </div>
+
                 <div className="sm:w-1/2 sm:mt-0 mt-4 relative">
                   <div>
                     <div className="absolute bottom-0 left-0 p-6">
@@ -98,7 +99,8 @@ const Category = () => {
                   />
                 </div>
               </div>
-              <div className="relative">
+
+              {/* <div className="relative">
                 <div>
                   <div className="absolute bottom-0 left-0 md:p-10 p-6">
                     <h2 className="text-xl font-semibold text-white">
@@ -140,7 +142,34 @@ const Category = () => {
                   src="https://i.ibb.co/6XYbN7f/Rectangle-29.png"
                   alt="sitting place"
                 />
-              </div>
+              </div> */}
+              <section class="mx-auto relative lg:mt-8">
+                <div class="w-full group">
+                  <div class="relative overflow-hidden">
+                    <img
+                      class="h-full w-full object-cover"
+                      src="https://img.freepik.com/free-photo/woman-black-trousers-purple-blouse-laughs-leaning-stand-with-elegant-clothes-pink-background_197531-17614.jpg?w=740&t=st=1673034656~exp=1673035256~hmac=0e8dc2022101df12f1472b801661409901209d63e7050f6ed7489b47205b78ea"
+                      alt="title"
+                    />
+                    <div class="absolute h-full w-full bg-black/20 flex flex-col items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 space-y-3">
+                      {/* <Link to={`/products/id`}>
+                        <button class="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
+                          Quick View
+                        </button>
+
+                      </Link> */}
+                      <h2 className="text-xl font-medium text-white">
+                        Women's Fashion
+                      </h2>
+                      <Link to="/category/womens-dresses">
+                        <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
+                          Show More
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
 
             <div className="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
@@ -187,6 +216,7 @@ const Category = () => {
                   alt="sitting place"
                 />
               </div>
+
               <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
                 <div className="relative w-full">
                   <div>
@@ -226,6 +256,7 @@ const Category = () => {
                     alt="chair"
                   />
                 </div>
+
                 <div className="relative w-full sm:mt-0 mt-4">
                   <div>
                     <div className="absolute bottom-0 left-0 p-6">
