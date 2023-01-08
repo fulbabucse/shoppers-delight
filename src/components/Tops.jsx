@@ -48,15 +48,15 @@ const Tops = ({ products }) => {
         </p>
       </div>
       <div className="md:flex justify-center gap-2">
-        <div class="max-w-md w-full lg:flex">
-          <div class="lg:h-auto lg:w-48 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+        <div class="max-w-md w-full lg:flex bg-white p-3 gap-3 rounded-md">
+          <div class="lg:w-48 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
             <img
-              className="rounded-md"
+              className="lg:h-full rounded-md"
               src="https://img.global.news.samsung.com/global/wp-content/uploads/2022/02/Galaxy_S22_Ultra_PR_main1F.jpg"
               alt=""
             />
           </div>
-          <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+          <div class="rounded-b lg:rounded-b-none lg:rounded-r  flex flex-col justify-between leading-normal">
             <div>
               <p class="text-sm text-red-500 flex items-center">
                 {ratingStar} <span className="ml-2">{rating}</span>
@@ -78,7 +78,7 @@ const Tops = ({ products }) => {
         </div>
         <div className="flex-1">
           <div>
-            <div className="grid grid-cols-1 lg:grid-cols-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
               {products?.topProducts?.map((product) => (
                 <TopProductCard key={product?.id} product={product} />
               ))}

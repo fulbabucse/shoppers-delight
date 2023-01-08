@@ -22,7 +22,7 @@ const TopProductCard = ({ product }) => {
   });
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center gap-3 bg-white py-2 pl-3 rounded-md h-full">
         <div>
           <img
             src={image}
@@ -30,7 +30,7 @@ const TopProductCard = ({ product }) => {
             className="rounded-md w-[100px] h-[100px]"
           />
         </div>
-        <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+        <div className="w-full md:w-2/3 flex flex-col">
           <div className="flex justify-between item-center">
             <div className="flex items-center">
               <p className="text-red-500 flex text-sm">{ratingStar}</p>
@@ -38,7 +38,7 @@ const TopProductCard = ({ product }) => {
             </div>
           </div>
           <h3 className="text-gray-600 text-sm capitalize">{title}</h3>
-          <p className="text-lg font-black text-gray-800">${price}</p>
+          <p className="text-lg font-semibold text-gray-800">${price}</p>
         </div>
       </div>
     </div>
