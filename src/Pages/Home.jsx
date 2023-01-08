@@ -1,4 +1,5 @@
 import React from "react";
+import BestSellers from "../components/BestSellers";
 import Category from "../components/Category";
 import Collections from "../components/Collections";
 import Discount from "../components/Discount";
@@ -12,8 +13,9 @@ const Home = () => {
     <div>
       <HeroSection />
       <Category />
-      <Collections />
       <Tops />
+      <Collections />
+      <BestSellers />
       <Discount />
       <Features />
       <LatestArticle />

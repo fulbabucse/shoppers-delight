@@ -1,47 +1,14 @@
-import axios from "axios";
 import React from "react";
-import { useEffect } from "react";
-import { AiOutlineStar } from "react-icons/ai";
-import { FaStar, FaStarHalfAlt, FaAngleRight } from "react-icons/fa";
-import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import TopProductCard from "../Pages/Shared/TopProductCard";
-import { topProducts } from "../redux/actions/actions";
+import { FaAngleRight } from "react-icons/fa";
+import New from "./New";
 
-const Tops = ({ products }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get("topsProducts.json")
-      .then((res) => {
-        dispatch(topProducts(res.data));
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  const rating = 4.8;
-
-  const ratingStar = Array.from({ length: 5 }, (_, i) => {
-    let number = i + 0.5;
-
-    return (
-      <span key={i}>
-        {rating >= i + 1 ? (
-          <FaStar />
-        ) : rating >= number ? (
-          <FaStarHalfAlt />
-        ) : (
-          <AiOutlineStar />
-        )}
-      </span>
-    );
-  });
-
+const NewProducts = () => {
   return (
-    <div className="px-4 lg:px-0 lg:pb-10">
+    <div>
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font">
-          Top Feature Products
+          New Products
         </h1>
         <Link
           to="/products"
@@ -54,6 +21,8 @@ const Tops = ({ products }) => {
         </Link>
       </div>
       <div className="md:flex justify-center gap-2">
+        <div className="flex-1"></div>
+
         <div class="max-w-md w-full lg:flex bg-white p-3 gap-3 rounded-md">
           <div class="lg:w-48 flex-none rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
             <img
@@ -64,9 +33,7 @@ const Tops = ({ products }) => {
           </div>
           <div class="rounded-b lg:rounded-b-none lg:rounded-r  flex flex-col justify-between leading-normal">
             <div>
-              <p class="text-sm text-red-500 flex items-center">
-                {ratingStar} <span className="ml-2">{rating}</span>
-              </p>
+              <p class="text-sm text-red-500 flex items-center"></p>
               <div class="text-gray-900 font-bold text-xl mb-2">
                 Samsung S22 Ultra
               </div>
@@ -82,24 +49,9 @@ const Tops = ({ products }) => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
-          <div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-              {products?.topProducts?.map((product) => (
-                <TopProductCard key={product?.id} product={product} />
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.topProducts,
-  };
-};
-
-export default connect(mapStateToProps)(Tops);
+export default NewProducts;
