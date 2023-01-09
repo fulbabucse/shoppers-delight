@@ -45,7 +45,7 @@ const BestSellerCard = ({ product }) => {
               ${Math.ceil(discountedPrice)}
             </p>
             <span className="text-sm text-gray-600 font-medium">
-              <del>{price}</del>(-{discountPercentage})
+              <del>{price}</del>(-{discountPercentage}%)
             </span>
           </div>
           <div className="flex items-center gap-2">

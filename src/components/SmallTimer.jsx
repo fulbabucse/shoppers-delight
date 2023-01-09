@@ -43,15 +43,15 @@ const SmallTimer = () => {
 
   return (
     <div>
-      <h1 className="flex items-center gap-2">
+      <h1 className="flex items-center gap-1">
         <p className="text-center text-gray-800 font-semibold text-sm">
-          {flashDays < 10 ? `0${flashDays}` : `${flashDays}`}
+          {flashDays < 10 ? `0${flashDays}` : `${flashDays}`} :
         </p>
         <p className="text-center text-gray-800 font-semibold text-sm">
-          {flashHours < 10 ? `0${flashHours}` : `${flashHours}`}
+          {flashHours < 10 ? `0${flashHours}` : `${flashHours}`} :
         </p>
         <p className="text-center text-gray-800 font-semibold text-sm">
-          {flashMinutes < 10 ? `0${flashMinutes}` : `${flashMinutes}`}
+          {flashMinutes < 10 ? `0${flashMinutes}` : `${flashMinutes}`} :
         </p>
         <p className="text-center text-red-500 font-semibold text-sm">
           {flashSeconds < 10 ? `0${flashSeconds}` : `${flashSeconds}`}

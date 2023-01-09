@@ -141,6 +141,7 @@ const Contact = () => {
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
                     href="https://twitter.com/im_fulbabu"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       className="w-10 h-10 fill-current"
@@ -156,6 +157,7 @@ const Contact = () => {
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
                     href="https://www.linkedin.com/in/fulbabu"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       className="w-8 h-8"
@@ -182,6 +184,7 @@ const Contact = () => {
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
                     href="https://web.facebook.com/imFahim.95"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       className="w-8 h-8"
@@ -200,6 +203,7 @@ const Contact = () => {
                     className="mx-1.5 dark:hover:text-blue-400 text-gray-400 transition-colors duration-300 transform hover:text-blue-500"
                     href="https://www.instagram.com/imfulbabu"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       className="w-8 h-8"
