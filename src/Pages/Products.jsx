@@ -8,7 +8,7 @@ import CategoryAccordion from "./Shared/CategoryAccordion";
 import ProductCard from "./Shared/ProductCard";
 
 const Products = ({ products }) => {
-  const [showMore, setShowMore] = useState(10);
+  const [showMore, setShowMore] = useState(9);
   const allProducts = products.products;
   const dispatch = useDispatch();
 
