@@ -3,42 +3,55 @@
     "id": "63bbed33f131b40a8439cb87",
     "category_name": "Women Fashion",
     "sub_category_name": [
-      "dresses",
-      "shoes",
-      "watch",
-      "bags",
-      "tops",
-      "sunglass"
+      { "name": "dresses", "tag": "womens-dresses" },
+      { "name": "shoes", "tag": "womens-shoes" },
+      { "name": "watches", "tag": "womens-watches" },
+      { "name": "bags", "tag": "womens-bags" },
+      { "name": "tops", "tag": "tops" },
+      { "name": "sunglasses", "tag": "sunglasses" }
     ]
   },
   {
     "id": "63bbed3332c9897655a575dc",
     "category_name": "Men Fashion",
-    "sub_category_name": ["shirt", "shoes", "watch", "sunglass"]
+    "sub_category_name": [
+      { "name": "shirts", "tag": "mens-shirts" },
+      { "name": "shoes", "tag": "mens-shoes" },
+      { "name": "watches", "tag": "mens-watches" },
+      { "name": "sunglasses", "tag": "sunglasses" }
+    ]
   },
   {
     "id": "63bbed33fd49de318c2cc238",
     "category_name": "Kids",
-    "sub_category_name": ["diapering", "feeding", "baby care & gift"]
+    "sub_category_name": [
+      { "name": "diapering", "tag": "diapering" },
+      { "name": "feeding", "tag": "feeding" }
+    ]
   },
   {
     "id": "63bbed335fe8147ca23162ad",
     "category_name": "Cosmetics",
-    "sub_category_name": ["fragrances", "skincare", "sunglass", "jewellery"]
+    "sub_category_name": [
+      { "name": "fragrances", "tag": "fragrances" },
+      { "name": "skincare", "tag": "skincare" },
+      { "name": "sunglasses", "tag": "sunglasses" },
+      { "name": "jewellery", "tag": "womens-jewellery" }
+    ]
   },
   {
     "id": "63bbed3385f8855b05c6d273",
     "category_name": "Phones",
-    "sub_category_name": ["smartphones"]
+    "sub_category_name": [{ "name": "smartphones", "tag": "smartphones" }]
   },
   {
     "id": "63bbed33d209e0e2de994d28",
     "category_name": "Laptops",
-    "sub_category_name": ["laptops"]
+    "sub_category_name": [{ "name": "laptops", "tag": "laptops" }]
   },
   {
     "id": "63bbed33d209e0e2de994d29",
     "category_name": "Automobile",
-    "sub_category_name": ["automobile"]
+    "sub_category_name": [{ "name": "automobile", "tag": "automobile" }]
   }
 ]
