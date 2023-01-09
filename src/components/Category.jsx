@@ -7,7 +7,7 @@ const Category = () => {
       <div>
         <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
           <div role="main" className="">
-            <h1 className="text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font">
+            <h1 className="text-xl lg:text-3xl font-medium tracking-wide text-gray-800 dark:text-gray-50 bebas-neu-font">
               Top Categories
             </h1>
             <p className="text-base leading-normal text-gray-600 mt-1">

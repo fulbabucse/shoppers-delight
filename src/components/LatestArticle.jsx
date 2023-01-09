@@ -17,14 +17,11 @@ const LatestArticle = ({ articles }) => {
   }, []);
 
   return (
-    <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
-      <div role="main" className="flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-semibold leading-9 text-center text-gray-800 dark:text-gray-50">
-          Latest Article
+    <div className="bg-white p-3 rounded-md">
+      <div>
+        <h1 className="text-xl lg:text-3xl font-medium tracking-wide text-gray-800 dark:text-gray-50 bebas-neu-font">
+          Latest News
         </h1>
-        <p className="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
-          Popular Item in the market
-        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {articles?.articles?.map((article) => (
