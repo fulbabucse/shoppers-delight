@@ -6,6 +6,7 @@ import Discount from "../components/Discount";
 import Features from "../components/Features";
 import HeroSection from "../components/HeroSection";
 import LatestArticle from "../components/LatestArticle";
+import Testimonials from "../components/Testimonials";
 import Tops from "../components/Tops";
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
       <Discount />
       <Features />
       <LatestArticle />
+      <Testimonials />
     </div>
   );
 };

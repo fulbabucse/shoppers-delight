@@ -4,9 +4,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "../assets/styles.css";
 import { Pagination, Autoplay } from "swiper";
+import { Link } from "react-router-dom";
 import iphone14 from "../assets/images/iphone-14-pro-max.jpg";
 import hpLaptop from "../assets/images/hp-laptop.png";
-import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const carouselData = [
