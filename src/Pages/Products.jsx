@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { connect, useDispatch } from "react-redux";
+import PriceRange from "../components/PriceRange";
 import { setProducts } from "../redux/actions/actions";
 import CategoryAccordion from "./Shared/CategoryAccordion";
 import ProductCard from "./Shared/ProductCard";
@@ -31,14 +32,15 @@ const Products = ({ products }) => {
     <div>
       <div className="md:flex justify-center gap-2">
         <div class="max-w-sm w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md">
-          <div>
+          <div className="mb-3">
             <h1 className="text-xl font-medium text-gray-600 dark:text-gray-50 uppercase roboto-font">
               Categories
             </h1>
-            <p className="h-[2px] w-28 bg-red-500"></p>
+            <p className="h-[2px] w-20 bg-red-500"></p>
           </div>
           <div>
             <CategoryAccordion />
+            <PriceRange />
           </div>
         </div>
         <div className="flex-1">
