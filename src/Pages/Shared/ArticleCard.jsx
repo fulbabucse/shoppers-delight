@@ -14,7 +14,7 @@ const ArticleCard = ({ article }) => {
     tags,
   } = article;
   return (
-    <section className="flex flex-row flex-wrap mx-auto">
+    <section className="flex flex-row flex-wrap mx-auto mr-4">
       <div class="flex gap-3">
         <div class="w-full h-full">
           <div
