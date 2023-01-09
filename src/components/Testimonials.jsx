@@ -71,7 +71,7 @@ const Testimonials = () => {
             dynamicBullets: true,
           }}
           autoplay={{
-            delay: 3000,
+            delay: 7000,
             disableOnInteraction: false,
           }}
           modules={[Pagination, Autoplay]}

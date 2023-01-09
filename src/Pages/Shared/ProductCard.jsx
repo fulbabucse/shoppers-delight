@@ -24,8 +24,8 @@ const ProductCard = ({ product }) => {
   const discountedPrice = price - price / discountPercentage;
 
   return (
-    <section class="mx-auto border">
-      <div class="w-72 h-fit group">
+    <section class="mx-auto border bg-white w-full">
+      <div class="h-fit group">
         <div class="relative overflow-hidden">
           <img
             class="h-[260px] w-full object-cover"
@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
             <div className="flex text-red-500 font-bold items-center">
               {ratingStar}
             </div>
-            <span className="">{rating}</span>
+            <span>{rating}</span>
           </div>
         </div>
       </div>

@@ -18,9 +18,9 @@ const Home = () => {
       <Collections />
       <BestSellers />
       <Discount />
-      <Features />
       <LatestArticle />
       <Testimonials />
+      <Features />
     </div>
   );
 };

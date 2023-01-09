@@ -6,16 +6,16 @@ const Category = () => {
     <>
       <div>
         <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
-          <div role="main" className="">
+          <div>
             <h1 className="text-xl lg:text-3xl font-medium tracking-wide text-gray-800 dark:text-gray-50 bebas-neu-font">
               Top Categories
             </h1>
-            <p className="text-base leading-normal text-gray-600 mt-1">
+            <p className="text-base leading-normal text-gray-600">
               These are top of our category. You can get the product of your
               choice from here.
             </p>
           </div>
-          <div className="lg:flex items-stretch md:mt-12 mt-8">
+          <div className="lg:flex items-stretch mt-4">
             <div className="lg:w-1/2">
               <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 space-y-4 lg:space-y-0">
                 <section class="mx-auto relative">
