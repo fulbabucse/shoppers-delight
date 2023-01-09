@@ -11,7 +11,7 @@ const Products = ({ products }) => {
   const allProducts = products.products;
   const dispatch = useDispatch();
 
-  const url = "https://dummyjson.com/products?limit=100";
+  const url = "http://localhost:5000/products";
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -21,7 +21,7 @@ const Products = ({ products }) => {
     fetchProducts();
   }, [url]);
 
-  const sliceProducts = allProducts.products?.slice(0, showMore);
+  const sliceProducts = allProducts?.slice(0, showMore);
 
   const handleShowMore = () => {
     setShowMore(showMore + showMore);
@@ -29,15 +29,23 @@ const Products = ({ products }) => {
 
   return (
     <div>
-      {allProducts?.products?.length === 0 ? (
-        <Spinner />
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
-          {sliceProducts?.map((product) => (
-            <ProductCard product={product} key={product.id} />
-          ))}
+      <div className="md:flex justify-center gap-2">
+        <div class="max-w-sm w-full lg:flex bg-white p-3 gap-3 rounded-md">
+          <div>
+            <h1 className="text-xl font-medium text-gray-600 dark:text-gray-50 uppercase roboto-font">
+              Categories
+            </h1>
+            <p className="h-[2px] w-28 bg-red-500"></p>
+          </div>
         </div>
-      )}
+        <div className="flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sliceProducts?.map((product) => (
+              <ProductCard product={product} key={product._id} />
+            ))}
+          </div>
+        </div>
+      </div>
 
       {sliceProducts?.length > 1 && (
         <div className="flex justify-center">

@@ -5,7 +5,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { id, title, thumbnail, price, rating, discountPercentage } = product;
+  const { _id, title, thumbnail, price, rating, discountPercentage } = product;
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
 
@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
             alt={title}
           />
           <div class="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <Link to={`/products/${id}`}>
+            <Link to={`/products/${_id}`}>
               <button class="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
                 Quick View
               </button>

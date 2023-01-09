@@ -41,6 +41,10 @@ code {
   font-family: "Bebas Neue", cursive;
 }
 
+.roboto-font {
+  font-family: "Roboto", sans-serif;
+}
+
 /* ::-webkit-scrollbar {
   width: 1rem;
 }

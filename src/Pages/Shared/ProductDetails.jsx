@@ -31,7 +31,7 @@ const ProductDetails = ({ product, quantity }) => {
 
   const discountedPrice = price - price / discountPercentage;
 
-  const url = `https://dummyjson.com/products/${id}`;
+  const url = `http://localhost:5000/products/${id}`;
   const fetchSingleProduct = async () => {
     const res = await axios.get(url).catch((err) => console.log(err.message));
     dispatch(detailsProduct(res.data));
