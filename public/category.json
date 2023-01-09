@@ -2,36 +2,43 @@
   {
     "id": "63bbed33f131b40a8439cb87",
     "category_name": "Women Fashion",
-    "sub_category_name": ["Dress", "Shoes", "Watch", "Bags", "Tops", "Sunglass"]
+    "sub_category_name": [
+      "dresses",
+      "shoes",
+      "watch",
+      "bags",
+      "tops",
+      "sunglass"
+    ]
   },
   {
     "id": "63bbed3332c9897655a575dc",
     "category_name": "Men Fashion",
-    "sub_category_name": ["Shirt", "Shoes", "Watch", "Sunglass"]
+    "sub_category_name": ["shirt", "shoes", "watch", "sunglass"]
   },
   {
     "id": "63bbed33fd49de318c2cc238",
     "category_name": "Kids",
-    "sub_category_name": ["Diapering", "Feeding", "Baby Care & Gift"]
+    "sub_category_name": ["diapering", "feeding", "baby care & gift"]
   },
   {
     "id": "63bbed335fe8147ca23162ad",
     "category_name": "Cosmetics",
-    "sub_category_name": ["Fragrances", "Skincare", "Sunglass", "Jewellery"]
+    "sub_category_name": ["fragrances", "skincare", "sunglass", "jewellery"]
   },
   {
     "id": "63bbed3385f8855b05c6d273",
     "category_name": "Phones",
-    "sub_category_name": ["Smartphones"]
+    "sub_category_name": ["smartphones"]
   },
   {
     "id": "63bbed33d209e0e2de994d28",
     "category_name": "Laptops",
-    "sub_category_name": ["Laptops"]
+    "sub_category_name": ["laptops"]
   },
   {
     "id": "63bbed33d209e0e2de994d29",
     "category_name": "Automobile",
-    "sub_category_name": ["Automobile"]
+    "sub_category_name": ["automobile"]
   }
 ]

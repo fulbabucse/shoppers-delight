@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import CategoryProducts from "../components/CategoryProducts";
 import Layout from "../Layout/Layout";
+import ProductLayout from "../Layout/ProductLayout";
 import About from "../Pages/About";
+import AllProducts from "../Pages/AllProducts";
 import Cart from "../Pages/Cart";
 import Contact from "../Pages/Contact";
 import Home from "../Pages/Home";
 import Products from "../Pages/Products";
+import CategoryProducts from "../Pages/Shared/CategoryProducts";
 import ProductDetails from "../Pages/Shared/ProductDetails";
 import AccountSettings from "../Pages/User/AccountSettings";
 import SignIn from "../Pages/User/SignIn";
@@ -18,7 +20,17 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "home", element: <Home /> },
-      { path: "products", element: <Products /> },
+      {
+        path: "products",
+        element: <ProductLayout />,
+        children: [
+          { path: "/products", element: <AllProducts /> },
+          {
+            path: "/products/category/:name",
+            element: <CategoryProducts />,
+          },
+        ],
+      },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
       { path: "cart", element: <Cart /> },

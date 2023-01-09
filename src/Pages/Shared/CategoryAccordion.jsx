@@ -53,7 +53,8 @@ const CategoryAccordion = () => {
               {category?.sub_category_name?.map((sub, index) => (
                 <Link
                   key={index}
-                  className="flex flex-col my-2 text-sm hover:text-red-500"
+                  to={`/products/category/${sub}`}
+                  className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
                 >
                   - {sub}
                 </Link>
