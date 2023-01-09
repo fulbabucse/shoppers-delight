@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "../assets/styles.css";
 import { Pagination, Autoplay } from "swiper";
-import { Link } from "react-router-dom";
 import TestimonialCard from "../Pages/Shared/TestimonialCard";
 
 const Testimonials = () => {

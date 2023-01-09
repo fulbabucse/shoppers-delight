@@ -7,6 +7,7 @@ import {
   QUANTITY_DECREMENT,
   TOP_PRODUCTS,
   LATEST_ARTICLE,
+  SIMILAR_PRODUCTS,
 } from "../actionTypes/actionTypes";
 
 export const setProducts = (products) => {
@@ -59,5 +60,12 @@ export const latestArticle = (articles) => {
   return {
     type: LATEST_ARTICLE,
     payload: articles,
+  };
+};
+
+export const similarProducts = (products) => {
+  return {
+    type: SIMILAR_PRODUCTS,
+    payload: products,
   };
 };

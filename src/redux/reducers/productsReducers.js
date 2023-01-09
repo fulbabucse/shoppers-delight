@@ -6,6 +6,7 @@ import {
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
   SET_PRODUCTS,
+  SIMILAR_PRODUCTS,
   TOP_PRODUCTS,
 } from "../actionTypes/actionTypes";
 
@@ -107,6 +108,25 @@ export const latestArticleReducer = (state = initialArticleState, action) => {
       return {
         ...state,
         articles: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialSimilarProductState = {
+  similarProducts: [],
+};
+
+export const similarProductsReducer = (
+  state = initialSimilarProductState,
+  action
+) => {
+  switch (action.type) {
+    case SIMILAR_PRODUCTS:
+      return {
+        ...state,
+        similarProducts: action.payload,
       };
     default:
       return state;

@@ -5,6 +5,7 @@ import {
   latestArticleReducer,
   productQuantityReducer,
   productsReducers,
+  similarProductsReducer,
   topProductsReducer,
 } from "./productsReducers";
 
@@ -15,4 +16,5 @@ export const reducers = combineReducers({
   quantity: productQuantityReducer,
   topProducts: topProductsReducer,
   articles: latestArticleReducer,
+  similarProducts: similarProductsReducer,
 });

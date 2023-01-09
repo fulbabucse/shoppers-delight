@@ -12,6 +12,8 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import "../../assets/styles.css";
 import Spinner from "../../components/Spinner";
+import { useQuery } from "@tanstack/react-query";
+import ProductCard from "./ProductCard";
 
 const ProductDetails = ({ product, quantity }) => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const ProductDetails = ({ product, quantity }) => {
     rating,
     description,
     brand,
+    category,
     discountPercentage,
   } = product;
 
@@ -34,12 +37,23 @@ const ProductDetails = ({ product, quantity }) => {
     dispatch(detailsProduct(res.data));
   };
 
+  const { data: similarProducts = [], isLoading } = useQuery({
+    queryKey: ["category", category],
+    queryFn: async () => {
+      const res = await fetch(
+        `https://dummyjson.com/products/category/${category}`
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
+
   useEffect(() => {
     fetchSingleProduct();
     return () => {
       dispatch(removeSelectedProduct());
     };
-  }, []);
+  }, [id]);
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
@@ -57,6 +71,10 @@ const ProductDetails = ({ product, quantity }) => {
     );
   });
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       {Object.keys(product).length === 0 ? (
@@ -65,7 +83,7 @@ const ProductDetails = ({ product, quantity }) => {
         </>
       ) : (
         <section className="text-gray-700 body-font overflow-hidden bg-transparent">
-          <div className="container px-5 py-24 mx-auto">
+          <div className="container px-5 py-10 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 className="lg:w-96 w-full h-96 object-cover object-center rounded border border-gray-200 p-4"
@@ -214,6 +232,14 @@ const ProductDetails = ({ product, quantity }) => {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div>
+            <h1 className="text-xl">Similar Products</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
+              {similarProducts?.products?.slice(1, 5).map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
             </div>
           </div>
         </section>
