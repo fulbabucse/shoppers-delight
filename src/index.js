@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store/store";
 import AuthProvider from "./contexts/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "tw-elements";
 
 const queryClient = new QueryClient();
 
