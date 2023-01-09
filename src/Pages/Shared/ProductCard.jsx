@@ -24,15 +24,15 @@ const ProductCard = ({ product }) => {
   const discountedPrice = price - price / discountPercentage;
 
   return (
-    <section class="mx-auto border bg-white w-full">
+    <section class="mx-auto border bg-white w-full rounded-md">
       <div class="h-fit group">
         <div class="relative overflow-hidden">
           <img
-            class="h-[260px] w-full object-cover"
+            class="h-[260px] w-full object-cover rounded-t-md"
             src={thumbnail}
             alt={title}
           />
-          <div class="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div class="absolute h-full w-full rounded-t-md bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
             <Link to={`/products/${_id}`}>
               <button class="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
                 Quick View
