@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import SingleReviewCard from "../Shared/SingleReviewCard";
@@ -25,6 +26,11 @@ const Review = ({ product }) => {
   });
 
   const handleReviews = (userData) => {
+    if (userData.rating > 5) {
+      toast.error("Rating up to 5");
+      return;
+    }
+
     const review = {
       productId: _id,
       name: user?.displayName,
