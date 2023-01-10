@@ -14,6 +14,7 @@ import "../../assets/styles.css";
 import Spinner from "../../components/Spinner";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "./ProductCard";
+import Review from "../Products/Review";
 
 const ProductDetails = ({ product, quantity }) => {
   const dispatch = useDispatch();
@@ -200,6 +201,11 @@ const ProductDetails = ({ product, quantity }) => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Reviews */}
+          <div className="mb-5">
+            <Review product={product} />
           </div>
           <div className="px-3 lg:px-0">
             <h1 className="text-xl">Similar Products</h1>
