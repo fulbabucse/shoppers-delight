@@ -1,16 +1,19 @@
 import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignUp = () => {
-  const { signUpEmailPassword } = useContext(AuthContext);
+  const { signUpEmailPassword, updateUserProfile, user } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
 
   const handleSignIn = (userData) => {
     const formData = new FormData();
@@ -23,11 +26,19 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        const photoUrl = data?.data?.url;
+        const photoLink = data?.data?.url;
         signUpEmailPassword(userData.email, userData.password)
-          .then((result) => {
-            const user = result.user;
-            console.log(user);
+          .then(() => {
+            const updatesInfo = {
+              displayName: userData.fullName,
+              photoURL: photoLink,
+            };
+
+            updateUserProfile(updatesInfo)
+              .then(() => {
+                navigate("/");
+              })
+              .catch(() => {});
           })
           .catch((err) => console.error(err));
       })
