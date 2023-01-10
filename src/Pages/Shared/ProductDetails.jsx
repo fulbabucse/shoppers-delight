@@ -15,11 +15,16 @@ import Spinner from "../../components/Spinner";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "./ProductCard";
 import Review from "../Products/Review";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const ProductDetails = ({ product, quantity }) => {
+  const { user } = useContext(AuthContext);
   const dispatch = useDispatch();
   const { id } = useParams();
   const {
+    _id,
     title,
     thumbnail,
     price,
@@ -75,6 +80,37 @@ const ProductDetails = ({ product, quantity }) => {
   if (isLoading) {
     return <Spinner />;
   }
+  const createAt = new Date().getTime();
+  const handleAddToCart = () => {
+    const cartProduct = {
+      productId: _id,
+      title,
+      thumbnail,
+      price,
+      rating,
+      brand,
+      category,
+      createAt,
+      price: Math.ceil(discountedPrice),
+      quantity: quantity.quantity,
+      email: user?.email,
+    };
+
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Product Cart Complete !!!");
+        }
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div>
@@ -195,7 +231,10 @@ const ProductDetails = ({ product, quantity }) => {
                       </svg>
                     </button>
                   </div>
-                  <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full">
+                  <button
+                    onClick={() => handleAddToCart()}
+                    className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full"
+                  >
                     Add to Cart
                   </button>
                 </div>
