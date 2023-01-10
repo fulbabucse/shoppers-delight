@@ -1,36 +1,86 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleSignIn = (userData) => {
+    console.log(userData);
+  };
   return (
-    <div>
+    <div className="w-full lg:max-w-md mx-auto">
       <div class="bg-white shadow sm:rounded-lg flex justify-center">
-        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-          <div class="mt-12 flex flex-col items-center">
-            <h1 class="text-2xl xl:text-3xl font-extrabold">
+        <div class="p-6 sm:p-12">
+          <div class="flex flex-col items-center">
+            <h1 class="text-2xl xl:text-3xl font-bold text-gray-700">
               Create a New Account
             </h1>
-            <div>
+            <form onSubmit={handleSubmit(handleSignIn)}>
               <div class="mt-4">
                 <input
+                  {...register("fullName", {
+                    required: "Name is required",
+                  })}
                   class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="text"
                   placeholder="Full Name"
                 />
+                {errors.fullName && (
+                  <p className="text-red-400 text-sm font-medium">
+                    {errors.fullName?.message}
+                  </p>
+                )}
                 <input
-                  class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="password"
-                  placeholder="Password"
-                />
-                <input
+                  {...register("email", {
+                    required: "Email is required",
+                  })}
                   class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="email"
                   placeholder="Email"
                 />
+                {errors.email && (
+                  <p className="text-red-400 text-sm font-medium">
+                    {errors.email?.message}
+                  </p>
+                )}
                 <input
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password length should be 6 character",
+                    },
+                    pattern: {
+                      value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                      message: `At least 1 special character, 1 uppercase letter, and Number character make the password stronger`,
+                    },
+                  })}
+                  class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                  type="password"
+                  placeholder="Password"
+                />
+                {errors.password && (
+                  <p className="text-red-400 text-sm font-medium">
+                    {errors.password?.message}
+                  </p>
+                )}
+                <input
+                  {...register("image", {
+                    required: "Image is required",
+                  })}
                   class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="file"
                 />
+                {errors.image && (
+                  <p className="text-red-400 text-sm font-medium">
+                    {errors.image?.message}
+                  </p>
+                )}
                 <button class="mt-5 tracking-wide font-medium text-sm bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                   <svg
                     class="w-6 h-6 -ml-2"
@@ -53,7 +103,7 @@ const SignUp = () => {
                   </Link>
                 </p>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
