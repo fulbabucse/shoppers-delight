@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 import ProductCard from "./ProductCard";
 
 const CategoryProducts = () => {
   const { name } = useParams();
-  const { data: products = [] } = useQuery({
-    queryKey: [],
+  const { data: products = [], isLoading } = useQuery({
+    queryKey: [name],
     queryFn: async () => {
       const res = await fetch(
         `http://localhost:5000/products/category/${name}`
@@ -15,6 +16,10 @@ const CategoryProducts = () => {
       return data;
     },
   });
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div>
