@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import SingleReviewCard from "../Shared/SingleReviewCard";
 
@@ -185,21 +186,22 @@ const Review = ({ product }) => {
             </div>
 
             <div>
-              <div class="block rounded-lg max-w-md">
-                <h4 className="text-lg text-gray-700 roboto-font mb-2">
-                  Add a Review
-                </h4>
-                <form
-                  onSubmit={handleSubmit(handleReviews)}
-                  className="space-y-3"
-                >
-                  <div class="form-group">
-                    <input
-                      {...register("rating", {
-                        required: "Rating is required",
-                      })}
-                      type="text"
-                      class="form-control block
+              {user ? (
+                <div class="block rounded-lg max-w-md">
+                  <h4 className="text-lg text-gray-700 roboto-font mb-2">
+                    Add a Review
+                  </h4>
+                  <form
+                    onSubmit={handleSubmit(handleReviews)}
+                    className="space-y-3"
+                  >
+                    <div class="form-group">
+                      <input
+                        {...register("rating", {
+                          required: "Rating is required",
+                        })}
+                        type="text"
+                        class="form-control block
         w-full
         px-3
         py-1.5
@@ -213,21 +215,21 @@ const Review = ({ product }) => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      id="exampleInput7"
-                      placeholder="Your Rating"
-                    />
-                    {errors.rating && (
-                      <p className="text-red-400 text-sm font-medium">
-                        {errors.rating?.message}
-                      </p>
-                    )}
-                  </div>
-                  <div class="form-group">
-                    <textarea
-                      {...register("message", {
-                        required: "Message is required",
-                      })}
-                      class="
+                        id="exampleInput7"
+                        placeholder="Your Rating"
+                      />
+                      {errors.rating && (
+                        <p className="text-red-400 text-sm font-medium">
+                          {errors.rating?.message}
+                        </p>
+                      )}
+                    </div>
+                    <div class="form-group">
+                      <textarea
+                        {...register("message", {
+                          required: "Message is required",
+                        })}
+                        class="
         form-control
         block
         w-full
@@ -244,24 +246,39 @@ const Review = ({ product }) => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
       "
-                      id="exampleFormControlTextarea13"
-                      rows="3"
-                      placeholder="Enter Message"
-                    ></textarea>
-                    {errors.message && (
-                      <p className="text-red-400 text-sm font-medium">
-                        {errors.message?.message}
-                      </p>
-                    )}
+                        id="exampleFormControlTextarea13"
+                        rows="3"
+                        placeholder="Enter Message"
+                      ></textarea>
+                      {errors.message && (
+                        <p className="text-red-400 text-sm font-medium">
+                          {errors.message?.message}
+                        </p>
+                      )}
+                    </div>
+                    <button
+                      type="submit"
+                      class="rounded-full w-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              ) : (
+                <>
+                  <div>
+                    <h4 className="text-lg text-gray-700 roboto-font mb-2">
+                      Add a Review?
+                      <Link
+                        to="/sign-in"
+                        className="ml-1 border-b border-b-gray-600 hover:border-b-red-500 hover:text-red-500"
+                      >
+                        Sign In here
+                      </Link>
+                    </h4>
                   </div>
-                  <button
-                    type="submit"
-                    class="rounded-full w-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
+                </>
+              )}
             </div>
           </div>
         </div>

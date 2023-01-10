@@ -8,6 +8,7 @@ import store from "./redux/store/store";
 import AuthProvider from "./contexts/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "tw-elements";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <App />
+        <Toaster />
       </Provider>
     </QueryClientProvider>
   </AuthProvider>

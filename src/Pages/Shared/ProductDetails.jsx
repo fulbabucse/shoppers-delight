@@ -204,7 +204,7 @@ const ProductDetails = ({ product, quantity }) => {
           </div>
 
           {/* Reviews */}
-          <div className="mb-5">
+          <div className="mb-5 px-3 lg:px-0">
             <Review product={product} />
           </div>
           <div className="px-3 lg:px-0">
