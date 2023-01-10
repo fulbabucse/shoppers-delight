@@ -17,11 +17,11 @@ const CategoryAccordion = () => {
       {categories?.map((category) => (
         <div
           key={category?.id}
-          class="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200"
+          className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200"
         >
-          <h2 class="accordion-header mb-0" id="flush-headingTwo">
+          <h2 className="accordion-header mb-0" id="flush-headingTwo">
             <button
-              class="accordion-button
+              className="accordion-button
         collapsed
         relative
         flex
@@ -46,10 +46,10 @@ const CategoryAccordion = () => {
           </h2>
           <div
             id={`id${category?.id}`}
-            class="accordion-collapse border-0 collapse"
+            className="accordion-collapse border-0 collapse"
             aria-labelledby="flush-headingTwo"
           >
-            <div class="accordion-body py-4 px-5">
+            <div className="accordion-body py-4 px-5">
               {category?.sub_category_name?.map((sub, index) => (
                 <Link
                   key={index}

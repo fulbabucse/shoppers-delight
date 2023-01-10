@@ -6,7 +6,7 @@ const Products = () => {
   return (
     <div>
       <div className="md:flex justify-center gap-2">
-        <div class="max-w-sm w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md">
+        <div className="max-w-sm w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md">
           <div className="mb-3">
             <h1 className="text-xl font-medium text-gray-600 dark:text-gray-50 uppercase roboto-font">
               Categories

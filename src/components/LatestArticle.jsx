@@ -53,10 +53,10 @@ const LatestArticle = ({ articles }) => {
         keyBoardControl={true}
         customTransition="all .5"
         transitionDuration={500}
-        containerClass="carousel-container"
+        containerclassName="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
+        dotListclassName="custom-dot-list-style"
+        itemclassName="carousel-item-padding-40-px"
       >
         {articles?.articles?.map((article) => (
           <ArticleCard key={article?.id} article={article} />

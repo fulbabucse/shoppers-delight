@@ -15,21 +15,21 @@ const ArticleCard = ({ article }) => {
   } = article;
   return (
     <section className="flex flex-row flex-wrap mx-auto mr-4">
-      <div class="flex gap-3">
-        <div class="w-full h-full">
+      <div className="flex gap-3">
+        <div className="w-full h-full">
           <div
-            class="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
+            className="relative overflow-hidden bg-no-repeat bg-cover ripple shadow-lg rounded-lg"
             data-mdb-ripple="true"
             data-mdb-ripple-color="light"
           >
             <img
               src={article_thumb}
-              class="w-full h-[180px]"
+              className="w-full h-[180px]"
               alt={content_title}
             />
             <a>
               <div
-                class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
+                className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
                 style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
               ></div>
             </a>
@@ -37,11 +37,11 @@ const ArticleCard = ({ article }) => {
         </div>
 
         <div>
-          <p class="text-red-600 font-medium text-sm">{tags}</p>
-          <h5 class="text-lg font-medium mb-1">
+          <p className="text-red-600 font-medium text-sm">{tags}</p>
+          <h5 className="text-lg font-medium mb-1">
             {content_title?.slice(0, 35)}...
           </h5>
-          <p class="text-gray-500 text-xs text-justify">
+          <p className="text-gray-500 text-xs text-justify">
             {content?.slice(0, 70)}...
             <Link className="text-red-500 font-medium">Read more</Link>
           </p>

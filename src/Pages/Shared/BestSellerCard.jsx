@@ -27,16 +27,16 @@ const BestSellerCard = ({ product }) => {
 
   return (
     <div>
-      <div class="flex max-w-md gap-4 bg-white overflow-hidden p-4">
-        <div class="bg-cover">
+      <div className="flex max-w-md gap-4 bg-white overflow-hidden p-4">
+        <div className="bg-cover">
           <img className="w-32 h-32 rounded-md" src={thumbnail} alt="" />
         </div>
-        <div class="w-2/3">
-          <h1 class="mt-2 text-gray-600 text-xs">{brand}</h1>
-          <p class=" text-gray-900 font-bold text-sm">
+        <div className="w-2/3">
+          <h1 className="mt-2 text-gray-600 text-xs">{brand}</h1>
+          <p className=" text-gray-900 font-bold text-sm">
             {title?.slice(0, 15)}...
           </p>
-          <div class="flex item-center gap-1 text-red-500">
+          <div className="flex item-center gap-1 text-red-500">
             <p className="flex items-center text-sm">{ratingStar}</p>
             <span>{rating}</span>
           </div>

@@ -24,28 +24,28 @@ const ProductCard = ({ product }) => {
   const discountedPrice = price - price / discountPercentage;
 
   return (
-    <section class="mx-auto border bg-white w-full rounded-md">
-      <div class="h-fit group">
-        <div class="relative overflow-hidden">
+    <section className="mx-auto border bg-white w-full rounded-md">
+      <div className="h-fit group">
+        <div className="relative overflow-hidden">
           <img
-            class="h-[260px] w-full object-cover rounded-t-md"
+            className="h-[260px] w-full object-cover rounded-t-md"
             src={thumbnail}
             alt={title}
           />
-          <div class="absolute h-full w-full rounded-t-md bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="absolute h-full w-full rounded-t-md bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
             <Link to={`/products/${_id}`}>
-              <button class="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
+              <button className="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
                 Quick View
               </button>
             </Link>
           </div>
         </div>
         <div className="px-4 py-3">
-          <h2 class="text-lg capitalize">{title}</h2>
-          <p class="text-xl font-medium mr-1 inline-block">
+          <h2 className="text-lg capitalize">{title}</h2>
+          <p className="text-xl font-medium mr-1 inline-block">
             ${Math.ceil(discountedPrice)}
           </p>
-          <del class="text-red-700 text-sm">${price}</del>
+          <del className="text-red-700 text-sm">${price}</del>
           <div className="flex items-center space-x-1">
             <div className="flex text-red-500 font-bold items-center">
               {ratingStar}
