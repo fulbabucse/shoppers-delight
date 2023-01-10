@@ -1,24 +1,24 @@
 import React from "react";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Review = ({ product }) => {
   const { user } = useContext(AuthContext);
+  const { title, description } = product;
   const {
-    title,
-    thumbnail,
-    price,
-    rating,
-    description,
-    brand,
-    category,
-    discountPercentage,
-  } = product;
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleReviews = (userData) => {
+    console.log(userData);
+  };
 
   return (
     <div>
-      <h1 className="text-xl lg:text-right">Review of {title}</h1>
-
+      <h1 className="text-xl">Review of {title}</h1>
       <ul
         class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
         id="tabs-tab3"
@@ -233,9 +233,15 @@ const Review = ({ product }) => {
                 <h4 className="text-lg text-gray-700 roboto-font mb-2">
                   Add a Review
                 </h4>
-                <form className="space-y-3">
+                <form
+                  onSubmit={handleSubmit(handleReviews)}
+                  className="space-y-3"
+                >
                   <div class="form-group">
                     <input
+                      {...register("rating", {
+                        required: "Rating is required",
+                      })}
                       type="text"
                       class="form-control block
         w-full
@@ -254,9 +260,17 @@ const Review = ({ product }) => {
                       id="exampleInput7"
                       placeholder="Your Rating"
                     />
+                    {errors.rating && (
+                      <p className="text-red-400 text-sm font-medium">
+                        {errors.rating?.message}
+                      </p>
+                    )}
                   </div>
                   <div class="form-group">
                     <textarea
+                      {...register("message", {
+                        required: "Message is required",
+                      })}
                       class="
         form-control
         block
@@ -278,6 +292,11 @@ const Review = ({ product }) => {
                       rows="3"
                       placeholder="Enter Message"
                     ></textarea>
+                    {errors.message && (
+                      <p className="text-red-400 text-sm font-medium">
+                        {errors.message?.message}
+                      </p>
+                    )}
                   </div>
                   <button
                     type="submit"
