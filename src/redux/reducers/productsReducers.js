@@ -1,30 +1,14 @@
 import {
+  CART_PRODUCT,
   CATEGORY_PRODUCTS,
   DETAILS_PRODUCT,
   LATEST_ARTICLE,
   QUANTITY_DECREMENT,
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
-  SET_PRODUCTS,
   SIMILAR_PRODUCTS,
   TOP_PRODUCTS,
 } from "../actionTypes/actionTypes";
-
-const initialState = {
-  products: [],
-};
-
-export const productsReducers = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_PRODUCTS:
-      return {
-        ...state,
-        products: action.payload,
-      };
-    default:
-      return state;
-  }
-};
 
 export const detailsProductReducer = (state = {}, action) => {
   switch (action.type) {
@@ -127,6 +111,22 @@ export const similarProductsReducer = (
       return {
         ...state,
         similarProducts: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialCartState = {
+  cartProducts: [],
+};
+
+export const cartProductsReducer = (state = initialCartState, action) => {
+  switch (action.type) {
+    case CART_PRODUCT:
+      return {
+        ...state,
+        cartProducts: action.payload,
       };
     default:
       return state;

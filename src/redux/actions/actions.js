@@ -1,5 +1,4 @@
 import {
-  SET_PRODUCTS,
   DETAILS_PRODUCT,
   REMOVE_SELECTED_PRODUCT,
   CATEGORY_PRODUCTS,
@@ -8,14 +7,8 @@ import {
   TOP_PRODUCTS,
   LATEST_ARTICLE,
   SIMILAR_PRODUCTS,
+  CART_PRODUCT,
 } from "../actionTypes/actionTypes";
-
-export const setProducts = (products) => {
-  return {
-    type: SET_PRODUCTS,
-    payload: products,
-  };
-};
 
 export const detailsProduct = (product) => {
   return {
@@ -66,6 +59,13 @@ export const latestArticle = (articles) => {
 export const similarProducts = (products) => {
   return {
     type: SIMILAR_PRODUCTS,
+    payload: products,
+  };
+};
+
+export const cartProducts = (products) => {
+  return {
+    type: CART_PRODUCT,
     payload: products,
   };
 };
