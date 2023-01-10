@@ -1,29 +1,30 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { connect, useDispatch } from "react-redux";
-import { setProducts } from "../redux/actions/actions";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import Spinner from "../components/Spinner";
 import ProductCard from "./Shared/ProductCard";
 
-const AllProducts = ({ products }) => {
+const AllProducts = () => {
   const [showMore, setShowMore] = useState(9);
-  const allProducts = products.products;
-  const dispatch = useDispatch();
 
-  const url = "http://localhost:5000/products";
+  const { data: products = [], isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/products");
+      const data = await res.json();
+      return data;
+    },
+  });
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await axios.get(url).catch((err) => console.log(err.message));
-      dispatch(setProducts(res.data));
-    };
-    fetchProducts();
-  }, [url]);
-
-  const sliceProducts = allProducts?.slice(0, showMore);
+  const sliceProducts = products?.slice(0, showMore);
 
   const handleShowMore = () => {
     setShowMore(showMore + showMore);
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -31,7 +32,7 @@ const AllProducts = ({ products }) => {
           <ProductCard product={product} key={product._id} />
         ))}
       </div>
-      {sliceProducts?.length > 1 && (
+      {products?.length > 1 && (
         <div className="flex justify-center">
           <button
             onClick={() => handleShowMore()}
@@ -45,10 +46,4 @@ const AllProducts = ({ products }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products,
-  };
-};
-
-export default connect(mapStateToProps)(AllProducts);
+export default AllProducts;
