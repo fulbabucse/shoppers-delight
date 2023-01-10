@@ -44,7 +44,7 @@ const SmallNavbar = () => {
                 : "opacity-0 -translate-x-full"
             } absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center justify-end`}
           >
-            <div className="flex flex-col md:flex-row md:mx-6">
+            <div className="flex flex-col items-center md:flex-row md:mx-6">
               <Link
                 to="/"
                 className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
@@ -89,7 +89,7 @@ const SmallNavbar = () => {
               </Link>
             </div>
 
-            <div className="relative inline-block text-left ml-5">
+            <div className="relative flex justify-center mt-2">
               <div>
                 <button
                   type="button"
@@ -118,14 +118,14 @@ const SmallNavbar = () => {
 
               {isDropdownOpen && (
                 <div
-                  className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="absolute left-22 z-10 mt-11 w-44 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
                   tabIndex="-1"
                 >
                   <div className="py-1" role="none">
-                    {!user ? (
+                    {user ? (
                       <>
                         <Link
                           to="/account-settings"

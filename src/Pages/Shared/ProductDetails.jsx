@@ -94,7 +94,7 @@ const ProductDetails = ({ product, quantity }) => {
                 <h2 className="text-sm title-font text-gray-500 tracking-widest capitalize">
                   {brand}
                 </h2>
-                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1 capitalize">
+                <h1 className="text-gray-900 text-xl lg:text-3xl title-font font-medium mb-1 capitalize">
                   {title}
                 </h1>
                 <div className="flex mb-4">
@@ -201,7 +201,7 @@ const ProductDetails = ({ product, quantity }) => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="px-3 lg:px-0">
             <h1 className="text-xl">Similar Products</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
               {similarProducts?.slice(1, 5).map((product) => (

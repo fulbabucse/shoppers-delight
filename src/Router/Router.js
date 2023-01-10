@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/products/:id", element: <ProductDetails /> },
+      { path: "/product/id/:id", element: <ProductDetails /> },
       { path: "/category/:name", element: <CategoryProducts /> },
       {
         path: "account-settings",
