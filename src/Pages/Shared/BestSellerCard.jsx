@@ -34,7 +34,7 @@ const BestSellerCard = ({ product }) => {
         <div class="w-2/3">
           <h1 class="mt-2 text-gray-600 text-xs">{brand}</h1>
           <p class=" text-gray-900 font-bold text-sm">
-            {title.slice(0, 15)}...
+            {title?.slice(0, 15)}...
           </p>
           <div class="flex item-center gap-1 text-red-500">
             <p className="flex items-center text-sm">{ratingStar}</p>
