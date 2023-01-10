@@ -12,6 +12,7 @@ import ProductDetails from "../Pages/Shared/ProductDetails";
 import AccountSettings from "../Pages/User/AccountSettings";
 import SignIn from "../Pages/User/SignIn";
 import SignUp from "../Pages/User/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -33,10 +34,24 @@ export const router = createBrowserRouter([
       },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
-      { path: "cart", element: <Cart /> },
+      {
+        path: "cart",
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
+      },
       { path: "/products/:id", element: <ProductDetails /> },
       { path: "/category/:name", element: <CategoryProducts /> },
-      { path: "account-settings", element: <AccountSettings /> },
+      {
+        path: "account-settings",
+        element: (
+          <PrivateRoute>
+            <AccountSettings />
+          </PrivateRoute>
+        ),
+      },
       { path: "sign-in", element: <SignIn /> },
       { path: "sign-up", element: <SignUp /> },
     ],
