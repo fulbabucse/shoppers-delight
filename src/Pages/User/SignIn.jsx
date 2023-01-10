@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignIn = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -21,6 +21,14 @@ const SignIn = () => {
       })
       .catch((err) => console.error(err));
   };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(() => {
+        navigate("/");
+      })
+      .catch(() => {});
+  };
   return (
     <div className="h-full bg-transparent w-full py-8 px-4">
       <div className="flex flex-col items-center justify-center">
@@ -35,7 +43,7 @@ const SignIn = () => {
             tabIndex="0"
             className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500"
           >
-            Dont have account?{" "}
+            Don't have account?{" "}
             <Link
               to="/sign-up"
               className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer"
@@ -44,6 +52,7 @@ const SignIn = () => {
             </Link>
           </p>
           <button
+            onClick={() => handleGoogleSignIn()}
             aria-label="Continue with google"
             role="button"
             className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
