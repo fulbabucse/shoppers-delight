@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import Spinner from "../components/Spinner";
-import ProductCard from "./Shared/ProductCard";
+import Spinner from "../../components/Spinner";
+import ProductCard from "../Shared/ProductCard";
 
 const AllProducts = () => {
   const [showMore, setShowMore] = useState(9);

@@ -1,6 +1,6 @@
 import React from "react";
-import PriceRange from "../components/PriceRange";
-import CategoryAccordion from "./Shared/CategoryAccordion";
+import PriceRange from "../../components/PriceRange";
+import CategoryAccordion from "../Shared/CategoryAccordion";
 
 const Products = () => {
   return (

@@ -2,11 +2,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "../assets/styles.css";
+import "../../assets/styles.css";
 import { Pagination, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
-import iphone14 from "../assets/images/iphone-14-pro-max.jpg";
-import hpLaptop from "../assets/images/hp-laptop.png";
+import iphone14 from "../../assets/images/iphone-14-pro-max.jpg";
+import hpLaptop from "../../assets/images/hp-laptop.png";
 
 const HeroSection = () => {
   const carouselData = [

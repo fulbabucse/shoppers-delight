@@ -3,12 +3,12 @@ import React from "react";
 import { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import ProductCard from "../Pages/Shared/ProductCard";
+import ProductCard from "../Shared/ProductCard";
 import {
   categoryProducts,
   removeSelectedProduct,
-} from "../redux/actions/actions";
-import Spinner from "./Spinner";
+} from "../../redux/actions/actions";
+import Spinner from "../../components/Spinner";
 
 const CategoryProducts = ({ products }) => {
   const { name } = useParams();

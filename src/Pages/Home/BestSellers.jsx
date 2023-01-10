@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
-import BestSellerCard from "../Pages/Shared/BestSellerCard";
-import Spinner from "./Spinner";
+import BestSellerCard from "../Shared/BestSellerCard";
+import Spinner from "../../components/Spinner";
 import { FaAngleRight } from "react-icons/fa";
 
 const BestSellers = () => {

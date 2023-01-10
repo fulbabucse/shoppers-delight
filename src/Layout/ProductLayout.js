@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import PriceRange from "../components/PriceRange";
+import PriceRange from "../Pages/Products/PriceRange";
 import CategoryAccordion from "../Pages/Shared/CategoryAccordion";
 
 const ProductLayout = () => {

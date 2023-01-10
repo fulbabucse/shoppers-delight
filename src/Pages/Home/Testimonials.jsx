@@ -2,9 +2,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "../assets/styles.css";
+import "../../assets/styles.css";
 import { Pagination, Autoplay } from "swiper";
-import TestimonialCard from "../Pages/Shared/TestimonialCard";
+import TestimonialCard from "../Shared/TestimonialCard";
 
 const Testimonials = () => {
   const testimonials = [

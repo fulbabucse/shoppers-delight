@@ -5,8 +5,8 @@ import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt, FaAngleRight } from "react-icons/fa";
 import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import TopProductCard from "../Pages/Shared/TopProductCard";
-import { topProducts } from "../redux/actions/actions";
+import TopProductCard from "../Shared/TopProductCard";
+import { topProducts } from "../../redux/actions/actions";
 
 const Tops = ({ products }) => {
   const dispatch = useDispatch();

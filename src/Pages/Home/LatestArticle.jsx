@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import "../assets/styles.css";
-import ArticleCard from "../Pages/Shared/ArticleCard";
-import { latestArticle } from "../redux/actions/actions";
+import "../../assets/styles.css";
+import ArticleCard from "../Shared/ArticleCard";
+import { latestArticle } from "../../redux/actions/actions";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
