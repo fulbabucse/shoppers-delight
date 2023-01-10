@@ -1,11 +1,18 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import NavbarItem from "./NavbarItem";
+import logo from "../../assets/images/logo/shoppers-delight-fat.jpg";
+import { Link } from "react-router-dom";
 
 const LargeNavbar = () => {
   return (
     <div>
-      <div className="container px-4 lg:px-0 mx-auto flex justify-end items-center">
+      <div className="container px-4 lg:px-0 mx-auto flex justify-between items-center">
+        <div>
+          <Link to="/">
+            <img className="h-20" src={logo} alt="Brand Logo" />
+          </Link>
+        </div>
         <div>
           <div className="offcanvas-header flex items-center justify-between py-4">
             <button

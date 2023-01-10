@@ -10,7 +10,7 @@ const CategoryProducts = () => {
     queryKey: [name],
     queryFn: async () => {
       const res = await fetch(
-        `https://shopper-s-delight-server.vercel.app/products/category/${name}`
+        `http://localhost:5000/products/category/${name}`
       );
       const data = await res.json();
       return data;

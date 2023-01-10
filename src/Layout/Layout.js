@@ -10,7 +10,7 @@ const Layout = () => {
       <div className="lg:hidden">
         <SmallNavbar />
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block lg:mb-3">
         <LargeNavbar />
       </div>
       <div className="max-w-screen-xl mx-auto">
