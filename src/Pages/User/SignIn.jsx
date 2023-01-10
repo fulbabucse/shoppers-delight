@@ -1,7 +1,25 @@
 import React from "react";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignIn = () => {
+  const { signInUser } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleUserSignIn = (userData) => {
+    signInUser(userData?.email, userData?.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => console.error(err));
+  };
   return (
     <div className="h-full bg-transparent w-full py-8 px-4">
       <div className="flex flex-col items-center justify-center">
@@ -70,48 +88,67 @@ const SignIn = () => {
             </p>
             <hr className="w-full bg-gray-400" />
           </div>
-          <div>
-            <label
-              id="email"
-              className="text-sm font-medium leading-none text-gray-800"
-            >
-              Email
-            </label>
-            <input
-              aria-labelledby="email"
-              type="email"
-              className="bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-            />
-          </div>
-          <div className="mt-6  w-full">
-            <label
-              htmlFor="pass"
-              className="text-sm font-medium leading-none text-gray-800"
-            >
-              Password
-            </label>
-            <div className="relative flex items-center justify-center">
+          <form onSubmit={handleSubmit(handleUserSignIn)}>
+            <div>
+              <label
+                id="email"
+                className="text-sm font-medium leading-none text-gray-800"
+              >
+                Email
+              </label>
               <input
-                id="pass"
-                type="password"
+                aria-labelledby="email"
+                type="email"
+                {...register("email", {
+                  required: "Email is required",
+                })}
                 className="bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
               />
-              <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
-                <img
-                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg5.svg"
-                  alt="viewport"
-                />
-              </div>
+              {errors.email && (
+                <p className="text-red-400 text-sm font-medium">
+                  {errors.email?.message}
+                </p>
+              )}
             </div>
-          </div>
-          <div className="mt-8">
-            <button
-              role="button"
-              className="focus:ring-2 focus:ring-offset-2 focus:ring-red-700 rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 w-full"
-            >
-              Sign In
-            </button>
-          </div>
+            <div className="mt-4 w-full">
+              <label
+                htmlFor="pass"
+                className="text-sm font-medium leading-none text-gray-800"
+              >
+                Password
+              </label>
+              <div className="relative flex items-center justify-center">
+                <input
+                  id="pass"
+                  type="password"
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  className="bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                />
+
+                <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
+                  <img
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg5.svg"
+                    alt="viewport"
+                  />
+                </div>
+              </div>
+              {errors.password && (
+                <p className="text-red-400 text-sm font-medium">
+                  {errors.password?.message}
+                </p>
+              )}
+            </div>
+            <div className="mt-8">
+              <button
+                role="button"
+                className="focus:ring-2 focus:ring-offset-2 focus:ring-red-700 rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 w-full"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
