@@ -1,13 +1,15 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { getTrackBackground, Range } from "react-range";
+import { ProductsContext } from "../../contexts/ProductsProvider";
 
 const STEP = 0.1;
-const MIN = 99;
+const MIN = 1;
 const MAX = 2500;
 
 const PriceRange = () => {
-  const [newPrice, setNewPrice] = useState([200, 2000]);
+  const { newPrice, setNewPrice } = useContext(ProductsContext);
   return (
     <div className="mt-5">
       <div className="mb-7">

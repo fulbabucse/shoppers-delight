@@ -1,19 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Spinner from "../../components/Spinner";
+import { ProductsContext } from "../../contexts/ProductsProvider";
 import ProductCard from "../Shared/ProductCard";
 
 const AllProducts = () => {
   const [showMore, setShowMore] = useState(9);
+  const { newPrice } = useContext(ProductsContext);
+
+  const startPrice = Math.ceil(newPrice[0]);
+  const endPrice = Math.ceil(newPrice[1]);
 
   const { data: products = [], isLoading } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["products", startPrice, endPrice],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/products");
+      const res = await fetch(
+        `http://localhost:5000/products?start=${startPrice}&end=${endPrice}`
+      );
       const data = await res.json();
       return data;
     },
   });
+
+  console.log(products);
 
   const sliceProducts = products?.slice(0, showMore);
 
