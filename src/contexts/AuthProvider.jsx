@@ -41,6 +41,7 @@ const AuthProvider = ({ children }) => {
 
   const userSignOut = () => {
     setLoading(true);
+    localStorage.removeItem("ShopperToken");
     return signOut(auth);
   };
 

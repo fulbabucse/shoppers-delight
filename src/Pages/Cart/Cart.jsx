@@ -14,17 +14,19 @@ const Cart = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: [],
+    queryKey: ["cart", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/cart/${user?.email}`);
+      const res = await fetch(`http://localhost:5000/cart/${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
   });
 
   const handleCartProductDelete = (id) => {
-    console.log(id);
-
     fetch(`http://localhost:5000/cart/${id}`, {
       method: "DELETE",
     })
@@ -40,7 +42,7 @@ const Cart = () => {
 
   const priceArray = [];
   products?.map((product) => {
-    return priceArray.push(product.price);
+    return priceArray.push(product?.price);
   });
 
   const withOutTax = priceArray.reduce((total, value) => {
