@@ -5,6 +5,8 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 const SingleCartCard = ({ product }) => {
   const { brand, price, quantity, rating, thumbnail, title } = product;
 
+  console.log(product);
+
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
 
@@ -25,7 +27,7 @@ const SingleCartCard = ({ product }) => {
       <div>
         <img
           src={thumbnail}
-          alt
+          alt={title}
           className="w-40 h-40 object-center object-cover rounded-md"
         />
       </div>

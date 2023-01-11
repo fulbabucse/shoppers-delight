@@ -1,17 +1,14 @@
 import axios from "axios";
-import React from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import React, { useEffect, useContext } from "react";
 import { connect, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { ProductsContext } from "../../contexts/ProductsProvider";
 import { cartProducts } from "../../redux/actions/actions";
 import SingleCartCard from "../Shared/SingleCartCard";
 
 const Cart = ({ products }) => {
-  const { show, setShow } = useContext(ProductsContext);
-  const { user } = useContext(AuthContext);
+  const { user, loading, setLoading } = useContext(AuthContext);
   const dispatch = useDispatch();
 
   const fetchCartProduct = async () => {
@@ -22,7 +19,9 @@ const Cart = ({ products }) => {
   };
 
   useEffect(() => {
+    setLoading(true);
     fetchCartProduct();
+    setLoading(false);
   }, [user?.email]);
 
   const priceArray = [];
@@ -36,12 +35,27 @@ const Cart = ({ products }) => {
   }, 0);
 
   const shipping = 35;
-  const tax = withOutTax * 0.1;
+  const tax = withOutTax * 0.01;
   const totalPrice = withOutTax + tax + shipping;
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <>
-      <div>
+      {products.cartProducts?.length === 0 ? (
+        <div className="flex justify-center mt-10">
+          <div>
+            <h3 className="text-center mb-3 text-xl">Cart is Empty</h3>
+            <Link to="/products">
+              <button className="bg-red-500 px-5 py-2 w-54 font-medium text-white transition hover:bg-red-600 text-lg rounded-full">
+                Continue Shopping
+              </button>
+            </Link>
+          </div>
+        </div>
+      ) : (
         <div className="w-full grid grid-cols-1 lg:grid-cols-2">
           <div className="grid grid-cols-1 gap-4">
             {products.cartProducts?.map((product, index) => (
@@ -92,17 +106,15 @@ const Cart = ({ products }) => {
                 </div>
               </div>
               <div className="mt-5">
-                <button
-                  onClick={() => setShow(!show)}
-                  className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
-                >
+                <button className="bg-red-500 px-5 py-2 w-full font-medium text-white transition hover:bg-red-600 text-lg rounded-full">
                   Checkout
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
+      <div></div>
     </>
   );
 };
