@@ -56,7 +56,7 @@ const HeroSection = () => {
           dynamicBullets: true,
         }}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
