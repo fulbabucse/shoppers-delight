@@ -11,6 +11,7 @@ import SignUp from "../Pages/User/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import Cart from "../Pages/Cart/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
       },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
+      { path: "cart", element: <Cart /> },
       { path: "/product/id/:id", element: <ProductDetails /> },
       { path: "/category/:name", element: <CategoryProducts /> },
       {

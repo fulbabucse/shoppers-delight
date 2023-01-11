@@ -3,12 +3,9 @@ import { useContext } from "react";
 import { FaTimes, FaBars, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { ProductsContext } from "../../contexts/ProductsProvider";
-import Cart from "../Cart/Cart";
 
 const SmallNavbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
-  const { show, setShow } = useContext(ProductsContext);
   const [navbar, setNavbar] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -66,12 +63,9 @@ const SmallNavbar = () => {
               >
                 Contact
               </Link>
-              <button
-                onClick={() => setShow(!show)}
-                className="text-red-500 text-xl md:mx-4"
-              >
+              <Link to="/cart" className="text-red-500 text-xl md:mx-4">
                 <FaShoppingCart />
-              </button>
+              </Link>
             </div>
 
             <div className="relative flex justify-center mt-2">
@@ -163,7 +157,6 @@ const SmallNavbar = () => {
           </div>
         </div>
       </div>
-      <Cart />
     </nav>
   );
 };

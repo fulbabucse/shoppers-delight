@@ -21,7 +21,7 @@ const SingleCartCard = ({ product }) => {
     );
   });
   return (
-    <div className="md:flex items-center gap-3 mt-5 pt-4 border-t border-gray-200">
+    <div className="md:flex items-center gap-3 bg-white p-3 rounded-md">
       <div>
         <img
           src={thumbnail}
