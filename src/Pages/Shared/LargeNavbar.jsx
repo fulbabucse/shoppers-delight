@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
 import NavbarItem from "./NavbarItem";
-import logo from "../../assets/images/logo/shoppers-delight-fat.jpg";
+import logo from "../../assets/images/logo/shoppers-logo.png";
 import { Link } from "react-router-dom";
 
 const LargeNavbar = () => {
