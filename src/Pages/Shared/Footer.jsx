@@ -168,22 +168,6 @@ const Footer = () => {
                     Support
                   </a>
                 </li>
-
-                <li>
-                  <a
-                    className="group flex justify-center gap-1.5 sm:justify-start"
-                    href="/"
-                  >
-                    <span className="text-gray-700 transition group-hover:text-gray-700/75">
-                      Live Chat
-                    </span>
-
-                    <span className="relative -mr-2 flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"></span>
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500"></span>
-                    </span>
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>

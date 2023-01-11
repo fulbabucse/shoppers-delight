@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import ProductLayout from "../Layout/ProductLayout";
-import About from "../Pages/About";
 import AllProducts from "../Pages/Products/AllProducts";
-import Cart from "../Pages/Cart";
-import Contact from "../Pages/Contact";
 import Home from "../Pages/Home/Home";
 import CategoryProducts from "../Pages/Shared/CategoryProducts";
 import ProductDetails from "../Pages/Shared/ProductDetails";
@@ -12,6 +9,9 @@ import AccountSettings from "../Pages/User/AccountSettings";
 import SignIn from "../Pages/User/SignIn";
 import SignUp from "../Pages/User/SignUp";
 import PrivateRoute from "./PrivateRoute";
+import About from "../Pages/About/About";
+import Contact from "../Pages/Contact/Contact";
+import Cart from "../Pages/Cart/Cart";
 
 export const router = createBrowserRouter([
   {
