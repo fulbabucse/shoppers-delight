@@ -1,33 +1,40 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useToken from "../../hooks/useToken";
 
 const SignIn = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [token] = useToken(email);
+
+  if (token) {
+    return navigate(from, { replace: true });
+  }
 
   const handleUserSignIn = (userData) => {
     signInUser(userData?.email, userData?.password)
-      .then(() => {
-        navigate(from, { replace: true });
+      .then((result) => {
+        setEmail(result?.user?.email);
       })
       .catch((err) => console.error(err));
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(() => {
-        navigate(from, { replace: true });
+      .then((result) => {
+        setEmail(result?.user?.email);
       })
       .catch(() => {});
   };
