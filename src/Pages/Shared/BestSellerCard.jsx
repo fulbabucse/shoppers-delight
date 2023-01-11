@@ -1,10 +1,11 @@
 import React from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt, FaClock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import SmallTimer from "../../components/SmallTimer";
 
 const BestSellerCard = ({ product }) => {
-  const { title, thumbnail, price, rating, brand, discountPercentage } =
+  const { _id, title, thumbnail, price, rating, brand, discountPercentage } =
     product;
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
@@ -34,7 +35,9 @@ const BestSellerCard = ({ product }) => {
         <div className="w-2/3">
           <h1 className="mt-2 text-gray-600 text-xs">{brand}</h1>
           <p className=" text-gray-900 font-bold text-sm">
-            {title?.slice(0, 15)}...
+            <Link to={`/product/id/${_id}`}>
+              {title.length > 15 ? <>{title?.slice(0, 15)}...</> : title}
+            </Link>
           </p>
           <div className="flex item-center gap-1 text-red-500">
             <p className="flex items-center text-sm">{ratingStar}</p>

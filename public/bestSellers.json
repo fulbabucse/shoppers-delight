@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "_id": 1,
     "title": "iPhone 9",
     "description": "An apple mobile which is nothing like apple",
     "price": 549,
@@ -19,7 +19,7 @@
     ]
   },
   {
-    "id": 2,
+    "_id": 2,
     "title": "iPhone X",
     "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
     "price": 899,
@@ -37,7 +37,7 @@
     ]
   },
   {
-    "id": 3,
+    "_id": 3,
     "title": "Samsung Universe 9",
     "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
     "price": 1249,
@@ -50,7 +50,7 @@
     "images": ["https://i.dummyjson.com/data/products/3/1.jpg"]
   },
   {
-    "id": 4,
+    "_id": 4,
     "title": "OPPOF19",
     "description": "OPPO F19 is officially announced on April 2021.",
     "price": 280,
@@ -69,7 +69,7 @@
     ]
   },
   {
-    "id": 5,
+    "_id": 5,
     "title": "OPPOF19",
     "description": "OPPO F19 is officially announced on April 2021.",
     "price": 280,
@@ -88,7 +88,7 @@
     ]
   },
   {
-    "id": 6,
+    "_id": 6,
     "title": "MacBook Pro",
     "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
     "price": 1749,
@@ -106,7 +106,7 @@
     ]
   },
   {
-    "id": 7,
+    "_id": 7,
     "title": "Samsung Galaxy Book",
     "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
     "price": 1499,
@@ -124,7 +124,7 @@
     ]
   },
   {
-    "id": 3,
+    "_id": 3,
     "title": "Samsung Universe 9",
     "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
     "price": 1249,
