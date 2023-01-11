@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useContext } from "react";
+import { FaTimes, FaBars, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthProvider";
-import { FaShoppingCart } from "react-icons/fa";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
-const NavbarItem = () => {
+const SmallNavbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
+  const [navbar, setNavbar] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleSignOut = () => {
@@ -12,17 +14,11 @@ const NavbarItem = () => {
       .then(() => {})
       .catch(() => {});
   };
-
   return (
-    <div className="flex space-x-2">
-      <div className="px-4 lg:px-10">
-        <div
-          className="offcanvas offcanvas-top fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 left-0 right-0 border-none h-1/3 max-h-full"
-          tabIndex="-1"
-          id="offcanvasTop"
-          aria-labelledby="offcanvasTopLabel"
-        >
-          <div className="offcanvas-header flex items-center justify-between p-4">
+    <nav className="bg-white shadow dark:bg-gray-800">
+      <div className="container px-4 lg:px-0 py-4 mx-auto">
+        <div className="lg:flex lg:items-center justify-between">
+          <div className="flex items-center justify-between">
             <div>
               <Link to="/">
                 <h1 className="text-lg lg:text-2xl font-bold text-gray-800">
@@ -30,7 +26,25 @@ const NavbarItem = () => {
                 </h1>
               </Link>
             </div>
-            <div className="flex flex-col md:flex-row md:mx-6">
+
+            <div className="flex lg:hidden">
+              <button
+                className="p-2 text-slate-700 rounded-md outline-none"
+                onClick={() => setNavbar(!navbar)}
+              >
+                {navbar ? <FaTimes></FaTimes> : <FaBars></FaBars>}
+              </button>
+            </div>
+          </div>
+
+          <div
+            className={`${
+              navbar
+                ? "translate-x-0 opacity-100"
+                : "opacity-0 -translate-x-full"
+            } absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center justify-end`}
+          >
+            <div className="flex flex-col items-center md:flex-row md:mx-6">
               <Link
                 to="/"
                 className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
@@ -53,7 +67,8 @@ const NavbarItem = () => {
                 <FaShoppingCart />
               </Link>
             </div>
-            <div className="relative inline-block text-left ml-5">
+
+            <div className="relative flex justify-center mt-2">
               <div>
                 <button
                   type="button"
@@ -63,7 +78,7 @@ const NavbarItem = () => {
                   aria-expanded="true"
                   aria-haspopup="true"
                 >
-                  {user?.displayName || "User Name"}
+                  {user?.displayName}
                   <svg
                     className="-mr-1 ml-2 h-5 w-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +89,7 @@ const NavbarItem = () => {
                     <path
                       fillRule="evenodd"
                       d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                      clipRule="evenodd"
+                      clipule="evenodd"
                     />
                   </svg>
                 </button>
@@ -82,7 +97,7 @@ const NavbarItem = () => {
 
               {isDropdownOpen && (
                 <div
-                  className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="absolute left-22 z-10 mt-11 w-44 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
@@ -139,17 +154,11 @@ const NavbarItem = () => {
                 </div>
               )}
             </div>
-            <button
-              type="button"
-              className="btn-close box-content w-4 h-4 p-2 -my-5 -mr-2 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
-export default NavbarItem;
+export default SmallNavbar;

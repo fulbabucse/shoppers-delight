@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../Pages/Shared/Footer";
-import LargeNavbar from "../Pages/Shared/LargeNavbar";
-import SmallNavbar from "../Pages/Shared/SmallNavbar";
+import LargeNavbar from "../Pages/Shared/Navbar/LargeNavbar";
+import SmallNavbar from "../Pages/Shared/Navbar/SmallNavbar";
 
 const Layout = () => {
   return (
