@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { ProductsContext } from "../../contexts/ProductsProvider";
+import Cart from "../Cart/Cart";
+import { FaShoppingCart } from "react-icons/fa";
 
 const NavbarItem = () => {
   const { user, userSignOut } = useContext(AuthContext);
+  const { show, setShow } = useContext(ProductsContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleSignOut = () => {
@@ -48,12 +52,12 @@ const NavbarItem = () => {
               >
                 Contact
               </Link>
-              <Link
-                to="/cart"
-                className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
+              <button
+                onClick={() => setShow(!show)}
+                className="text-red-500 text-xl md:mx-4"
               >
-                Cart
-              </Link>
+                <FaShoppingCart />
+              </button>
             </div>
             <div className="relative inline-block text-left ml-5">
               <div>
@@ -149,6 +153,7 @@ const NavbarItem = () => {
             ></button>
           </div>
         </div>
+        <Cart />
       </div>
     </div>
   );

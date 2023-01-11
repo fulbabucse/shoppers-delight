@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { connect, useDispatch } from "react-redux";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { ProductsContext } from "../../contexts/ProductsProvider";
 import { cartProducts } from "../../redux/actions/actions";
 
 const Cart = ({ products }) => {
-  const [show, setShow] = useState(false);
+  const { show, setShow } = useContext(ProductsContext);
   const { user } = useContext(AuthContext);
   const dispatch = useDispatch();
 
@@ -25,19 +26,8 @@ const Cart = ({ products }) => {
   return (
     <>
       <div>
-        <div className="flex items-center justify-center py-8">
-          <button
-            onClick={() => setShow(!show)}
-            className="py-2 px-10 rounded bg-indigo-600 hover:bg-indigo-700 text-white"
-          >
-            Open Modal
-          </button>
-        </div>
         {show && (
-          <div
-            className="w-full h-full bg-white top-0 overflow-y-auto overflow-x-hidden fixed sticky-0"
-            id="chec-div"
-          >
+          <div className="w-full h-full bg-white z-10 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0 mt-16 lg:mt-0">
             <div
               className="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
               id="checkout"

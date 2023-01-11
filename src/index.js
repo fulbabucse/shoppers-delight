@@ -9,6 +9,7 @@ import AuthProvider from "./contexts/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "tw-elements";
 import { Toaster } from "react-hot-toast";
+import ProductsProvider from "./contexts/ProductsProvider";
 
 const queryClient = new QueryClient();
 
@@ -17,8 +18,10 @@ root.render(
   <AuthProvider>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <App />
-        <Toaster />
+        <ProductsProvider>
+          <App />
+          <Toaster />
+        </ProductsProvider>
       </Provider>
     </QueryClientProvider>
   </AuthProvider>
