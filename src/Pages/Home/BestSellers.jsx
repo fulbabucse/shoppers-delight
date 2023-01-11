@@ -40,8 +40,8 @@ const BestSellers = () => {
         </Link>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-1 mt-3">
-        {bestSellProducts?.map((product) => (
-          <BestSellerCard key={product?.id} product={product} />
+        {bestSellProducts?.map((product, index) => (
+          <BestSellerCard key={index} product={product} />
         ))}
       </div>
     </div>

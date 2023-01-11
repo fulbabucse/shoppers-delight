@@ -36,8 +36,8 @@ const CategoryProducts = ({ products }) => {
         </>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
-          {allProducts?.map((product) => (
-            <ProductCard product={product} key={product.id} />
+          {allProducts?.map((product, index) => (
+            <ProductCard product={product} key={product._id} />
           ))}
         </div>
       )}

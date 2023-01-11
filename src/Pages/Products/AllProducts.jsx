@@ -28,8 +28,8 @@ const AllProducts = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {sliceProducts?.map((product) => (
-          <ProductCard product={product} key={product._id} />
+        {sliceProducts?.map((product, index) => (
+          <ProductCard product={product} key={index} />
         ))}
       </div>
       {products?.length > 1 && (

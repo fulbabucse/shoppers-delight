@@ -3,9 +3,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const SingleCartCard = ({ product }) => {
-  const { brand, category, price, quantity, rating, thumbnail, title } =
-    product;
-  console.log(product);
+  const { brand, price, quantity, rating, thumbnail, title } = product;
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;

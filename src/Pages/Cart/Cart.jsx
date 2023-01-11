@@ -52,8 +52,8 @@ const Cart = ({ products }) => {
 
                   {/* Cart Products */}
 
-                  {products.cartProducts?.map((product) => (
-                    <SingleCartCard key={product?._id} product={product} />
+                  {products.cartProducts?.map((product, index) => (
+                    <SingleCartCard key={index} product={product} />
                   ))}
                 </div>
 
