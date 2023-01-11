@@ -1,32 +1,45 @@
-import axios from "axios";
-import React, { useEffect, useContext } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { cartProducts } from "../../redux/actions/actions";
 import SingleCartCard from "../Shared/SingleCartCard";
 
-const Cart = ({ products }) => {
-  const { user, loading, setLoading } = useContext(AuthContext);
-  const dispatch = useDispatch();
+const Cart = () => {
+  const { user } = useContext(AuthContext);
 
-  const fetchCartProduct = async () => {
-    const res = await axios
-      .get(`http://localhost:5000/cart/${user?.email}`)
+  const {
+    data: products = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: [],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:5000/cart/${user?.email}`);
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  const handleCartProductDelete = (id) => {
+    console.log(id);
+
+    fetch(`http://localhost:5000/cart/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Cart item delete success !!!");
+          refetch();
+        }
+      })
       .catch((err) => console.error(err));
-    dispatch(cartProducts(res.data));
   };
 
-  useEffect(() => {
-    setLoading(true);
-    fetchCartProduct();
-    setLoading(false);
-  }, [user?.email]);
-
   const priceArray = [];
-
-  products.cartProducts?.map((product) => {
+  products?.map((product) => {
     return priceArray.push(product.price);
   });
 
@@ -38,13 +51,13 @@ const Cart = ({ products }) => {
   const tax = withOutTax * 0.01;
   const totalPrice = withOutTax + tax + shipping;
 
-  if (loading) {
+  if (isLoading) {
     return <Spinner />;
   }
 
   return (
     <>
-      {products.cartProducts?.length === 0 ? (
+      {products?.length === 0 ? (
         <div className="flex justify-center mt-10">
           <div>
             <h3 className="text-center mb-3 text-xl">Cart is Empty</h3>
@@ -58,8 +71,12 @@ const Cart = ({ products }) => {
       ) : (
         <div className="w-full grid grid-cols-1 lg:grid-cols-2">
           <div className="grid grid-cols-1 gap-4">
-            {products.cartProducts?.map((product, index) => (
-              <SingleCartCard key={index} product={product} />
+            {products?.map((product, index) => (
+              <SingleCartCard
+                key={index}
+                product={product}
+                handleCartProductDelete={handleCartProductDelete}
+              />
             ))}
           </div>
           <div className="w-full bg-gray-100">
@@ -114,15 +131,8 @@ const Cart = ({ products }) => {
           </div>
         </div>
       )}
-      <div></div>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.cartProducts,
-  };
-};
-
-export default connect(mapStateToProps)(Cart);
+export default Cart;

@@ -2,10 +2,8 @@ import React from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
-const SingleCartCard = ({ product }) => {
-  const { brand, price, quantity, rating, thumbnail, title } = product;
-
-  console.log(product);
+const SingleCartCard = ({ product, handleCartProductDelete }) => {
+  const { _id, brand, price, quantity, rating, thumbnail, title } = product;
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
@@ -47,9 +45,12 @@ const SingleCartCard = ({ product }) => {
         <p className="text-sm">Quantity: {quantity}</p>
         <div className="flex items-center justify-between pr-6">
           <div className="flex items-center">
-            <p className="text-xs underline text-red-500 cursor-pointer">
+            <button
+              onClick={() => handleCartProductDelete(_id)}
+              className="text-xs underline text-red-500 cursor-pointer"
+            >
               Remove
-            </p>
+            </button>
           </div>
           <p className="text-base font-black leading-none text-gray-800">
             ${price}

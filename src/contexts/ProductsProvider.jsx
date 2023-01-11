@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { createContext } from "react";
 
 export const ProductsContext = createContext();
 
 const ProductsProvider = ({ children }) => {
-  const [show, setShow] = useState(false);
-  const productsInfo = { show, setShow };
+  const productsInfo = {};
   return (
     <ProductsContext.Provider value={productsInfo}>
       {children}
