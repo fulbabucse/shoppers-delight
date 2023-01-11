@@ -4,6 +4,7 @@ import {
   categoryProductsReducer,
   detailsProductReducer,
   latestArticleReducer,
+  navbarNewProductsReducer,
   productQuantityReducer,
   similarProductsReducer,
   topProductsReducer,
@@ -17,4 +18,5 @@ export const reducers = combineReducers({
   articles: latestArticleReducer,
   similarProducts: similarProductsReducer,
   cartProducts: cartProductsReducer,
+  newProducts: navbarNewProductsReducer,
 });

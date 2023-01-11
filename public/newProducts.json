@@ -1,0 +1,145 @@
+[
+  {
+    "_id": "63bbdc8bcd2773609035175b",
+    "title": "iPhone 9",
+    "description": "An apple mobile which is nothing like apple",
+    "price": 549,
+    "discountPercentage": 12.96,
+    "rating": 4.69,
+    "stock": 94,
+    "brand": "Apple",
+    "category": "smartphones",
+    "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/1/1.jpg",
+      "https://i.dummyjson.com/data/products/1/2.jpg",
+      "https://i.dummyjson.com/data/products/1/3.jpg",
+      "https://i.dummyjson.com/data/products/1/4.jpg",
+      "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+    ]
+  },
+  {
+    "_id": "63bbdc8bcd27736090351789",
+    "title": "Sneaker shoes",
+    "description": "Synthetic Leather Casual Sneaker shoes for Women/girls Sneakers For Women",
+    "price": 120,
+    "discountPercentage": 10.37,
+    "rating": 4.19,
+    "stock": 50,
+    "brand": "Synthetic Leather",
+    "category": "womens-shoes",
+    "thumbnail": "https://i.dummyjson.com/data/products/47/thumbnail.jpeg",
+    "images": [
+      "https://i.dummyjson.com/data/products/47/1.jpg",
+      "https://i.dummyjson.com/data/products/47/2.jpg",
+      "https://i.dummyjson.com/data/products/47/3.jpg",
+      "https://i.dummyjson.com/data/products/47/thumbnail.jpeg"
+    ]
+  },
+  {
+    "_id": "63bbdc8bcd2773609035179f",
+    "title": "Golden Watch Pearls Bracelet Watch",
+    "description": "Product details of Golden Watch Pearls Bracelet Watch For Girls - Golden Chain Ladies Bracelate Watch for Women",
+    "price": 47,
+    "discountPercentage": 17.55,
+    "rating": 4.77,
+    "stock": 89,
+    "brand": "Watch Pearls",
+    "category": "womens-watches",
+    "thumbnail": "https://i.dummyjson.com/data/products/69/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/69/1.jpg",
+      "https://i.dummyjson.com/data/products/69/2.jpg",
+      "https://i.dummyjson.com/data/products/69/3.webp",
+      "https://i.dummyjson.com/data/products/69/4.jpg",
+      "https://i.dummyjson.com/data/products/69/thumbnail.jpg"
+    ]
+  },
+  {
+    "_id": "63bbdc8bcd277360903517a3",
+    "title": "Fancy hand clutch",
+    "description": "This fashion is designed to add a charming effect to your casual outfit. This Bag is made of synthetic leather.",
+    "price": 44,
+    "discountPercentage": 10.39,
+    "rating": 4.18,
+    "stock": 101,
+    "brand": "Bracelet",
+    "category": "womens-bags",
+    "thumbnail": "https://i.dummyjson.com/data/products/73/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/73/1.jpg",
+      "https://i.dummyjson.com/data/products/73/2.webp",
+      "https://i.dummyjson.com/data/products/73/3.jpg",
+      "https://i.dummyjson.com/data/products/73/thumbnail.jpg"
+    ]
+  },
+
+  {
+    "_id": "63bbdc8bcd277360903517a8",
+    "title": "Rhinestone Korean Style Open Rings",
+    "description": "Fashion Jewellery 3Pcs Adjustable Pearl Rhinestone Korean Style Open Rings For Women",
+    "price": 30,
+    "discountPercentage": 8.02,
+    "rating": 4.69,
+    "stock": 9,
+    "brand": "Fashion Jewellery",
+    "category": "womens-jewellery",
+    "thumbnail": "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
+    "images": ["https://i.dummyjson.com/data/products/78/thumbnail.jpg"]
+  },
+  {
+    "_id": "63bbdc8bcd277360903517ab",
+    "title": "Round Silver Frame Sun Glasses",
+    "description": "A pair of sunglasses can protect your eyes from being hurt. For car driving, vacation travel, outdoor activities, social gatherings,",
+    "price": 19,
+    "discountPercentage": 10.1,
+    "rating": 4.94,
+    "stock": 78,
+    "brand": "Designer Sun Glasses",
+    "category": "sunglasses",
+    "thumbnail": "https://i.dummyjson.com/data/products/81/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/81/1.jpg",
+      "https://i.dummyjson.com/data/products/81/2.jpg",
+      "https://i.dummyjson.com/data/products/81/3.jpg",
+      "https://i.dummyjson.com/data/products/81/4.webp",
+      "https://i.dummyjson.com/data/products/81/thumbnail.jpg"
+    ]
+  },
+  {
+    "_id": "63bbdc8bcd277360903517af",
+    "title": "LouisWill Men Sunglasses",
+    "description": "LouisWill Men Sunglasses Polarized Sunglasses UV400 Sunglasses Day Night Dual Use Safety Driving Night Vision Eyewear AL-MG Frame Sun Glasses with Free Box for Drivers",
+    "price": 50,
+    "discountPercentage": 11.27,
+    "rating": 4.98,
+    "stock": 92,
+    "brand": "LouisWill",
+    "category": "sunglasses",
+    "thumbnail": "https://i.dummyjson.com/data/products/85/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/85/1.jpg",
+      "https://i.dummyjson.com/data/products/85/2.jpg",
+      "https://i.dummyjson.com/data/products/85/thumbnail.jpg"
+    ]
+  },
+  {
+    "_id": "63bbdc8bcd277360903517b1",
+    "title": "t Temperature Controller Incubator Controller",
+    "description": "Both Heat and Cool Purpose, Temperature control range; -50 to +110, Temperature measurement accuracy; 0.1, Control accuracy; 0.1",
+    "price": 40,
+    "discountPercentage": 11.3,
+    "rating": 4.54,
+    "stock": 37,
+    "brand": "W1209 DC12V",
+    "category": "automotive",
+    "thumbnail": "https://i.dummyjson.com/data/products/87/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/87/1.jpg",
+      "https://i.dummyjson.com/data/products/87/2.jpg",
+      "https://i.dummyjson.com/data/products/87/3.jpg",
+      "https://i.dummyjson.com/data/products/87/4.jpg",
+      "https://i.dummyjson.com/data/products/87/thumbnail.jpg"
+    ]
+  }
+]

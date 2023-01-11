@@ -3,6 +3,7 @@ import {
   CATEGORY_PRODUCTS,
   DETAILS_PRODUCT,
   LATEST_ARTICLE,
+  NAVBAR_NEW_PRODUCTS,
   QUANTITY_DECREMENT,
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
@@ -127,6 +128,25 @@ export const cartProductsReducer = (state = initialCartState, action) => {
       return {
         ...state,
         cartProducts: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialNewProductsState = {
+  newProducts: [],
+};
+
+export const navbarNewProductsReducer = (
+  state = initialNewProductsState,
+  action
+) => {
+  switch (action.type) {
+    case NAVBAR_NEW_PRODUCTS:
+      return {
+        ...state,
+        newProducts: action.payload,
       };
     default:
       return state;

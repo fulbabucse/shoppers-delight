@@ -3,18 +3,18 @@ import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { latestArticle } from "../../../redux/actions/actions";
-import ArticleCard from "../ArticleCard";
+import { navbarNewProducts } from "../../../redux/actions/actions";
 import "../../../assets/styles.css";
 import { FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import NavbarProductCard from "./NavbarProductCard";
 
-const NavbarProducts = ({ articles }) => {
+const NavbarProducts = ({ products }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3, // optional, default to 1.
+      items: 5,
+      slidesToSlide: 5, // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -30,18 +30,18 @@ const NavbarProducts = ({ articles }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get("article.json")
+      .get("newProducts.json")
       .then((res) => {
-        dispatch(latestArticle(res.data));
+        dispatch(navbarNewProducts(res.data));
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="bg-white p-3 rounded-md">
-      <div className="flex justify-between items-center mb-2">
+    <div>
+      <div className="flex justify-between items-center mb-1">
         <h1 className="text-2xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 roboto-font">
-          New Products
+          Latest Products
         </h1>
         <Link
           to="/products"
@@ -69,8 +69,8 @@ const NavbarProducts = ({ articles }) => {
         dotListclassName="custom-dot-list-style"
         itemclassName="carousel-item-padding-40-px"
       >
-        {articles?.articles?.map((article) => (
-          <ArticleCard key={article?.id} article={article} />
+        {products?.newProducts?.map((product) => (
+          <NavbarProductCard key={product?._id} product={product} />
         ))}
       </Carousel>
     </div>
@@ -79,7 +79,7 @@ const NavbarProducts = ({ articles }) => {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.articles,
+    products: state.newProducts,
   };
 };
 

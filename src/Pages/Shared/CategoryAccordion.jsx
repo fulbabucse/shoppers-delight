@@ -1,17 +1,7 @@
-// import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const CategoryAccordion = () => {
-  // const { data: categories = [] } = useQuery({
-  //   queryKey: [],
-  //   queryFn: async () => {
-  //     const res = await fetch("category.json");
-  //     const data = await res.json();
-  //     return data;
-  //   },
-  // });
-
   return (
     <div>
       {/* Women's Fashion */}
