@@ -28,7 +28,7 @@ const SingleReviewCard = ({ review }) => {
           <p>
             {name}
             <span class="block text-sm text-gray-500 dark:text-gray-400">
-              {joinDate}
+              Joined on {joinDate}
             </span>
           </p>
         </div>

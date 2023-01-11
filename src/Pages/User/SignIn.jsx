@@ -54,7 +54,6 @@ const SignIn = () => {
           <button
             onClick={() => handleGoogleSignIn()}
             aria-label="Continue with google"
-            role="button"
             className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-10"
           >
             <img
@@ -67,7 +66,6 @@ const SignIn = () => {
           </button>
           <button
             aria-label="Continue with github"
-            role="button"
             className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
           >
             <img
@@ -80,7 +78,6 @@ const SignIn = () => {
           </button>
           <button
             aria-label="Continue with twitter"
-            role="button"
             className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-full mt-4"
           >
             <img
@@ -152,7 +149,7 @@ const SignIn = () => {
             </div>
             <div className="mt-8">
               <button
-                role="button"
+                type="submit"
                 className="focus:ring-2 focus:ring-offset-2 focus:ring-red-700 rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 w-full"
               >
                 Sign In

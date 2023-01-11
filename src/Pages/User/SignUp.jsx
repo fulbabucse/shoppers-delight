@@ -5,8 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignUp = () => {
-  const { signUpEmailPassword, updateUserProfile, user } =
-    useContext(AuthContext);
+  const { signUpEmailPassword, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,

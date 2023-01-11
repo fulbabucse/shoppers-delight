@@ -3,7 +3,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const TestimonialCard = ({ data }) => {
-  const { rating, image, location, name, post, designation } = data;
+  const { rating, name, post, designation } = data;
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;

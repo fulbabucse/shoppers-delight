@@ -1,4 +1,3 @@
-import millify from "millify";
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt } from "react-icons/fa";
@@ -27,12 +26,6 @@ const ArticleCard = ({ article }) => {
               className="w-full h-[180px]"
               alt={content_title}
             />
-            <a>
-              <div
-                className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
-              ></div>
-            </a>
           </div>
         </div>
 
