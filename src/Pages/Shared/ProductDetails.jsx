@@ -80,6 +80,7 @@ const ProductDetails = ({ product, quantity }) => {
   if (isLoading) {
     return <Spinner />;
   }
+
   const createAt = new Date().getTime();
   const handleAddToCart = () => {
     const cartProduct = {
@@ -91,7 +92,7 @@ const ProductDetails = ({ product, quantity }) => {
       brand,
       category,
       createAt,
-      price: Math.ceil(discountedPrice),
+      price: Math.ceil(discountedPrice * quantity.quantity),
       quantity: quantity.quantity,
       email: user?.email,
     };

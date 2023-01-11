@@ -25,6 +25,20 @@ const Cart = ({ products }) => {
     fetchCartProduct();
   }, [user?.email]);
 
+  const priceArray = [];
+
+  products.cartProducts?.map((product) => {
+    return priceArray.push(product.price);
+  });
+
+  const withOutTax = priceArray.reduce((total, value) => {
+    return total + value;
+  }, 0);
+
+  const shipping = 35;
+  const tax = withOutTax * 0.1;
+  const totalPrice = withOutTax + tax + shipping;
+
   return (
     <>
       <div>
@@ -47,7 +61,7 @@ const Cart = ({ products }) => {
                     <p className="text-sm pl-2 leading-none">Back</p>
                   </div>
                   <p className="text-2xl font-semibold text-gray-800 pt-5">
-                    Total Cart {products?.cartProducts?.length}
+                    Total Items {products?.cartProducts?.length} Pieces
                   </p>
 
                   {/* Cart Products */}
@@ -69,7 +83,7 @@ const Cart = ({ products }) => {
                             Subtotal
                           </p>
                           <p className="text-base leading-none text-gray-800">
-                            $9,000
+                            ${withOutTax}
                           </p>
                         </div>
                         <div className="flex items-center justify-between">
@@ -77,7 +91,7 @@ const Cart = ({ products }) => {
                             Shipping
                           </p>
                           <p className="text-base leading-none text-gray-800">
-                            $30
+                            ${shipping}
                           </p>
                         </div>
                         <div className="flex items-center justify-between">
@@ -85,7 +99,7 @@ const Cart = ({ products }) => {
                             Tax
                           </p>
                           <p className="text-base leading-none text-gray-800">
-                            $35
+                            $${tax.toFixed(2)}
                           </p>
                         </div>
                         <div className="flex items-center justify-between">
@@ -93,7 +107,7 @@ const Cart = ({ products }) => {
                             Total
                           </p>
                           <p className="text-xl leading-none font-bold text-right text-gray-800">
-                            $10,240
+                            ${totalPrice.toFixed(2)}
                           </p>
                         </div>
                       </div>
