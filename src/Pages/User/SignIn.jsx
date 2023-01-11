@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignIn = () => {
@@ -13,11 +13,13 @@ const SignIn = () => {
   } = useForm();
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleUserSignIn = (userData) => {
     signInUser(userData?.email, userData?.password)
       .then(() => {
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((err) => console.error(err));
   };
@@ -25,7 +27,7 @@ const SignIn = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch(() => {});
   };

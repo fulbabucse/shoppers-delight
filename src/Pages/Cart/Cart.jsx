@@ -89,7 +89,7 @@ const Cart = () => {
                       Total Items
                     </p>
                     <p className="text-base leading-none text-gray-800">
-                      {products.cartProducts?.length}
+                      {products?.length}P
                     </p>
                   </div>
                   <div className="flex items-center justify-between">

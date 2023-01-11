@@ -358,7 +358,7 @@ const CategoryAccordion = () => {
             aria-expanded="false"
             aria-controls="flush-collapseTwo"
           >
-            automotive
+            Automotive
           </button>
         </h2>
         <div
