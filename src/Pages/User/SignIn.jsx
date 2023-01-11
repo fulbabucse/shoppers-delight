@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -40,6 +41,9 @@ const SignIn = () => {
   };
   return (
     <div className="h-full bg-transparent w-full py-8 px-4">
+      <Helmet>
+        <title>Sign In - Shopper's Delight</title>
+      </Helmet>
       <div className="flex flex-col items-center justify-center">
         <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
           <p

@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -47,6 +48,9 @@ const SignUp = () => {
   };
   return (
     <div className="w-full lg:max-w-md mx-auto">
+      <Helmet>
+        <title>Sign Up - Shopper's Delight</title>
+      </Helmet>
       <div className="bg-white shadow sm:rounded-lg flex justify-center">
         <div className="p-6 sm:p-12">
           <div className="flex flex-col items-center">

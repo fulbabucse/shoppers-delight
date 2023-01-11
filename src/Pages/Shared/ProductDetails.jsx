@@ -18,6 +18,7 @@ import Review from "../Products/Review";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const ProductDetails = ({ product, quantity }) => {
   const { user } = useContext(AuthContext);
@@ -117,6 +118,9 @@ const ProductDetails = ({ product, quantity }) => {
 
   return (
     <div>
+      <Helmet>
+        <title>Product Details - Shopper's Delight</title>
+      </Helmet>
       {Object.keys(product).length === 0 ? (
         <>
           <Spinner />

@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
     <div>
+      <Helmet>
+        <title>Contact - Shopper's Delight</title>
+      </Helmet>
       <section className="min-h-screen bg-transparent dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <div className="lg:flex lg:items-center lg:-mx-10">
@@ -59,7 +63,7 @@ const Contact = () => {
             <div className="mt-12 lg:flex lg:mt-0 lg:flex-col lg:items-center lg:w-1/2 lg:mx-10">
               <img
                 className="hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96"
-                src="https://img.freepik.com/free-photo/portrait-pretty-lady-red-warm-jacket-stylish-eyeglasses_197531-15046.jpg?w=740&t=st=1673115230~exp=1673115830~hmac=c486594935251d060e0d8087468a2159be08df60d0153f8d3c20fd248adea99d"
+                src="https://fulbabu.vercel.app/static/media/developer-about.086bf08f5270d869b20a.jpg"
                 alt=""
               />
 

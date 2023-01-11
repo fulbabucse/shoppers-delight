@@ -8,10 +8,14 @@ import HeroSection from "./HeroSection";
 import Testimonials from "./Testimonials";
 import Tops from "./Tops";
 import LatestArticle from "./LatestArticle";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Home - Shopper's Delight</title>
+      </Helmet>
       <HeroSection />
       <Category />
       <Tops />

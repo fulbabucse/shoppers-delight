@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -7,6 +8,9 @@ const AccountSettings = () => {
   const { user } = useContext(AuthContext);
   return (
     <div class="container mx-auto p-5 min-h-screen">
+      <Helmet>
+        <title>{user?.displayName} Profile - Shopper's Delight</title>
+      </Helmet>
       <div class="flex items-start">
         <ul
           class="nav nav-tabs flex flex-col flex-wrap list-none border-b-0 pl-0 mr-4"

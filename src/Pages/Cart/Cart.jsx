@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/Spinner";
@@ -59,6 +60,9 @@ const Cart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Cart - Shopper's Delight</title>
+      </Helmet>
       {products?.length === 0 ? (
         <div className="flex justify-center mt-10">
           <div>

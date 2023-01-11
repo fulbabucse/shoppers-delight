@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { FaStar } from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { ProductsContext } from "../contexts/ProductsProvider";
@@ -11,6 +12,9 @@ const ProductLayout = () => {
 
   return (
     <div className="md:flex justify-center gap-4 px-3 lg:px-0">
+      <Helmet>
+        <title>Products - Shopper's Delight</title>
+      </Helmet>
       <div className="lg:max-w-sm mt-3 lg:mt-0 w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md">
         <div className="mb-3">
           <h1 className="text-lg font-medium text-gray-600 dark:text-gray-50 roboto-font">
