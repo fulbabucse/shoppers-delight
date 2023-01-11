@@ -17,18 +17,21 @@ const Cart = () => {
   } = useQuery({
     queryKey: ["cart", user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/cart/${user?.email}`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-        },
-      });
+      const res = await fetch(
+        `https://shopper-s-delight-server.vercel.app/cart/${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       return data;
     },
   });
 
   const handleCartProductDelete = (id) => {
-    fetch(`http://localhost:5000/cart/${id}`, {
+    fetch(`https://shopper-s-delight-server.vercel.app/cart/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

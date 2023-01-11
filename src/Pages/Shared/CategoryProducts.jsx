@@ -15,7 +15,7 @@ const CategoryProducts = () => {
     queryKey: [name, startPrice, endPrice, startPrice, ratingStar],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products/category/${name}?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
+        `https://shopper-s-delight-server.vercel.app/products/category/${name}?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
       );
       const data = await res.json();
       return data;
