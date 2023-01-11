@@ -6,10 +6,11 @@ import "react-multi-carousel/lib/styles.css";
 import { navbarNewProducts } from "../../../redux/actions/actions";
 import "../../../assets/styles.css";
 import { FaAngleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import NavbarProductCard from "./NavbarProductCard";
 
 const NavbarProducts = ({ products }) => {
+  const location = useLocation();
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -35,7 +36,7 @@ const NavbarProducts = ({ products }) => {
         dispatch(navbarNewProducts(res.data));
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [location?.pathname]);
 
   return (
     <div>

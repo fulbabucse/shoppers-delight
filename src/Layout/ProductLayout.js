@@ -26,7 +26,7 @@ const ProductLayout = () => {
               Rating
             </h1>
             <p className="h-[2px] w-8 bg-red-500"></p>
-            <div className="mt-3">
+            <div className="mt-3 space-y-1">
               <div>
                 <button
                   onClick={() => handleRatingStar(5)}
