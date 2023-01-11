@@ -49,12 +49,14 @@ const ProductDetails = ({ product, quantity }) => {
     queryKey: ["category", category],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products/category/${category}`
+        `http://localhost:5000/products/similar/${category}`
       );
       const data = await res.json();
       return data;
     },
   });
+
+  console.log(product);
 
   useEffect(() => {
     fetchSingleProduct();
