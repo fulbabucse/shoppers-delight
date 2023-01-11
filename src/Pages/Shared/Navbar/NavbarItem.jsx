@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
+import NavbarProducts from "./NavbarProducts";
 
 const NavbarItem = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const NavbarItem = () => {
     <div className="flex space-x-2">
       <div className="px-4 lg:px-10">
         <div
-          className="offcanvas offcanvas-top fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 left-0 right-0 border-none h-1/3 max-h-full"
+          className="offcanvas offcanvas-top fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 left-0 right-0 border-none h-2/3"
           tabIndex="-1"
           id="offcanvasTop"
           aria-labelledby="offcanvasTopLabel"
@@ -145,6 +146,9 @@ const NavbarItem = () => {
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
+          </div>
+          <div className="px-4">
+            <NavbarProducts />
           </div>
         </div>
       </div>
