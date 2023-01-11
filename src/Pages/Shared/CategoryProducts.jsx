@@ -6,16 +6,16 @@ import { ProductsContext } from "../../contexts/ProductsProvider";
 import ProductCard from "./ProductCard";
 
 const CategoryProducts = () => {
-  const { newPrice } = useContext(ProductsContext);
+  const { newPrice, ratingStar } = useContext(ProductsContext);
   const startPrice = Math.ceil(newPrice[0]);
   const endPrice = Math.ceil(newPrice[1]);
 
   const { name } = useParams();
   const { data: products = [], isLoading } = useQuery({
-    queryKey: [name, startPrice, endPrice],
+    queryKey: [name, startPrice, endPrice, startPrice, ratingStar],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products/category/${name}?start=${startPrice}&end=${endPrice}`
+        `http://localhost:5000/products/category/${name}?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
       );
       const data = await res.json();
       return data;

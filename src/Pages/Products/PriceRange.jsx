@@ -12,10 +12,10 @@ const PriceRange = () => {
   return (
     <div className="mt-5">
       <div className="mb-7">
-        <h1 className="text-xl font-medium text-gray-600 dark:text-gray-50 uppercase roboto-font">
-          Shop by Price
+        <h1 className="text-lg font-medium text-gray-600 dark:text-gray-50 roboto-font">
+          Price
         </h1>
-        <p className="h-[2px] w-20 bg-red-500"></p>
+        <p className="h-[2px] w-7 bg-red-500"></p>
       </div>
       <div
         style={{

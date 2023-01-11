@@ -5,7 +5,18 @@ export const ProductsContext = createContext();
 
 const ProductsProvider = ({ children }) => {
   const [newPrice, setNewPrice] = useState([1, 1500]);
-  const productsInfo = { newPrice, setNewPrice };
+  const [ratingStar, setRatingStar] = useState(4);
+
+  const handleRatingStar = (getRating) => {
+    setRatingStar(getRating);
+  };
+  const productsInfo = {
+    newPrice,
+    setNewPrice,
+    handleRatingStar,
+    ratingStar,
+  };
+
   return (
     <ProductsContext.Provider value={productsInfo}>
       {children}

@@ -6,23 +6,21 @@ import ProductCard from "../Shared/ProductCard";
 
 const AllProducts = () => {
   const [showMore, setShowMore] = useState(9);
-  const { newPrice } = useContext(ProductsContext);
+  const { newPrice, ratingStar } = useContext(ProductsContext);
 
   const startPrice = Math.ceil(newPrice[0]);
   const endPrice = Math.ceil(newPrice[1]);
 
   const { data: products = [], isLoading } = useQuery({
-    queryKey: ["products", startPrice, endPrice],
+    queryKey: ["products", startPrice, endPrice, ratingStar],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products?start=${startPrice}&end=${endPrice}`
+        `http://localhost:5000/products?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
       );
       const data = await res.json();
       return data;
     },
   });
-
-  console.log(products);
 
   const sliceProducts = products?.slice(0, showMore);
 
