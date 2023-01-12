@@ -30,7 +30,7 @@ const Category = () => {
                         <h2 className="text-xl font-medium text-white">
                           Jewellery
                         </h2>
-                        <Link to="/products/category/womens-jewellery">
+                        <Link to="/category/womens-jewellery">
                           <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
                             Show More
                           </button>
@@ -52,7 +52,7 @@ const Category = () => {
                         <h2 className="text-xl font-medium text-white">
                           Laptops
                         </h2>
-                        <Link to="/products/category/laptops">
+                        <Link to="/category/laptops">
                           <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
                             Show More
                           </button>

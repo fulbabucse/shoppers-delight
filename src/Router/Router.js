@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import Cart from "../Pages/Cart/Cart";
+import TopCategoryProducts from "../Pages/Products/TopCategoryProducts";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
         ),
       },
       { path: "/product/id/:id", element: <ProductDetails /> },
-      { path: "/category/:name", element: <CategoryProducts /> },
+      { path: "/category/:name", element: <TopCategoryProducts /> },
       {
         path: "account-settings",
         element: (

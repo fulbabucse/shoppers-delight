@@ -56,8 +56,6 @@ const ProductDetails = ({ product, quantity }) => {
     },
   });
 
-  console.log(product);
-
   useEffect(() => {
     fetchSingleProduct();
     return () => {
