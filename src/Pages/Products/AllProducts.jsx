@@ -46,7 +46,7 @@ const AllProducts = () => {
   return (
     <div>
       <div className="mb-2">
-        <p>{products?.products?.length} items found</p>
+        <p className="text-center">{products?.products?.length} items found</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products?.products?.map((product, index) => (
