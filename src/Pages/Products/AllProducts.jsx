@@ -32,12 +32,22 @@ const AllProducts = () => {
 
   const pages = Math.ceil(products?.count / size);
 
+  const handlePrev = () => {
+    setPage(page - 1);
+  };
+  const handleNext = () => {
+    setPage(page + 1);
+  };
+
   if (isLoading) {
     return <Spinner />;
   }
 
   return (
     <div>
+      <div className="mb-2">
+        <p>{products?.products?.length} items found</p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products?.products?.map((product, index) => (
           <ProductCard product={product} key={index} />
@@ -75,25 +85,35 @@ const AllProducts = () => {
               </div>
             </div>
             <p class="text-gray-500 mt-4 lg:mt-0">
-              Showing {page + 1} to {pages} of {products?.products?.length}{" "}
-              Entires
+              Showing {page + 1} to {pages} of {products?.products?.length}
+              <span className="ml-1">Entires</span>
             </p>
           </div>
-          {/* px-4 py-2 rounded bg-gray-200 text-gray-900 font-medium hover:bg-gray-100 */}
           <nav class="flex justify-center items-center text-gray-600 mt-8 lg:mt-0">
-            <button class="p-2 mr-4 rounded hover:bg-gray-100">
+            <button
+              onClick={() => handlePrev()}
+              disabled={page === 0}
+              class="p-2 mr-4 rounded hover:bg-gray-100"
+            >
               <FaAngleLeft />
             </button>
             {[...Array(pages).keys()].map((n) => (
               <button
                 onClick={() => setPage(n)}
                 key={n}
-                class="px-4 py-2 rounded hover:bg-gray-200"
+                className={`${
+                  page === n &&
+                  "px-4 py-2 bg-gray-200 text-gray-900 font-medium hover:bg-gray-300"
+                } hover:bg-gray-300 px-4 py-2`}
               >
                 {n + 1}
               </button>
             ))}
-            <button class="p-2 ml-4 rounded hover:bg-gray-100">
+            <button
+              onClick={() => handleNext()}
+              disabled={page + 1 === pages}
+              class="p-2 ml-4 rounded hover:bg-gray-100"
+            >
               <FaAngleRight />
             </button>
           </nav>
