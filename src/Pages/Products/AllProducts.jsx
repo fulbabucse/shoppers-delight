@@ -15,7 +15,12 @@ const AllProducts = () => {
     queryKey: ["products", startPrice, endPrice, ratingStar],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
+        `http://localhost:5000/products?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+          },
+        }
       );
       const data = await res.json();
       return data;

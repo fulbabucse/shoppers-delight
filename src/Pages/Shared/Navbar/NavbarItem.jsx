@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
 import NavbarProducts from "./NavbarProducts";
+import logo from "../../../assets/images/logo/shoppers-logo.png";
 
 const NavbarItem = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -26,9 +27,7 @@ const NavbarItem = () => {
           <div className="offcanvas-header flex items-center justify-between p-4">
             <div>
               <Link to="/">
-                <h1 className="text-lg lg:text-2xl font-bold text-gray-800">
-                  Shopper's Delight
-                </h1>
+                <img className="h-14" src={logo} alt="Brand Logo" />
               </Link>
             </div>
             <div className="flex flex-col md:flex-row md:mx-6">

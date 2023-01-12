@@ -5,8 +5,6 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 const TopProductCard = ({ product }) => {
   const { thumbnail, title, price, rating } = product;
 
-  console.log(product);
-
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
 
