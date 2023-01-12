@@ -7,16 +7,24 @@ import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import TopProductCard from "../Shared/TopProductCard";
 import { topProducts } from "../../redux/actions/actions";
+import { useState } from "react";
+import Spinner from "../../components/Spinner";
 
 const Tops = ({ products }) => {
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
+    setLoading(true);
     axios
       .get("http://localhost:5000/feature-products")
       .then((res) => {
+        setLoading(false);
         dispatch(topProducts(res.data));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   }, []);
 
   const rating = 4.8;
@@ -36,6 +44,10 @@ const Tops = ({ products }) => {
       </span>
     );
   });
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="px-4 lg:px-0 lg:pb-10">
