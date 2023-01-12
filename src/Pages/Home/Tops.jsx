@@ -12,7 +12,7 @@ const Tops = ({ products }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get("topsProducts.json")
+      .get("http://localhost:5000/feature-products")
       .then((res) => {
         dispatch(topProducts(res.data));
       })
@@ -85,7 +85,7 @@ const Tops = ({ products }) => {
         <div className="flex-1">
           <div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-              {products?.topProducts?.map((product) => (
+              {products?.topProducts?.slice(1, 7)?.map((product) => (
                 <TopProductCard key={product?.id} product={product} />
               ))}
             </div>

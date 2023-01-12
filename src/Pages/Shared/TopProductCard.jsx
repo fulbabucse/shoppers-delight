@@ -3,7 +3,9 @@ import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const TopProductCard = ({ product }) => {
-  const { image, title, price, rating } = product;
+  const { thumbnail, title, price, rating } = product;
+
+  console.log(product);
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
@@ -25,7 +27,7 @@ const TopProductCard = ({ product }) => {
       <div className="flex items-center gap-3 bg-white py-2 pl-3 rounded-md h-full">
         <div>
           <img
-            src={image}
+            src={thumbnail}
             alt={title}
             className="rounded-md w-[100px] h-[100px]"
           />
@@ -37,7 +39,9 @@ const TopProductCard = ({ product }) => {
               <p className="text-gray-600 font-bold text-sm ml-1">{rating}</p>
             </div>
           </div>
-          <h3 className="text-gray-600 text-sm capitalize">{title}</h3>
+          <h3 className="text-gray-600 text-sm capitalize">
+            {title.length > 15 ? <>{title?.slice(0, 15)}...</> : title}
+          </h3>
           <p className="text-lg font-semibold text-gray-800">${price}</p>
         </div>
       </div>
