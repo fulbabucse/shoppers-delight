@@ -43,6 +43,14 @@
   background-repeat: no-repeat;
 }
 
+.feature-bg {
+  background-image: url("../assets/images/Animated-Shape.svg");
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 640px) {
   .collectionsStyles {
     height: 100vh;
