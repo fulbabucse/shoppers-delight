@@ -39,7 +39,7 @@ const ProductDetails = ({ product, quantity }) => {
 
   const discountedPrice = price - price / discountPercentage;
 
-  const url = `https://shopper-s-delight-server.vercel.app/products/${id}`;
+  const url = `http://localhost:5000/products/${id}`;
   const fetchSingleProduct = async () => {
     const res = await axios.get(url).catch((err) => console.log(err.message));
     dispatch(detailsProduct(res.data));
@@ -49,7 +49,7 @@ const ProductDetails = ({ product, quantity }) => {
     queryKey: ["category", category],
     queryFn: async () => {
       const res = await fetch(
-        `https://shopper-s-delight-server.vercel.app/products/similar/${category}`
+        `http://localhost:5000/products/similar/${category}`
       );
       const data = await res.json();
       return data;
@@ -101,7 +101,7 @@ const ProductDetails = ({ product, quantity }) => {
       email: user?.email,
     };
 
-    fetch("https://shopper-s-delight-server.vercel.app/cart", {
+    fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

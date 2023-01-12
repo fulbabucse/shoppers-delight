@@ -19,9 +19,7 @@ const Review = ({ product }) => {
   const { data: reviews = [], refetch } = useQuery({
     queryKey: ["reviews", _id],
     queryFn: async () => {
-      const res = await fetch(
-        `https://shopper-s-delight-server.vercel.app/reviews/${_id}`
-      );
+      const res = await fetch(`http://localhost:5000/reviews/${_id}`);
       const data = await res.json();
       return data;
     },
@@ -48,7 +46,7 @@ const Review = ({ product }) => {
       }),
     };
 
-    fetch("https://shopper-s-delight-server.vercel.app/reviews", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

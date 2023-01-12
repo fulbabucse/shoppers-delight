@@ -6,7 +6,7 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://shopper-s-delight-server.vercel.app/jwt?email=${email}`)
+      fetch(`http://localhost:5000/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           localStorage.setItem("ShopperToken", data.accessToken);
