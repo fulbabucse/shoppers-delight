@@ -21,7 +21,7 @@ const SingleCartCard = ({ product, handleCartProductDelete }) => {
     );
   });
   return (
-    <div className="md:flex items-center gap-3 bg-white p-3 rounded-md">
+    <div className="lg:flex items-center gap-3 bg-white p-3 rounded-md">
       <div>
         <img
           src={thumbnail}
