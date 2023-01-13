@@ -6,6 +6,8 @@
 
 JSX, Tailwind, Javascript, React Js, React Router, Redux, Axios, Swiper js, Express.js, Node.js, MongoDB, JWT, Millify, React Multi Carousel, React form hook, Firebase, React Query, React Range, React Icons, React Hot Toast
 
+##### live link https://shoppers-delight.vercel.app
+
 ##### live link https://shopper-delight-react.web.app
 
 ##### server link https://github.com/fulbabucse/shoppers-delight-server
