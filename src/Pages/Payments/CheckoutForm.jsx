@@ -4,8 +4,11 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const CheckoutForm = () => {
+  const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
   const [message, setMessage] = useState(null);
@@ -22,6 +25,10 @@ const CheckoutForm = () => {
       elements,
       confirmParams: {
         return_url: `${window.location.origin}/payments-success`,
+      },
+      billing_details: {
+        name: user?.displayName,
+        email: user?.email,
       },
     });
 
@@ -47,7 +54,7 @@ const CheckoutForm = () => {
 
       {message && (
         <>
-          <div id="payment-message">{message}</div>
+          <div id="mt-4 text-center">{message}</div>
         </>
       )}
     </div>
