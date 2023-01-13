@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
-const CheckoutForm = ({ products }) => {
+const CheckoutForm = ({ products, price }) => {
   const { user } = useContext(AuthContext);
 
   const stripe = useStripe();
@@ -43,17 +43,16 @@ const CheckoutForm = ({ products }) => {
     } else if (paymentIntent.status === "succeeded") {
       const paymentInfo = {
         products: products,
-        payment_info: {
-          name: user?.displayName,
-          email: user?.email,
-          payment_date: new Date().toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          }),
-          createAt: new Date().getTime(),
-          transectionId: paymentIntent.id,
-        },
+        name: user?.displayName,
+        email: user?.email,
+        payment_date: new Date().toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
+        price,
+        createAt: new Date().getTime(),
+        transectionId: paymentIntent.id,
       };
       fetch(`${process.env.REACT_APP_BASE_URL}/payments`, {
         method: "POST",

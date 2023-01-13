@@ -48,6 +48,10 @@ const Payments = () => {
     return total + value;
   }, 0);
 
+  const shipping = 35;
+  const tax = price * 0.01;
+  const totalPrice = price + tax + shipping;
+
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BASE_URL}/create-payment-intent`, {
       method: "POST",
@@ -66,7 +70,7 @@ const Payments = () => {
     <div>
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm products={products} />
+          <CheckoutForm products={products} price={totalPrice} />
         </Elements>
       )}
     </div>

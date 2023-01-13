@@ -2,7 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FaUser } from "react-icons/fa";
-import { AuthContext } from "../../contexts/AuthProvider";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import Purchase from "./Purchase";
 
 const AccountSettings = () => {
   const { user } = useContext(AuthContext);
@@ -102,6 +103,7 @@ const AccountSettings = () => {
             </a>
           </li>
         </ul>
+
         <div class="tab-content" id="tabs-tabContentVertical">
           <div
             class="tab-pane fade show active"
@@ -164,14 +166,20 @@ const AccountSettings = () => {
               </div>
             </div>
           </div>
+
+          {/* Purchase */}
           <div
-            class="tab-pane fade"
+            class="tab-pane fade w-full"
             id="tabs-purchase"
             role="tabpanel"
             aria-labelledby="tab-purchase"
           >
-            <h1>Purchase</h1>
+            <div className="w-full">
+              <Purchase />
+            </div>
           </div>
+
+          {/* Edit Profile */}
           <div
             class="tab-pane fade"
             id="tabs-editProfile"
@@ -181,62 +189,6 @@ const AccountSettings = () => {
             <h1>Edit Profile</h1>
           </div>
         </div>
-      </div>
-      <div class="md:flex no-wrap md:-mx-2 ">
-        {/* Lagbe */}
-        {/* <div class="w-full md:w-9/12 mx-2 h-64">
-          <div class="bg-white p-3 shadow-sm rounded-sm">
-            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
-              <span class="text-green-500">
-                <FaUser />
-              </span>
-              <span class="tracking-wide">About</span>
-            </div>
-            <div class="text-gray-700">
-              <div class="grid md:grid-cols-2 text-sm">
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">First Name</div>
-                  <div class="px-4 py-2">Jane</div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Last Name</div>
-                  <div class="px-4 py-2">Doe</div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Gender</div>
-                  <div class="px-4 py-2">Female</div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Contact No.</div>
-                  <div class="px-4 py-2">+11 998001001</div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Current Address</div>
-                  <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Permanant Address</div>
-                  <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Email.</div>
-                  <div class="px-4 py-2">
-                    <a class="text-blue-800" href="mailto:jane@example.com">
-                      jane@example.com
-                    </a>
-                  </div>
-                </div>
-                <div class="grid grid-cols-2">
-                  <div class="px-4 py-2 font-semibold">Birthday</div>
-                  <div class="px-4 py-2">Feb 06, 1998</div>
-                </div>
-              </div>
-            </div>
-            <button class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
-              Show Full Information
-            </button>
-          </div>
-        </div> */}
       </div>
     </div>
   );

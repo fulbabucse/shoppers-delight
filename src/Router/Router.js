@@ -5,7 +5,6 @@ import AllProducts from "../Pages/Products/AllProducts";
 import Home from "../Pages/Home/Home";
 import CategoryProducts from "../Pages/Shared/CategoryProducts";
 import ProductDetails from "../Pages/Shared/ProductDetails";
-import AccountSettings from "../Pages/User/AccountSettings";
 import SignIn from "../Pages/User/SignIn";
 import SignUp from "../Pages/User/SignUp";
 import PrivateRoute from "./PrivateRoute";
@@ -15,6 +14,8 @@ import Cart from "../Pages/Cart/Cart";
 import TopCategoryProducts from "../Pages/Products/TopCategoryProducts";
 import Payments from "../Pages/Payments/Payments";
 import PaymentSuccess from "../Pages/Payments/PaymentSuccess";
+import AccountSettings from "../Pages/User/Accounts/AccountSettings";
+import Invoice from "../components/Invoice";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,7 @@ export const router = createBrowserRouter([
       { path: "sign-up", element: <SignUp /> },
       { path: "payments", element: <Payments /> },
       { path: "payments-success", element: <PaymentSuccess /> },
+      { path: "/payments/invoice/:id", element: <Invoice /> },
     ],
   },
 ]);
