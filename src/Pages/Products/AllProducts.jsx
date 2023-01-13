@@ -97,7 +97,7 @@ const AllProducts = () => {
             >
               <FaAngleLeft />
             </button>
-            {[...Array(pages).keys()].map((n) => (
+            {[...Array(pages).keys()]?.map((n) => (
               <button
                 onClick={() => setPage(n)}
                 key={n}

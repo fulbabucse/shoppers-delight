@@ -16,7 +16,7 @@ const LargeNavbar = () => {
         <div>
           <div className="offcanvas-header flex items-center justify-between py-4">
             <button
-              className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 flex items-center gap-1"
+              className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 flex items-center gap-1 hover:shadow-lg"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasTop"

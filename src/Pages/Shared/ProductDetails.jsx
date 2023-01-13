@@ -99,7 +99,7 @@ const ProductDetails = ({ product, quantity }) => {
       email: user?.email,
     };
 
-    fetch("${process.env.REACT_APP_BASE_URL}/cart", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/cart`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -48,7 +48,7 @@ const Review = ({ product }) => {
       }),
     };
 
-    fetch("${process.env.REACT_APP_BASE_URL}/reviews", {
+    fetch(`${process.env.REACT_APP_BASE_URL}/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
