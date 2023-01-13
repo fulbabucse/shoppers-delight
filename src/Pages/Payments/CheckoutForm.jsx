@@ -5,16 +5,17 @@ import {
 } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ products }) => {
   const { user } = useContext(AuthContext);
 
-  console.log(user);
   const stripe = useStripe();
   const elements = useElements();
   const [message, setMessage] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ const CheckoutForm = () => {
     }
 
     setIsProcessing(true);
-    const { error } = await stripe.confirmPayment({
+    const { paymentIntent, error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: `${window.location.origin}/payments-success`,
@@ -34,10 +35,15 @@ const CheckoutForm = () => {
           },
         },
       },
+      redirect: "if_required",
     });
 
     if (error) {
       setMessage(error.message);
+    } else if (paymentIntent.status === "succeeded") {
+      navigate("/payments-success");
+    } else {
+      setMessage("Something Wrong");
     }
 
     setIsProcessing(false);
