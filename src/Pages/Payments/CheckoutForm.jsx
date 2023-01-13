@@ -41,7 +41,35 @@ const CheckoutForm = ({ products }) => {
     if (error) {
       setMessage(error.message);
     } else if (paymentIntent.status === "succeeded") {
-      navigate("/payments-success");
+      const paymentInfo = {
+        products: products,
+        payment_info: {
+          name: user?.displayName,
+          email: user?.email,
+          payment_date: new Date().toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          }),
+          createAt: new Date().getTime(),
+          transectionId: paymentIntent.id,
+        },
+      };
+      fetch(`${process.env.REACT_APP_BASE_URL}/payments`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+        body: JSON.stringify(paymentInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            navigate("/payments-success");
+          }
+        })
+        .catch((err) => console.log(err));
     } else {
       setMessage("Something Wrong");
     }
