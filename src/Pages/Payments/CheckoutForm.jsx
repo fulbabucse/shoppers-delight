@@ -9,6 +9,8 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const CheckoutForm = () => {
   const { user } = useContext(AuthContext);
+
+  console.log(user);
   const stripe = useStripe();
   const elements = useElements();
   const [message, setMessage] = useState(null);
@@ -25,10 +27,12 @@ const CheckoutForm = () => {
       elements,
       confirmParams: {
         return_url: `${window.location.origin}/payments-success`,
-      },
-      billing_details: {
-        name: user?.displayName,
-        email: user?.email,
+        payment_method_data: {
+          billing_details: {
+            name: user?.displayName,
+            email: user?.email,
+          },
+        },
       },
     });
 
