@@ -16,7 +16,7 @@ const Tops = ({ products }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/feature-products")
+      .get("${process.env.REACT_APP_BASE_URL}/feature-products")
       .then((res) => {
         setLoading(false);
         dispatch(topProducts(res.data));

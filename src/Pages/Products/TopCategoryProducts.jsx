@@ -10,7 +10,9 @@ const TopCategoryProducts = () => {
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["category", name],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/products/similar/${name}`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/products/similar/${name}`
+      );
       const data = await res.json();
       return data;
     },

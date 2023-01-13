@@ -19,7 +19,9 @@ const Review = ({ product }) => {
   const { data: reviews = [], refetch } = useQuery({
     queryKey: ["reviews", _id],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/reviews/${_id}`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/reviews/${_id}`
+      );
       const data = await res.json();
       return data;
     },
@@ -46,7 +48,7 @@ const Review = ({ product }) => {
       }),
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("${process.env.REACT_APP_BASE_URL}/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
