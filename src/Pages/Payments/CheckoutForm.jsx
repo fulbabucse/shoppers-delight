@@ -66,7 +66,24 @@ const CheckoutForm = ({ products }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            navigate("/payments-success");
+            fetch(
+              `http://localhost:5000/cart/clear-after-payments?email=${user?.email}`,
+              {
+                method: "DELETE",
+                headers: {
+                  authorization: `Bearer ${localStorage.getItem(
+                    "ShopperToken"
+                  )}`,
+                },
+              }
+            )
+              .then((res) => res.json())
+              .then((deleteData) => {
+                if (deleteData.deletedCount > 0) {
+                  navigate("/payments-success");
+                }
+              })
+              .catch((err) => console.error(err));
           }
         })
         .catch((err) => console.log(err));
