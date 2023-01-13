@@ -97,8 +97,8 @@ const Tops = ({ products }) => {
         <div className="flex-1">
           <div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-              {products?.topProducts?.slice(1, 7)?.map((product) => (
-                <TopProductCard key={product?.id} product={product} />
+              {products?.topProducts?.slice(1, 7)?.map((product, index) => (
+                <TopProductCard key={index} product={product} />
               ))}
             </div>
           </div>

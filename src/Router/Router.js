@@ -13,6 +13,8 @@ import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import Cart from "../Pages/Cart/Cart";
 import TopCategoryProducts from "../Pages/Products/TopCategoryProducts";
+import Payments from "../Pages/Payments/Payments";
+import PaymentSuccess from "../Pages/Payments/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +56,8 @@ export const router = createBrowserRouter([
       },
       { path: "sign-in", element: <SignIn /> },
       { path: "sign-up", element: <SignUp /> },
+      { path: "payments", element: <Payments /> },
+      { path: "payments-success", element: <PaymentSuccess /> },
     ],
   },
 ]);
