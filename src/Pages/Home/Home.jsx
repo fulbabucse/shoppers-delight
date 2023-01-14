@@ -9,6 +9,7 @@ import Testimonials from "./Testimonials";
 import Tops from "./Tops";
 import LatestArticle from "./LatestArticle";
 import { Helmet } from "react-helmet";
+import NavbarProducts from "../Shared/Navbar/NavbarProducts";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       </Helmet>
       <HeroSection />
       <Category />
+      <NavbarProducts />
       <Tops />
       <Collections />
       <BestSellers />

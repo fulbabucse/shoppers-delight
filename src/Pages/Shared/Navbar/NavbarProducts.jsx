@@ -39,7 +39,7 @@ const NavbarProducts = ({ products }) => {
   }, [location?.pathname]);
 
   return (
-    <div>
+    <div className="my-10">
       <div className="flex justify-between items-center mb-1">
         <h1 className="text-2xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 roboto-font">
           Latest Products

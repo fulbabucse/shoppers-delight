@@ -42,7 +42,7 @@ const NavbarProductCard = ({ product }) => {
         </div>
         <div className="px-4 py-3">
           <h2 className="text-sm capitalize">
-            {title.length > 30 ? <>{title?.slice(0, 25)}...</> : title}
+            {title.length > 25 ? <>{title?.slice(0, 25)}...</> : title}
           </h2>
           <p className="text-lg font-medium mr-1 inline-block">
             ${Math.ceil(discountedPrice)}

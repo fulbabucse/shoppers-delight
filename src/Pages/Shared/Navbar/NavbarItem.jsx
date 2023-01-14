@@ -19,7 +19,7 @@ const NavbarItem = () => {
     <div className="flex space-x-2">
       <div className="px-4 lg:px-10">
         <div
-          className="offcanvas offcanvas-top fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 left-0 right-0 border-none h-2/3"
+          className="offcanvas offcanvas-top fixed bottom-0 flex flex-col max-w-full bg-white invisible bg-clip-padding shadow-sm outline-none transition duration-300 ease-in-out text-gray-700 top-0 left-0 right-0 border-none h-24"
           tabIndex="-1"
           id="offcanvasTop"
           aria-labelledby="offcanvasTopLabel"
@@ -146,9 +146,7 @@ const NavbarItem = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="px-4">
-            <NavbarProducts />
-          </div>
+          <div className="px-4">{/* <NavbarProducts /> */}</div>
         </div>
       </div>
     </div>
