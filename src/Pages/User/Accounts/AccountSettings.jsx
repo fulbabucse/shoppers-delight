@@ -1,12 +1,33 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { ProductsContext } from "../../../contexts/ProductsProvider";
 import Purchase from "./Purchase";
 
 const AccountSettings = () => {
   const { user } = useContext(AuthContext);
+  const { userData } = useContext(ProductsContext);
+
+  // const { data: userData = [] } = useQuery({
+  //   queryKey: ["billing", user?.email],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `${process.env.REACT_APP_BASE_URL}/billing?email=${user?.email}`,
+  //       {
+  //         headers: {
+  //           authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+  //         },
+  //       }
+  //     );
+  //     const data = await res.json();
+  //     return data;
+  //   },
+  // });
+
+  const { city, country, phone, street, zip_code } = userData;
   return (
     <div className="container mx-auto p-5 min-h-screen">
       <Helmet>
@@ -77,7 +98,7 @@ const AccountSettings = () => {
 
           <li className="nav-item flex-grow text-center" role="presentation">
             <a
-              href="#tabs-editProfile"
+              href="#tabs-danger-zone"
               className="
           nav-link
           block
@@ -94,12 +115,12 @@ const AccountSettings = () => {
         "
               id="tabs-messages-tabVertical"
               data-bs-toggle="pill"
-              data-bs-target="#tabs-editProfile"
+              data-bs-target="#tabs-danger-zone"
               role="tab"
-              aria-controls="tabs-editProfile"
+              aria-controls="tabs-danger-zone"
               aria-selected="false"
             >
-              Edit Profile
+              Danger Zone
             </a>
           </li>
         </ul>
@@ -137,23 +158,27 @@ const AccountSettings = () => {
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Gender</div>
-                      <div className="px-4 py-2">Male</div>
+                      <div className="px-4 py-2">N/A</div>
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Contact No.</div>
-                      <div className="px-4 py-2">880 17365 34295</div>
+                      <div className="px-4 py-2">{phone}</div>
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">
                         Current Address
                       </div>
-                      <div className="px-4 py-2">Rangpur, Bangladesh</div>
+                      <div className="px-4 py-2">
+                        {zip_code}, {street}, {city}, {country}
+                      </div>
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">
                         Permanent Address
                       </div>
-                      <div className="px-4 py-2">Rangpur, Bangladesh</div>
+                      <div className="px-4 py-2">
+                        {zip_code}, {street}, {city}, {country}
+                      </div>
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Email.</div>
@@ -168,7 +193,7 @@ const AccountSettings = () => {
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Birthday</div>
-                      <div className="px-4 py-2">Feb 05, 2002</div>
+                      <div className="px-4 py-2">N/A</div>
                     </div>
                   </div>
                 </div>
@@ -191,11 +216,11 @@ const AccountSettings = () => {
           {/* Edit Profile */}
           <div
             className="tab-pane fade"
-            id="tabs-editProfile"
+            id="tabs-danger-zone"
             role="tabpanel"
             aria-labelledby="tab-purchase"
           >
-            <h1>Edit Profile</h1>
+            <h1>Danger Zone coming...</h1>
           </div>
         </div>
       </div>

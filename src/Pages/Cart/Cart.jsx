@@ -5,10 +5,12 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { ProductsContext } from "../../contexts/ProductsProvider";
 import SingleCartCard from "../Shared/SingleCartCard";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
+  const { userData } = useContext(ProductsContext);
 
   const {
     data: products = [],
@@ -132,11 +134,23 @@ const Cart = () => {
                 </div>
               </div>
               <div className="mt-5">
-                <Link to="/checkout/billing-address">
-                  <button className="bg-red-500 px-5 py-2 w-full font-medium text-white transition hover:bg-red-600 text-lg rounded-full">
-                    Checkout
-                  </button>
-                </Link>
+                {userData && user ? (
+                  <>
+                    <Link to="/checkout/payments">
+                      <button className="bg-red-500 px-5 py-2 w-full font-medium text-white transition hover:bg-red-600 text-lg rounded-full">
+                        Checkout
+                      </button>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/checkout/billing-address">
+                      <button className="bg-red-500 px-5 py-2 w-full font-medium text-white transition hover:bg-red-600 text-lg rounded-full">
+                        Checkout
+                      </button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>
