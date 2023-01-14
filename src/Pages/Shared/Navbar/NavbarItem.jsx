@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { FaShoppingCart } from "react-icons/fa";
-import NavbarProducts from "./NavbarProducts";
 import logo from "../../../assets/images/logo/shoppers-logo.png";
+import { toast } from "react-hot-toast";
 
 const NavbarItem = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -11,7 +11,9 @@ const NavbarItem = () => {
 
   const handleSignOut = () => {
     userSignOut()
-      .then(() => {})
+      .then(() => {
+        toast.success("Successfully Account sign Out");
+      })
       .catch(() => {});
   };
 
@@ -95,6 +97,7 @@ const NavbarItem = () => {
                       <>
                         <Link
                           to="/account-settings"
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                           className="text-gray-700 block px-4 py-2 text-sm"
                           role="menuitem"
                           tabIndex="-1"

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useToken from "../../hooks/useToken";
@@ -25,6 +26,7 @@ const SignUp = () => {
 
   if (token) {
     setIsProcessing(false);
+    toast.success("Successfully Account sign Up");
     return navigate(from, { replace: true });
   }
 
