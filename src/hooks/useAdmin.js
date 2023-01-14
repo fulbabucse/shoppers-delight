@@ -8,7 +8,11 @@ const useAdmin = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`${url}/users/admin?email=${email}`)
+      fetch(`${url}/users/admin?email=${email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           setIsAdmin(data.isAdmin);

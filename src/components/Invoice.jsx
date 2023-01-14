@@ -156,7 +156,7 @@ const Invoice = () => {
                     <tr>
                       <th
                         scope="row"
-                        colspan="3"
+                        colSpan="3"
                         className="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
                       >
                         Subtotal
@@ -174,7 +174,7 @@ const Invoice = () => {
                     <tr>
                       <th
                         scope="row"
-                        colspan="3"
+                        colSpan="3"
                         className="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
                       >
                         Shipping
@@ -192,7 +192,7 @@ const Invoice = () => {
                     <tr>
                       <th
                         scope="row"
-                        colspan="3"
+                        colSpan="3"
                         className="hidden pt-4 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
                       >
                         Tax
@@ -210,7 +210,7 @@ const Invoice = () => {
                     <tr className="border-t border-gray-300">
                       <th
                         scope="row"
-                        colspan="3"
+                        colSpan="3"
                         className="hidden pt-4 pl-6 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0"
                       >
                         Total

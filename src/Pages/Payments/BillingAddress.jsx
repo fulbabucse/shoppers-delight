@@ -43,20 +43,22 @@ const BillingAddress = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <div class="leading-loose">
+    <div className="leading-loose">
       <Helmet>
         <title>Billing Address - Shopper's Delight</title>
       </Helmet>
-      <p class="text-gray-800 font-medium text-center">Billing information</p>
+      <p className="text-gray-800 font-medium text-center">
+        Billing information
+      </p>
       <form
         onSubmit={handleSubmit(handleBillingAddress)}
-        class="max-w-xl mx-auto m-4 p-10 bg-white rounded shadow-xl space-y-4"
+        className="max-w-xl mx-auto m-4 p-10 bg-white rounded shadow-xl space-y-4"
       >
         <div>
           <input
             defaultValue={user?.displayName}
             readOnly
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="text"
             placeholder="Your Name"
           />
@@ -65,7 +67,7 @@ const BillingAddress = () => {
           <input
             defaultValue={user?.email}
             readOnly
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="email"
             placeholder="Email Address"
           />
@@ -75,7 +77,7 @@ const BillingAddress = () => {
             {...register("phone", {
               required: "Phone Number is required",
             })}
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="text"
             placeholder="Phone Number"
             aria-label="Name"
@@ -91,7 +93,7 @@ const BillingAddress = () => {
             {...register("street", {
               required: "Street is required",
             })}
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="text"
             placeholder="Street"
           />
@@ -106,7 +108,7 @@ const BillingAddress = () => {
             {...register("city", {
               required: "City is required",
             })}
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="text"
             placeholder="City"
           />
@@ -121,7 +123,7 @@ const BillingAddress = () => {
             {...register("country", {
               required: "Country is required",
             })}
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="text"
             placeholder="Country"
           />
@@ -136,7 +138,7 @@ const BillingAddress = () => {
             {...register("zipCode", {
               required: "Zip is required",
             })}
-            class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             type="text"
             placeholder="Zip"
           />
@@ -146,9 +148,9 @@ const BillingAddress = () => {
             </p>
           )}
         </div>
-        <div class="mt-4">
+        <div className="mt-4">
           <button
-            class="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full"
+            className="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full"
             type="submit"
           >
             Next

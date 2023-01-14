@@ -258,7 +258,7 @@ const ProductDetails = ({ product, quantity }) => {
             <h1 className="text-xl">Similar Products</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
               {similarProducts?.slice(1, 5)?.map((product) => (
-                <ProductCard product={product} key={product.id} />
+                <ProductCard product={product} key={product._id} />
               ))}
             </div>
           </div>

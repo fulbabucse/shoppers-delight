@@ -12,8 +12,6 @@ const AccountSettings = () => {
   const { user, userAccountVerify } = useContext(AuthContext);
   const { userData } = useContext(ProductsContext);
 
-  console.log(user);
-
   // const { data: userData = [] } = useQuery({
   //   queryKey: ["billing", user?.email],
   //   queryFn: async () => {
