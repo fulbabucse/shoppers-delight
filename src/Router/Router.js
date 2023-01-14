@@ -19,6 +19,8 @@ import Invoice from "../components/Invoice";
 import BillingAddress from "../Pages/Payments/BillingAddress";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ForgetPassword from "../Pages/User/ForgetPassword";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -102,6 +104,14 @@ export const router = createBrowserRouter([
       <PrivateRoute>
         <Invoice />
       </PrivateRoute>
+    ),
+  },
+  {
+    path: "dashboard",
+    element: (
+      <AdminRoute>
+        <Dashboard />
+      </AdminRoute>
     ),
   },
 ]);
