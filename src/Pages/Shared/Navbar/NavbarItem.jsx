@@ -35,22 +35,24 @@ const NavbarItem = () => {
                 to="/"
                 className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               >
-                Home
+                <p data-bs-dismiss="offcanvas">Home</p>
               </Link>
               <Link
                 to="/products"
                 className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               >
-                Products
+                <p data-bs-dismiss="offcanvas">Products</p>
               </Link>
               <Link
                 to="/contact"
                 className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               >
-                Contact
+                <p data-bs-dismiss="offcanvas">Contact</p>
               </Link>
               <Link to="/cart" className="text-red-500 text-xl md:mx-4">
-                <FaShoppingCart />
+                <p data-bs-dismiss="offcanvas">
+                  <FaShoppingCart />
+                </p>
               </Link>
             </div>
             <div className="relative inline-block text-left ml-5">
@@ -98,40 +100,45 @@ const NavbarItem = () => {
                           tabIndex="-1"
                           id="menu-item-0"
                         >
-                          Account settings
+                          <p data-bs-dismiss="offcanvas">Account settings</p>
                         </Link>
 
                         <button
-                          onClick={() => handleSignOut()}
+                          onClick={() => {
+                            setIsDropdownOpen(!isDropdownOpen);
+                            handleSignOut();
+                          }}
                           type="submit"
                           className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
                           role="menuitem"
                           tabIndex="-1"
                           id="menu-item-3"
                         >
-                          Sign out
+                          <p data-bs-dismiss="offcanvas">Sign out</p>
                         </button>
                       </>
                     ) : (
                       <>
                         <Link
                           to="/sign-in"
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                           className="text-gray-700 block px-4 py-2 text-sm"
                           role="menuitem"
                           tabIndex="-1"
                           id="menu-item-2"
                         >
-                          Sign In
+                          <p data-bs-dismiss="offcanvas">Sign In</p>
                         </Link>
 
                         <Link
                           to="/sign-up"
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                           className="text-gray-700 block px-4 py-2 text-sm"
                           role="menuitem"
                           tabIndex="-1"
                           id="menu-item-2"
                         >
-                          Sign Up
+                          <p data-bs-dismiss="offcanvas">Sign Up</p>
                         </Link>
                       </>
                     )}
