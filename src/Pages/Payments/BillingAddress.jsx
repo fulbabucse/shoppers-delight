@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -43,6 +44,9 @@ const BillingAddress = () => {
   };
   return (
     <div class="leading-loose">
+      <Helmet>
+        <title>Billing Address - Shopper's Delight</title>
+      </Helmet>
       <p class="text-gray-800 font-medium text-center">Billing information</p>
       <form
         onSubmit={handleSubmit(handleBillingAddress)}

@@ -5,6 +5,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -50,6 +51,11 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, updatesInfo);
   };
 
+  const userAccountVerify = () => {
+    setLoading(true);
+    return sendEmailVerification(auth.currentUser);
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currUser) => {
       setUser(currUser);
@@ -65,6 +71,7 @@ const AuthProvider = ({ children }) => {
     userSignOut,
     setLoading,
     googleSignIn,
+    userAccountVerify,
     updateUserProfile,
     signUpEmailPassword,
   };

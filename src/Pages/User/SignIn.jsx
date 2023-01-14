@@ -4,12 +4,16 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaSignInAlt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useToken from "../../hooks/useToken";
+import { url } from "../../utils/BaseURL";
 
 const SignIn = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const {
     register,
@@ -27,19 +31,48 @@ const SignIn = () => {
   }
 
   const handleUserSignIn = (userData) => {
+    setIsProcessing(true);
     signInUser(userData?.email, userData?.password)
       .then((result) => {
         setEmail(result?.user?.email);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        if (err.message === "Firebase: Error (auth/user-not-found).") {
+          setError("You are entering the wrong email address");
+        } else if (err.message === "Firebase: Error (auth/wrong-password).") {
+          setError("You are entering the wrong password");
+        }
+        setIsProcessing(false);
+      });
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
-        setEmail(result?.user?.email);
+        const user = result?.user;
+        saveToDatabase(user?.displayName, user?.email, user?.photoURL);
       })
       .catch(() => {});
+  };
+
+  const saveToDatabase = (name, email, photoLink) => {
+    const updatesInfo = {
+      name,
+      photoURL: photoLink,
+      email,
+    };
+    fetch(`${url}/users?email=${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatesInfo),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setEmail(email);
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="h-full bg-transparent w-full py-8 px-4">
@@ -165,10 +198,19 @@ const SignIn = () => {
             <div className="mt-8">
               <button
                 type="submit"
-                className="focus:ring-2 focus:ring-offset-2 focus:ring-red-700 rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 w-full"
+                className="flex items-center justify-center focus:ring-2 focus:ring-offset-2 focus:ring-red-700 rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 w-full"
               >
-                Sign In
+                <FaSignInAlt />
+                <span className="ml-3">
+                  {isProcessing ? "Processing..." : "Sign In"}
+                </span>
               </button>
+
+              {error && (
+                <p className="text-red-500 font-medium mt-3 text-sm text-center">
+                  {error}
+                </p>
+              )}
             </div>
           </form>
         </div>

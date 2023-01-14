@@ -5,6 +5,7 @@ import {
 } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { url } from "../../utils/BaseURL";
@@ -90,6 +91,9 @@ const CheckoutForm = ({ products, price }) => {
   };
   return (
     <div className="w-full lg:w-1/3 mx-auto h-screen">
+      <Helmet>
+        <title>Payment - Shopper's Delight</title>
+      </Helmet>
       <form onSubmit={handleSubmit} className="w-full">
         <PaymentElement />
         <button

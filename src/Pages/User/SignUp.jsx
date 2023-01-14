@@ -10,10 +10,12 @@ import useToken from "../../hooks/useToken";
 import { url } from "../../utils/BaseURL";
 
 const SignUp = () => {
-  const { signUpEmailPassword, updateUserProfile } = useContext(AuthContext);
+  const { signUpEmailPassword, updateUserProfile, userAccountVerify } =
+    useContext(AuthContext);
   const [isProcessing, setIsProcessing] = useState(false);
   const [email, setEmail] = useState("");
   const [token] = useToken(email);
+  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -61,7 +63,19 @@ const SignUp = () => {
               })
               .catch(() => {});
           })
-          .catch((err) => console.error(err));
+          .catch((err) => {
+            if (
+              err.message === "Firebase: Error (auth/email-already-in-use)."
+            ) {
+              setError("This Email already used");
+            } else if (
+              err.message ===
+              "Firebase: Password should be at least 6 characters (auth/weak-password)."
+            ) {
+              setError("Password should be at least 6 characters");
+            }
+            setIsProcessing(false);
+          });
       })
       .catch((err) => console.error(err));
   };
@@ -80,9 +94,15 @@ const SignUp = () => {
       body: JSON.stringify(updatesInfo),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         setEmail(email);
+        userAccountVerify()
+          .then(() => {
+            toast.success(
+              `We have sent you a message to verify your account. Please check the inbox/spam of this mail.`
+            );
+          })
+          .catch((err) => console.log(err));
       })
       .catch((error) => console.log(error));
   };
@@ -184,6 +204,11 @@ const SignUp = () => {
                 </p>
               </div>
             </form>
+            {error && (
+              <p className="text-red-500 font-medium mt-3 text-sm text-center">
+                {error}
+              </p>
+            )}
           </div>
         </div>
       </div>

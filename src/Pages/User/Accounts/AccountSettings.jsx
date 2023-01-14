@@ -1,15 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
+import { toast } from "react-hot-toast";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { ProductsContext } from "../../../contexts/ProductsProvider";
 import Purchase from "./Purchase";
+import { MdVerifiedUser } from "react-icons/md";
 
 const AccountSettings = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userAccountVerify } = useContext(AuthContext);
   const { userData } = useContext(ProductsContext);
+
+  console.log(user);
 
   // const { data: userData = [] } = useQuery({
   //   queryKey: ["billing", user?.email],
@@ -28,6 +31,17 @@ const AccountSettings = () => {
   // });
 
   const { city, country, phone, street, zip_code } = userData;
+
+  const handleAccountVerify = () => {
+    userAccountVerify()
+      .then(() => {
+        toast.success(
+          `We have sent you a message to verify your account. Please ${user?.email} check the inbox/spam of this mail.`
+        );
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="container mx-auto p-5 min-h-screen">
       <Helmet>
@@ -198,8 +212,26 @@ const AccountSettings = () => {
                       </div>
                     </div>
                     <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold">Birthday</div>
-                      <div className="px-4 py-2">N/A</div>
+                      <div className="px-4 py-2 font-semibold">
+                        Verified Status
+                      </div>
+                      <div className="px-4 py-2">
+                        {user?.emailVerified === true ? (
+                          <div className="flex items-center gap-1">
+                            <p>Verified Account</p>
+                            <MdVerifiedUser className="text-blue-500" />
+                          </div>
+                        ) : (
+                          <>
+                            <button
+                              onClick={() => handleAccountVerify()}
+                              className="hover:border-b border-b-gray-700"
+                            >
+                              Verify Now
+                            </button>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

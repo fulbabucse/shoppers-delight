@@ -68,10 +68,38 @@ export const router = createBrowserRouter([
       },
       { path: "sign-in", element: <SignIn /> },
       { path: "sign-up", element: <SignUp /> },
-      { path: "/checkout/payments", element: <Payments /> },
-      { path: "payments-success", element: <PaymentSuccess /> },
-      { path: "/checkout/billing-address", element: <BillingAddress /> },
+      {
+        path: "/checkout/payments",
+        element: (
+          <PrivateRoute>
+            <Payments />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payments-success",
+        element: (
+          <PrivateRoute>
+            <PaymentSuccess />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/checkout/billing-address",
+        element: (
+          <PrivateRoute>
+            <BillingAddress />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
-  { path: "/payments/invoice/:id", element: <Invoice /> },
+  {
+    path: "/payments/invoice/:id",
+    element: (
+      <PrivateRoute>
+        <Invoice />
+      </PrivateRoute>
+    ),
+  },
 ]);
