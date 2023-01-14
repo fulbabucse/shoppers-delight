@@ -12,7 +12,7 @@ const Purchase = () => {
     queryKey: ["payments", "email", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/payments?email=${user?.email}`
+        `${process.env.REACT_APP_BASE_URL}/payments?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -24,20 +24,20 @@ const Purchase = () => {
   }
 
   return (
-    <div class="relative overflow-x-auto sm:rounded-lg w-full">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="relative overflow-x-auto sm:rounded-lg w-full">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="px-6 py-3">
+            <th scope="col" className="px-6 py-3">
               Name
             </th>
-            <th scope="col" class="px-6 py-3">
-              <div class="flex items-center">
+            <th scope="col" className="px-6 py-3">
+              <div className="flex items-center">
                 Payment Date
                 <a href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-3 h-3 ml-1"
+                    className="w-3 h-3 ml-1"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 320 512"
@@ -47,19 +47,19 @@ const Purchase = () => {
                 </a>
               </div>
             </th>
-            <th scope="col" class="px-6 py-3">
-              <div class="flex items-center">Email</div>
+            <th scope="col" className="px-6 py-3">
+              <div className="flex items-center">Email</div>
             </th>
-            <th scope="col" class="px-6 py-3">
-              <div class="flex items-center">Transection Id</div>
+            <th scope="col" className="px-6 py-3">
+              <div className="flex items-center">Transection No.</div>
             </th>
-            <th scope="col" class="px-6 py-3">
-              <div class="flex items-center">
+            <th scope="col" className="px-6 py-3">
+              <div className="flex items-center">
                 Price
                 <a href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-3 h-3 ml-1"
+                    className="w-3 h-3 ml-1"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 320 512"
@@ -69,8 +69,8 @@ const Purchase = () => {
                 </a>
               </div>
             </th>
-            <th scope="col" class="px-6 py-3">
-              <div class="flex items-center">Invoice</div>
+            <th scope="col" className="px-6 py-3">
+              <div className="flex items-center">Invoice</div>
             </th>
           </tr>
         </thead>
@@ -78,22 +78,24 @@ const Purchase = () => {
           {orders?.map((order) => (
             <tr
               key={order?._id}
-              class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
             >
               <th
                 scope="row"
-                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 {order?.name}
               </th>
-              <td class="px-6 py-4">{order?.payment_date}</td>
-              <td class="px-6 py-4">{order?.email}</td>
-              <td class="px-6 py-4">{order?.transectionId.slice(0, 10)}...</td>
-              <td class="px-6 py-4">$${order?.price}</td>
-              <td class="px-6 py-4 text-right">
+              <td className="px-6 py-4">{order?.payment_date}</td>
+              <td className="px-6 py-4">{order?.email}</td>
+              <td className="px-6 py-4 uppercase">
+                {order?.transectionId.slice(0, 10)}...
+              </td>
+              <td className="px-6 py-4">$${order?.price}</td>
+              <td className="px-6 py-4 text-right">
                 <Link
                   to={`/payments/invoice/${order?._id}`}
-                  class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   Invoice
                 </Link>

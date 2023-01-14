@@ -66,14 +66,14 @@ const Review = ({ product }) => {
     <div>
       <h1 className="text-xl">Review of {title}</h1>
       <ul
-        class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
+        className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
         id="tabs-tab3"
         role="tablist"
       >
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <a
             href="#tab-descriptions"
-            class="
+            className="
       nav-link
       w-full
       block
@@ -100,10 +100,10 @@ const Review = ({ product }) => {
           </a>
         </li>
 
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <a
             href="#tab-comments"
-            class="
+            className="
       nav-link
       w-full
       block
@@ -129,10 +129,10 @@ const Review = ({ product }) => {
           </a>
         </li>
 
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <a
             href="#tabs-reviews"
-            class="
+            className="
       nav-link
       w-full
       block
@@ -158,9 +158,9 @@ const Review = ({ product }) => {
           </a>
         </li>
       </ul>
-      <div class="tab-content" id="tabs-tabContent3">
+      <div className="tab-content" id="tabs-tabContent3">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="tab-descriptions"
           role="tabpanel"
           aria-labelledby="tabs-descriptions"
@@ -168,7 +168,7 @@ const Review = ({ product }) => {
           {description}
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="tab-comments"
           role="tabpanel"
           aria-labelledby="tabs-comments"
@@ -176,7 +176,7 @@ const Review = ({ product }) => {
           Coming soon...
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="tabs-reviews"
           role="tabpanel"
           aria-labelledby="tabs-comments"
@@ -195,7 +195,7 @@ const Review = ({ product }) => {
 
             <div>
               {user ? (
-                <div class="block rounded-lg max-w-md">
+                <div className="block rounded-lg max-w-md">
                   <h4 className="text-lg text-gray-700 roboto-font mb-2">
                     Add a Review
                   </h4>
@@ -203,13 +203,13 @@ const Review = ({ product }) => {
                     onSubmit={handleSubmit(handleReviews)}
                     className="space-y-3"
                   >
-                    <div class="form-group">
+                    <div className="form-group">
                       <input
                         {...register("rating", {
                           required: "Rating is required",
                         })}
                         type="text"
-                        class="form-control block
+                        className="form-control block
         w-full
         px-3
         py-1.5
@@ -232,12 +232,12 @@ const Review = ({ product }) => {
                         </p>
                       )}
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                       <textarea
                         {...register("message", {
                           required: "Message is required",
                         })}
-                        class="
+                        className="
         form-control
         block
         w-full
@@ -266,7 +266,7 @@ const Review = ({ product }) => {
                     </div>
                     <button
                       type="submit"
-                      class="rounded-full w-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600"
+                      className="rounded-full w-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600"
                     >
                       Submit
                     </button>

@@ -54,14 +54,14 @@ const AllProducts = () => {
         ))}
       </div>
       <div className="mt-3">
-        <div class="flex flex-col lg:flex-row justify-between">
-          <div class="flex justify-between items-center gap-10 text-sm">
+        <div className="flex flex-col lg:flex-row justify-between">
+          <div className="flex justify-between items-center gap-10 text-sm">
             <div>
               <div>
                 <select
                   onChange={(e) => setSize(e.target.value)}
                   defaultValue={products?.products?.length}
-                  class="form-select appearance-none
+                  className="form-select appearance-none
       block
       w-20
       px-3
@@ -84,16 +84,16 @@ const AllProducts = () => {
                 </select>
               </div>
             </div>
-            <p class="text-gray-500 mt-4 lg:mt-0">
+            <p className="text-gray-500 mt-4 lg:mt-0">
               Showing {page + 1} to {pages} of {products?.products?.length}
               <span className="ml-1">Entires</span>
             </p>
           </div>
-          <nav class="flex justify-center items-center text-gray-600 mt-8 lg:mt-0">
+          <nav className="flex justify-center items-center text-gray-600 mt-8 lg:mt-0">
             <button
               onClick={() => handlePrev()}
               disabled={page === 0}
-              class="p-2 mr-4 rounded hover:bg-gray-100"
+              className="p-2 mr-4 rounded hover:bg-gray-100"
             >
               <FaAngleLeft />
             </button>
@@ -112,7 +112,7 @@ const AllProducts = () => {
             <button
               onClick={() => handleNext()}
               disabled={page + 1 === pages}
-              class="p-2 ml-4 rounded hover:bg-gray-100"
+              className="p-2 ml-4 rounded hover:bg-gray-100"
             >
               <FaAngleRight />
             </button>

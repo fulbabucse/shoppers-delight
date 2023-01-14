@@ -8,15 +8,15 @@ const Invoice = () => {
   const { data: order = {} } = useQuery({
     queryKey: ["payments", id],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/payments/${id}`);
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/payments/${id}`
+      );
       const data = await res.json();
       return data;
     },
   });
 
   const { email, name, payment_date, transectionId, products } = order;
-
-  console.log(products);
 
   const priceArray = [];
   products?.map((product) => {
@@ -33,14 +33,18 @@ const Invoice = () => {
 
   const invoiceNo = `#SD${(Math.random(1000) * 1000).toFixed(0)}`;
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <section className="w-full">
       <div className="flex justify-center items-center gap-5 my-5">
         <button>Download</button>
-        <button>Print</button>
+        <button onClick={() => handlePrint()}>Print</button>
       </div>
-      <div class="h-[1100px] w-[768px] bg-white mx-auto px-16 py-10">
-        <article class="overflow-hidden">
+      <div className="h-[1100px] w-[768px] bg-white mx-auto px-16 py-10">
+        <article className="overflow-hidden">
           <div>
             <div className="flex justify-between items-center mb-10">
               <div>
@@ -49,7 +53,7 @@ const Invoice = () => {
                 </h1>
               </div>
               <div className="flex flex-col justify-end items-end">
-                <img class="h-20" src={logo} alt="Logo" />
+                <img className="h-20" src={logo} alt="Logo" />
                 <h2 className="font-semibold text-lg">
                   Shopper's Delight Inc.
                 </h2>
@@ -61,30 +65,32 @@ const Invoice = () => {
               </div>
             </div>
             <div>
-              <div class="flex w-full">
-                <div class="grid grid-cols-4 gap-12">
-                  <div class="text-sm font-light text-slate-500">
-                    <p class="text-sm font-normal text-slate-700">Billed To</p>
+              <div className="flex w-full">
+                <div className="grid grid-cols-4 gap-12">
+                  <div className="text-sm font-light text-slate-500">
+                    <p className="text-sm font-normal text-slate-700">
+                      Billed To
+                    </p>
                     <p>Mr/Mrs. {name}</p>
                     <p>Rangpur, Bangladesh</p>
                     <a href={`mailto:${email}`}>{email}</a>
                   </div>
-                  <div class="text-sm font-light text-slate-500">
-                    <p class="text-sm font-normal text-slate-700">
+                  <div className="text-sm font-light text-slate-500">
+                    <p className="text-sm font-normal text-slate-700">
                       Invoice Number
                     </p>
                     <p>{invoiceNo}</p>
 
-                    <p class="mt-2 text-sm font-normal text-slate-700">
+                    <p className="mt-2 text-sm font-normal text-slate-700">
                       Date of Issue
                     </p>
                     <p>{payment_date}</p>
                   </div>
-                  <div class="text-sm font-light text-slate-500">
-                    <p class="text-sm font-normal text-slate-700">Due</p>
+                  <div className="text-sm font-light text-slate-500">
+                    <p className="text-sm font-normal text-slate-700">Due</p>
                     <p>N/A</p>
 
-                    <p class="mt-2 text-sm font-normal text-slate-700">
+                    <p className="mt-2 text-sm font-normal text-slate-700">
                       Transection No.
                     </p>
                     <p className="uppercase">{transectionId}</p>
@@ -94,53 +100,53 @@ const Invoice = () => {
             </div>
 
             <div>
-              <div class="flex flex-col mx-0 mt-8">
-                <table class="min-w-full divide-y divide-slate-500">
+              <div className="flex flex-col mx-0 mt-8">
+                <table className="min-w-full divide-y divide-slate-500">
                   <thead>
                     <tr>
                       <th
                         scope="col"
-                        class="py-3 text-sm text-start font-normal text-slate-700"
+                        className="py-3 text-sm text-start font-normal text-slate-700"
                       >
                         Products Name
                       </th>
                       <th
                         scope="col"
-                        class="py-3 text-sm text-start font-normal text-slate-700 sm:pl-6 md:pl-0"
+                        className="py-3 text-sm text-start font-normal text-slate-700 sm:pl-6 md:pl-0"
                       >
                         Brand
                       </th>
                       <th
                         scope="col"
-                        class="py-3 text-start text-sm font-normal text-slate-700"
+                        className="py-3 text-start text-sm font-normal text-slate-700"
                       >
                         Quantity
                       </th>
                       <th
                         scope="col"
-                        class="py-3 text-end text-sm font-normal text-slate-700"
+                        className="py-3 text-end text-sm font-normal text-slate-700"
                       >
                         Amount
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {products?.map((product) => (
-                      <tr class="border-b border-slate-200">
-                        <td class="hidden py-4 capitalize text-sm text-slate-500 sm:table-cell">
+                    {products?.map((product, index) => (
+                      <tr key={index} className="border-b border-slate-200">
+                        <td className="hidden py-4 capitalize text-sm text-slate-500 sm:table-cell">
                           {product?.title.length > 30 ? (
                             <>{product?.title?.slice(0, 30)}...</>
                           ) : (
                             product?.title
                           )}
                         </td>
-                        <td class="hidden  py-4 text-sm text-slate-500 sm:table-cell">
+                        <td className="hidden  py-4 text-sm text-slate-500 sm:table-cell">
                           {product?.brand}
                         </td>
-                        <td class="hidden  py-4 text-sm text-slate-500 sm:table-cell">
+                        <td className="hidden  py-4 text-sm text-slate-500 sm:table-cell">
                           {product?.quantity}
                         </td>
-                        <td class="py-4 text-end pl-3 pr-4 text-sm text-slate-500 sm:pr-6 md:pr-0">
+                        <td className="py-4 text-end pl-3 pr-4 text-sm text-slate-500 sm:pr-6 md:pr-0">
                           ${product?.price}
                         </td>
                       </tr>
@@ -151,17 +157,17 @@ const Invoice = () => {
                       <th
                         scope="row"
                         colspan="3"
-                        class="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
+                        className="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
                       >
                         Subtotal
                       </th>
                       <th
                         scope="row"
-                        class="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
+                        className="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
                       >
                         Subtotal
                       </th>
-                      <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                      <td className="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
                         ${subTotal.toFixed(2)}
                       </td>
                     </tr>
@@ -169,17 +175,17 @@ const Invoice = () => {
                       <th
                         scope="row"
                         colspan="3"
-                        class="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
+                        className="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
                       >
                         Shipping
                       </th>
                       <th
                         scope="row"
-                        class="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
+                        className="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
                       >
                         Shipping
                       </th>
-                      <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                      <td className="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
                         ${shipping.toFixed(2)}
                       </td>
                     </tr>
@@ -187,17 +193,17 @@ const Invoice = () => {
                       <th
                         scope="row"
                         colspan="3"
-                        class="hidden pt-4 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
+                        className="hidden pt-4 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0"
                       >
                         Tax
                       </th>
                       <th
                         scope="row"
-                        class="pt-4 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
+                        className="pt-4 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden"
                       >
                         Tax
                       </th>
-                      <td class="pt-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                      <td className="pt-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
                         ${tax.toFixed(2)}
                       </td>
                     </tr>
@@ -205,17 +211,17 @@ const Invoice = () => {
                       <th
                         scope="row"
                         colspan="3"
-                        class="hidden pt-4 pl-6 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0"
+                        className="hidden pt-4 pl-6 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0"
                       >
                         Total
                       </th>
                       <th
                         scope="row"
-                        class="pt-4 pl-4 pr-3 text-sm font-normal text-left text-slate-700 sm:hidden"
+                        className="pt-4 pl-4 pr-3 text-sm font-normal text-left text-slate-700 sm:hidden"
                       >
                         Total
                       </th>
-                      <td class="pt-4 pl-3 pr-4 text-sm font-normal text-right text-slate-700 sm:pr-6 md:pr-0">
+                      <td className="pt-4 pl-3 pr-4 text-sm font-normal text-right text-slate-700 sm:pr-6 md:pr-0">
                         ${totalPrice.toFixed(2)}
                       </td>
                     </tr>
