@@ -18,6 +18,7 @@ import AccountSettings from "../Pages/User/Accounts/AccountSettings";
 import Invoice from "../components/Invoice";
 import BillingAddress from "../Pages/Payments/BillingAddress";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ForgetPassword from "../Pages/User/ForgetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,7 @@ export const router = createBrowserRouter([
       },
       { path: "sign-in", element: <SignIn /> },
       { path: "sign-up", element: <SignUp /> },
+      { path: "forget-password", element: <ForgetPassword /> },
       {
         path: "/checkout/payments",
         element: (

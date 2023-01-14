@@ -205,14 +205,20 @@ const SignIn = () => {
                   {isProcessing ? "Processing..." : "Sign In"}
                 </span>
               </button>
-
-              {error && (
-                <p className="text-red-500 font-medium mt-3 text-sm text-center">
-                  {error}
-                </p>
-              )}
             </div>
           </form>
+          <div className="text-center mt-3">
+            <Link to="/forget-password">
+              <button className="hover:border-b hover:border-b-gray-700 text-sm">
+                Forget Password?
+              </button>
+            </Link>
+          </div>
+          {error && (
+            <p className="text-red-500 font-medium mt-2 text-sm text-center">
+              {error}
+            </p>
+          )}
         </div>
       </div>
     </div>
