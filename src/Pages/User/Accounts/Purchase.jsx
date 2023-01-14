@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Spinner from "../../../components/Spinner";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import { url } from "../../../utils/BaseURL";
 
 const Purchase = () => {
   const { user } = useContext(AuthContext);
@@ -11,9 +12,7 @@ const Purchase = () => {
   const { data: orders = [], isLoading } = useQuery({
     queryKey: ["payments", "email", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/payments?email=${user?.email}`
-      );
+      const res = await fetch(`${url}/payments?email=${user?.email}`);
       const data = await res.json();
       return data;
     },

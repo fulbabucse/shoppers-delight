@@ -19,6 +19,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import { url } from "../../utils/BaseURL";
 
 const ProductDetails = ({ product, quantity }) => {
   const { user } = useContext(AuthContext);
@@ -39,18 +40,18 @@ const ProductDetails = ({ product, quantity }) => {
 
   const discountedPrice = price - price / discountPercentage;
 
-  const url = `${process.env.REACT_APP_BASE_URL}/products/${id}`;
+  const subUrl = `${url}/products/${id}`;
   const fetchSingleProduct = async () => {
-    const res = await axios.get(url).catch((err) => console.log(err.message));
+    const res = await axios
+      .get(subUrl)
+      .catch((err) => console.log(err.message));
     dispatch(detailsProduct(res.data));
   };
 
   const { data: similarProducts = [], isLoading } = useQuery({
     queryKey: ["category", category],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/products/similar/${category}`
-      );
+      const res = await fetch(`${url}/products/similar/${category}`);
       const data = await res.json();
       return data;
     },
@@ -99,7 +100,7 @@ const ProductDetails = ({ product, quantity }) => {
       email: user?.email,
     };
 
-    fetch(`${process.env.REACT_APP_BASE_URL}/cart`, {
+    fetch(`${url}/cart`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

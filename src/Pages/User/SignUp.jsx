@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useToken from "../../hooks/useToken";
+import { url } from "../../utils/BaseURL";
 
 const SignUp = () => {
   const { signUpEmailPassword, updateUserProfile } = useContext(AuthContext);
@@ -69,7 +70,7 @@ const SignUp = () => {
       photoURL: photoLink,
       email,
     };
-    fetch(`${process.env.REACT_APP_BASE_URL}/users?email=${email}`, {
+    fetch(`${url}/users?email=${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

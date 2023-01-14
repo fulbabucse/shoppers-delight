@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { url } from "../../utils/BaseURL";
 
 const CheckoutForm = ({ products, price }) => {
   const { user } = useContext(AuthContext);
@@ -54,7 +55,7 @@ const CheckoutForm = ({ products, price }) => {
         createAt: new Date().getTime(),
         transectionId: paymentIntent.id,
       };
-      fetch(`${process.env.REACT_APP_BASE_URL}/payments`, {
+      fetch(`${url}/payments`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -65,17 +66,12 @@ const CheckoutForm = ({ products, price }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
-            fetch(
-              `http://localhost:5000/cart/clear-after-payments?email=${user?.email}`,
-              {
-                method: "DELETE",
-                headers: {
-                  authorization: `Bearer ${localStorage.getItem(
-                    "ShopperToken"
-                  )}`,
-                },
-              }
-            )
+            fetch(`${url}/cart/clear-after-payments?email=${user?.email}`, {
+              method: "DELETE",
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+              },
+            })
               .then((res) => res.json())
               .then((deleteData) => {
                 if (deleteData.deletedCount > 0) {

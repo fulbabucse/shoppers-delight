@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Spinner from "../../components/Spinner";
 import { ProductsContext } from "../../contexts/ProductsProvider";
+import { url } from "../../utils/BaseURL";
 import ProductCard from "../Shared/ProductCard";
 
 const AllProducts = () => {
@@ -18,7 +19,7 @@ const AllProducts = () => {
     queryKey: ["products", startPrice, endPrice, ratingStar, page, size],
     queryFn: async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/products?start=${startPrice}&end=${endPrice}&rating=${ratingStar}&page=${page}&size=${size}`,
+        `${url}/products?start=${startPrice}&end=${endPrice}&rating=${ratingStar}&page=${page}&size=${size}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,

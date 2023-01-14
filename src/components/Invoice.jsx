@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { useParams } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 import logo from "../assets/images/logo/shoppers-logo.png";
+import { url } from "../utils/BaseURL";
 
 const Invoice = () => {
   const printRef = useRef();
@@ -10,9 +11,7 @@ const Invoice = () => {
   const { data: order = {} } = useQuery({
     queryKey: ["payments", id],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/payments/${id}`
-      );
+      const res = await fetch(`${url}/payments/${id}`);
       const data = await res.json();
       return data;
     },

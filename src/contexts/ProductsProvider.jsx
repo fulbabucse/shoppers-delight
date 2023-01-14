@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 import { AuthContext } from "./AuthProvider";
+import { url } from "../utils/BaseURL";
 
 export const ProductsContext = createContext();
 
@@ -18,14 +19,11 @@ const ProductsProvider = ({ children }) => {
   const { data: userData = [] } = useQuery({
     queryKey: ["billing", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/billing?email=${user?.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-          },
-        }
-      );
+      const res = await fetch(`${url}/billing?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },

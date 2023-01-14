@@ -9,6 +9,7 @@ import TopProductCard from "../Shared/TopProductCard";
 import { topProducts } from "../../redux/actions/actions";
 import { useState } from "react";
 import Spinner from "../../components/Spinner";
+import { url } from "../../utils/BaseURL";
 
 const Tops = ({ products }) => {
   const [loading, setLoading] = useState(false);
@@ -16,7 +17,7 @@ const Tops = ({ products }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/feature-products`)
+      .get(`${url}/feature-products`)
       .then((res) => {
         setLoading(false);
         dispatch(topProducts(res.data));

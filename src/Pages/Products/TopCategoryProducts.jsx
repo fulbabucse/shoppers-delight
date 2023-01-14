@@ -3,6 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../Shared/ProductCard";
 import Spinner from "../../components/Spinner";
+import { url } from "../../utils/BaseURL";
 
 const TopCategoryProducts = () => {
   const { name } = useParams();
@@ -10,9 +11,7 @@ const TopCategoryProducts = () => {
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["category", name],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/products/similar/${name}`
-      );
+      const res = await fetch(`${url}/products/similar/${name}`);
       const data = await res.json();
       return data;
     },

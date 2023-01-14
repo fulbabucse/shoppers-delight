@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { url } from "../../utils/BaseURL";
 import SingleReviewCard from "../Shared/SingleReviewCard";
 
 const Review = ({ product }) => {
@@ -19,9 +20,7 @@ const Review = ({ product }) => {
   const { data: reviews = [], refetch } = useQuery({
     queryKey: ["reviews", _id],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/reviews/${_id}`
-      );
+      const res = await fetch(`${url}/reviews/${_id}`);
       const data = await res.json();
       return data;
     },
@@ -48,7 +47,7 @@ const Review = ({ product }) => {
       }),
     };
 
-    fetch(`${process.env.REACT_APP_BASE_URL}/reviews`, {
+    fetch(`${url}/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

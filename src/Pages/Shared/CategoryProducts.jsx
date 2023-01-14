@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { ProductsContext } from "../../contexts/ProductsProvider";
+import { url } from "../../utils/BaseURL";
 import ProductCard from "./ProductCard";
 
 const CategoryProducts = () => {
@@ -15,7 +16,7 @@ const CategoryProducts = () => {
     queryKey: [name, startPrice, endPrice, startPrice, ratingStar],
     queryFn: async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/products/category/${name}?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
+        `${url}/products/category/${name}?start=${startPrice}&end=${endPrice}&rating=${ratingStar}`
       );
       const data = await res.json();
       return data;

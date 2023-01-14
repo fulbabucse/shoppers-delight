@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { url } from "../../utils/BaseURL";
 import CheckoutForm from "./CheckoutForm";
 
 const Payments = () => {
@@ -14,21 +15,18 @@ const Payments = () => {
   const { data: products = [], refetch } = useQuery({
     queryKey: ["cart", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/cart/${user?.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-          },
-        }
-      );
+      const res = await fetch(`${url}/cart/${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
   });
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/config`, {
+    fetch(`${url}/config`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
       },
@@ -53,7 +51,7 @@ const Payments = () => {
   const totalPrice = price + tax + shipping;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/create-payment-intent`, {
+    fetch(`${url}/create-payment-intent`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

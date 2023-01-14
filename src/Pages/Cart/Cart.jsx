@@ -7,6 +7,7 @@ import Spinner from "../../components/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { ProductsContext } from "../../contexts/ProductsProvider";
 import SingleCartCard from "../Shared/SingleCartCard";
+import { url } from "../../utils/BaseURL";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
@@ -19,21 +20,18 @@ const Cart = () => {
   } = useQuery({
     queryKey: ["cart", user?.email],
     queryFn: async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/cart/${user?.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-          },
-        }
-      );
+      const res = await fetch(`${url}/cart/${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
   });
 
   const handleCartProductDelete = (id) => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/cart/${id}`, {
+    fetch(`${url}/cart/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
