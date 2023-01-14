@@ -1,12 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const { signUpEmailPassword, updateUserProfile } = useContext(AuthContext);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [email, setEmail] = useState("");
+  const [token] = useToken(email);
   const {
     register,
     handleSubmit,
@@ -17,9 +22,16 @@ const SignUp = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  if (token) {
+    setIsProcessing(false);
+    return navigate(from, { replace: true });
+  }
+
   const handleSignIn = (userData) => {
     const formData = new FormData();
     formData.append("image", userData.image[0]);
+
+    setIsProcessing(true);
 
     const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
     fetch(url, {
@@ -30,7 +42,7 @@ const SignUp = () => {
       .then((data) => {
         const photoLink = data?.data?.url;
         signUpEmailPassword(userData.email, userData.password)
-          .then(() => {
+          .then((result) => {
             const updatesInfo = {
               displayName: userData.fullName,
               photoURL: photoLink,
@@ -38,7 +50,11 @@ const SignUp = () => {
 
             updateUserProfile(updatesInfo)
               .then(() => {
-                navigate(from, { replace: true });
+                saveToDatabase(
+                  result?.user?.displayName,
+                  result?.user?.email,
+                  result?.user?.photoURL
+                );
               })
               .catch(() => {});
           })
@@ -46,6 +62,28 @@ const SignUp = () => {
       })
       .catch((err) => console.error(err));
   };
+
+  const saveToDatabase = (name, email, photoLink) => {
+    const updatesInfo = {
+      name,
+      photoURL: photoLink,
+      email,
+    };
+    fetch(`${process.env.REACT_APP_BASE_URL}/users?email=${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatesInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setEmail(email);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="w-full lg:max-w-md mx-auto">
       <Helmet>
@@ -131,7 +169,9 @@ const SignUp = () => {
                     <circle cx="8.5" cy="7" r="4" />
                     <path d="M20 8v6M23 11h-6" />
                   </svg>
-                  <span className="ml-3">Sign Up</span>
+                  <span className="ml-3">
+                    {isProcessing ? "Processing..." : "Sign Up"}
+                  </span>
                 </button>
                 <p className="mt-6 text-sm text-gray-600 flex items-center justify-center gap-1">
                   <span>Already have an Account?</span>
