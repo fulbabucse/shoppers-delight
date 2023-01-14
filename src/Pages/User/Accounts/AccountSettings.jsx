@@ -162,14 +162,18 @@ const AccountSettings = () => {
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Contact No.</div>
-                      <div className="px-4 py-2">{phone}</div>
+                      <a href={`tel:${phone}`} className="px-4 py-2">
+                        {userData ? phone : "N/A"}
+                      </a>
                     </div>
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">
                         Current Address
                       </div>
                       <div className="px-4 py-2">
-                        {zip_code}, {street}, {city}, {country}
+                        {userData
+                          ? `${zip_code}, ${street}, ${city}, ${country}`
+                          : "N/A"}
                       </div>
                     </div>
                     <div className="grid grid-cols-2">
@@ -177,7 +181,9 @@ const AccountSettings = () => {
                         Permanent Address
                       </div>
                       <div className="px-4 py-2">
-                        {zip_code}, {street}, {city}, {country}
+                        {userData
+                          ? `${zip_code}, ${street}, ${city}, ${country}`
+                          : "N/A"}
                       </div>
                     </div>
                     <div className="grid grid-cols-2">

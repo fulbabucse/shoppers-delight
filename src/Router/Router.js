@@ -17,11 +17,13 @@ import PaymentSuccess from "../Pages/Payments/PaymentSuccess";
 import AccountSettings from "../Pages/User/Accounts/AccountSettings";
 import Invoice from "../components/Invoice";
 import BillingAddress from "../Pages/Payments/BillingAddress";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
       { path: "home", element: <Home /> },
@@ -46,8 +48,16 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/product/id/:id", element: <ProductDetails /> },
-      { path: "/category/:name", element: <TopCategoryProducts /> },
+      {
+        path: "/product/id/:id",
+        element: <ProductDetails />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/category/:name",
+        element: <TopCategoryProducts />,
+        errorElement: <ErrorPage />,
+      },
       {
         path: "account-settings",
         element: (
@@ -60,8 +70,8 @@ export const router = createBrowserRouter([
       { path: "sign-up", element: <SignUp /> },
       { path: "/checkout/payments", element: <Payments /> },
       { path: "payments-success", element: <PaymentSuccess /> },
-      { path: "/payments/invoice/:id", element: <Invoice /> },
       { path: "/checkout/billing-address", element: <BillingAddress /> },
     ],
   },
+  { path: "/payments/invoice/:id", element: <Invoice /> },
 ]);

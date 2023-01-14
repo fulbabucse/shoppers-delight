@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useRef } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 import logo from "../assets/images/logo/shoppers-logo.png";
@@ -36,6 +37,9 @@ const Invoice = () => {
 
   return (
     <section className="w-full">
+      <Helmet>
+        <title>Invoice - Shopper's Delight</title>
+      </Helmet>
       <div
         ref={printRef}
         className="h-[1100px] w-[768px] bg-white mx-auto px-16 py-10"
