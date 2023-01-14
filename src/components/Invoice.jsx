@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useRef } from "react";
 import { useParams } from "react-router-dom";
+import ReactToPrint from "react-to-print";
 import logo from "../assets/images/logo/shoppers-logo.png";
 
 const Invoice = () => {
+  const printRef = useRef();
   const { id } = useParams();
   const { data: order = {} } = useQuery({
     queryKey: ["payments", id],
@@ -33,17 +35,12 @@ const Invoice = () => {
 
   const invoiceNo = `#SD${(Math.random(1000) * 1000).toFixed(0)}`;
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <section className="w-full">
-      <div className="flex justify-center items-center gap-5 my-5">
-        <button>Download</button>
-        <button onClick={() => handlePrint()}>Print</button>
-      </div>
-      <div className="h-[1100px] w-[768px] bg-white mx-auto px-16 py-10">
+      <div
+        ref={printRef}
+        className="h-[1100px] w-[768px] bg-white mx-auto px-16 py-10"
+      >
         <article className="overflow-hidden">
           <div>
             <div className="flex justify-between items-center mb-10">
@@ -231,6 +228,16 @@ const Invoice = () => {
             </div>
           </div>
         </article>
+      </div>
+      <div className="flex justify-center items-center gap-5 my-5">
+        <ReactToPrint
+          trigger={() => (
+            <button className="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
+              Print
+            </button>
+          )}
+          content={() => printRef.current}
+        ></ReactToPrint>
       </div>
     </section>
   );

@@ -23,6 +23,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
+    "react-to-print": "^2.14.11",
     "redux": "^4.2.0",
     "swiper": "^8.4.5",
     "tw-elements": "^1.0.0-alpha13",
