@@ -16,6 +16,7 @@ import Payments from "../Pages/Payments/Payments";
 import PaymentSuccess from "../Pages/Payments/PaymentSuccess";
 import AccountSettings from "../Pages/User/Accounts/AccountSettings";
 import Invoice from "../components/Invoice";
+import BillingAddress from "../Pages/Payments/BillingAddress";
 
 export const router = createBrowserRouter([
   {
@@ -57,9 +58,10 @@ export const router = createBrowserRouter([
       },
       { path: "sign-in", element: <SignIn /> },
       { path: "sign-up", element: <SignUp /> },
-      { path: "payments", element: <Payments /> },
+      { path: "/checkout/payments", element: <Payments /> },
       { path: "payments-success", element: <PaymentSuccess /> },
       { path: "/payments/invoice/:id", element: <Invoice /> },
+      { path: "/checkout/billing-address", element: <BillingAddress /> },
     ],
   },
 ]);

@@ -93,7 +93,7 @@ const CheckoutForm = ({ products, price }) => {
     setIsProcessing(false);
   };
   return (
-    <div className="w-full lg:w-1/3 mx-auto">
+    <div className="w-full lg:w-1/3 mx-auto h-screen">
       <form onSubmit={handleSubmit} className="w-full">
         <PaymentElement />
         <button

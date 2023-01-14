@@ -84,8 +84,8 @@ const Invoice = () => {
                     <p>{payment_date}</p>
                   </div>
                   <div className="text-sm font-light text-slate-500">
-                    <p className="text-sm font-normal text-slate-700">Due</p>
-                    <p>N/A</p>
+                    <p className="text-sm font-normal text-slate-700">Status</p>
+                    <p>Paid</p>
 
                     <p className="mt-2 text-sm font-normal text-slate-700">
                       Transection No.
