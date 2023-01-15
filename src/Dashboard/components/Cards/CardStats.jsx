@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
-export default function CardStats({
-  statSubtitle,
-  statTitle,
-  statArrow,
-  statPercent,
-  statPercentColor,
-  statDescripiron,
-  statIconName,
-  statIconColor,
-}) {
+export default function CardStats({ stats }) {
+  const {
+    statSubtitle,
+    statsTitle,
+    statsArrow,
+    statsPercent,
+    statsPercentColor,
+    statsDescription,
+    statsIconName,
+    statsIconColor,
+  } = stats;
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
@@ -21,63 +23,39 @@ export default function CardStats({
                 {statSubtitle}
               </h5>
               <span className="font-semibold text-xl text-blueGray-700">
-                {statTitle}
+                {statsTitle}
               </span>
             </div>
             <div className="relative w-auto pl-4 flex-initial">
               <div
                 className={
                   "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full " +
-                  statIconColor
+                  statsIconColor
                 }
               >
-                <i className={statIconName}></i>
+                {statsIconName}
               </div>
             </div>
           </div>
-          <p className="text-sm text-blueGray-400 mt-4">
-            <span className={statPercentColor + " mr-2"}>
-              <i
-                className={
-                  statArrow === "up"
-                    ? "fas fa-arrow-up"
-                    : statArrow === "down"
-                    ? "fas fa-arrow-down"
-                    : ""
-                }
-              ></i>{" "}
-              {statPercent}%
+          <div className="text-sm text-blueGray-400 mt-4 flex items-center">
+            <span
+              className={statsPercentColor + " mr-2 flex items-center gap-1"}
+            >
+              {statsArrow === "up" ? (
+                <>
+                  <FaArrowUp />
+                </>
+              ) : (
+                <>
+                  <FaArrowDown />
+                </>
+              )}
+              <p>{statsPercent}%</p>
             </span>
-            <span className="whitespace-nowrap">{statDescripiron}</span>
-          </p>
+            <span className="whitespace-nowrap">{statsDescription}</span>
+          </div>
         </div>
       </div>
     </>
   );
 }
-
-CardStats.defaultProps = {
-  statSubtitle: "Traffic",
-  statTitle: "350,897",
-  statArrow: "up",
-  statPercent: "3.48",
-  statPercentColor: "text-emerald-500",
-  statDescripiron: "Since last month",
-  statIconName: "far fa-chart-bar",
-  statIconColor: "bg-red-500",
-};
-
-CardStats.propTypes = {
-  statSubtitle: PropTypes.string,
-  statTitle: PropTypes.string,
-  statArrow: PropTypes.oneOf(["up", "down"]),
-  statPercent: PropTypes.string,
-  // can be any of the text color utilities
-  // from tailwindcss
-  statPercentColor: PropTypes.string,
-  statDescripiron: PropTypes.string,
-  statIconName: PropTypes.string,
-  // can be any of the background color utilities
-  // from tailwindcss
-  statIconColor: PropTypes.string,
-};
