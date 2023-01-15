@@ -15,8 +15,6 @@ const PendingOrdersTable = ({ orders }) => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(orders.pendingOrders);
-
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">

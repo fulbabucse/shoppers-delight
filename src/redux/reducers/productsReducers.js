@@ -1,6 +1,7 @@
 import {
   CART_PRODUCT,
   CATEGORY_PRODUCTS,
+  COMPLETE_PAYMENTS,
   DASHBOARD_ALL_PRODUCTS,
   DETAILS_PRODUCT,
   LATEST_ARTICLE,
@@ -168,6 +169,25 @@ export const pendingOrdersReducer = (
       return {
         ...state,
         pendingOrders: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialCompletePaymentsState = {
+  completePayments: [],
+};
+
+export const completePaymentsReducer = (
+  state = initialCompletePaymentsState,
+  action
+) => {
+  switch (action.type) {
+    case COMPLETE_PAYMENTS:
+      return {
+        ...state,
+        completePayments: action.payload,
       };
     default:
       return state;

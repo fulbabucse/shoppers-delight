@@ -10,6 +10,7 @@ import {
   CART_PRODUCT,
   NAVBAR_NEW_PRODUCTS,
   PENDING_ORDERS,
+  COMPLETE_PAYMENTS,
 } from "../actionTypes/actionTypes";
 
 export const detailsProduct = (product) => {
@@ -83,5 +84,12 @@ export const pendingOrders = (products) => {
   return {
     type: PENDING_ORDERS,
     payload: products,
+  };
+};
+
+export const completePayments = (payments) => {
+  return {
+    type: COMPLETE_PAYMENTS,
+    payload: payments,
   };
 };
