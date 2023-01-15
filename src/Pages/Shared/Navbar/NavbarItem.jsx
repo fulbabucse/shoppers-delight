@@ -154,7 +154,7 @@ const NavbarItem = () => {
               </div>
               {isAdmin && user && (
                 <div>
-                  <Link to="/dashboard">Admin</Link>
+                  <Link to="/admin">Admin</Link>
                 </div>
               )}
             </div>

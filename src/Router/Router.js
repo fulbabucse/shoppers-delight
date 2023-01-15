@@ -19,8 +19,12 @@ import Invoice from "../components/Invoice";
 import BillingAddress from "../Pages/Payments/BillingAddress";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ForgetPassword from "../Pages/User/ForgetPassword";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import AdminRoute from "./AdminRoute";
+import Admin from "../Layout/Admin";
+import Dashboard from "../Dashboard/Views/Dashboard";
+import Maps from "../Dashboard/Views/Maps";
+import Settings from "../Dashboard/Views/Settings";
+import Tables from "../Dashboard/Views/Tables";
 
 export const router = createBrowserRouter([
   {
@@ -107,11 +111,17 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "dashboard",
+    path: "admin",
     element: (
       <AdminRoute>
-        <Dashboard />
+        <Admin />
       </AdminRoute>
     ),
+    children: [
+      { path: "/admin/dashboard", element: <Dashboard /> },
+      { path: "/admin/maps", element: <Maps /> },
+      { path: "/admin/settings", element: <Settings /> },
+      { path: "/admin/tables", element: <Tables /> },
+    ],
   },
 ]);
