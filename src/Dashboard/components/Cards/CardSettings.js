@@ -1,13 +1,13 @@
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import { ProductsContext } from "../../../contexts/ProductsProvider";
+import useAuth from "../../../hooks/useAuth";
 
 // components
 
 export default function CardSettings() {
   const { user } = useContext(AuthContext);
-  const { userData } = useContext(ProductsContext);
+  const [userData] = useAuth(user?.email);
 
   const { zip_code, street, city, country, phone } = userData;
   return (

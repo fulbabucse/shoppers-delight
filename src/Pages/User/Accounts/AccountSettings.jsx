@@ -4,13 +4,15 @@ import { Helmet } from "react-helmet";
 import { toast } from "react-hot-toast";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import { ProductsContext } from "../../../contexts/ProductsProvider";
+// import { ProductsContext } from "../../../contexts/ProductsProvider";
 import Purchase from "./Purchase";
 import { MdVerifiedUser } from "react-icons/md";
+import useAuth from "../../../hooks/useAuth";
 
 const AccountSettings = () => {
   const { user, userAccountVerify } = useContext(AuthContext);
-  const { userData } = useContext(ProductsContext);
+  // const { userData } = useContext(ProductsContext);
+  const [userData] = useAuth(user?.email);
 
   // const { data: userData = [] } = useQuery({
   //   queryKey: ["billing", user?.email],

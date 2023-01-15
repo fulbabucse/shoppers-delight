@@ -1,29 +1,27 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { connect, useDispatch } from "react-redux";
-import { dashboardAllProducts } from "../../../redux/actions/actions";
 import { url } from "../../../utils/BaseURL";
 
-// components
-
-const CardTable = ({ products }) => {
+const CardTable = () => {
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
-
-  const dispatch = useDispatch();
-
-  const fetchProducts = async () => {
-    const res = await fetch(`${url}/products/all?page=${page}&size=${size}`);
-    const data = await res.json();
-    dispatch(dashboardAllProducts(data));
-  };
+  const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetchProducts();
+    fetch(`${url}/products/all?page=${page}&size=${size}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data.products);
+        setCount(data.count);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [page, size]);
 
-  const pages = Math.ceil(products?.dashboardProducts?.count / size);
+  const pages = Math.ceil(count / size);
 
   const handlePrev = () => {
     setPage(page - 1);
@@ -46,88 +44,89 @@ const CardTable = ({ products }) => {
         </div>
         <div className="block w-full overflow-x-auto px-8">
           {/* Projects table */}
-          <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-hidden">
-                  <table class="min-w-full">
-                    <thead class="bg-white border-b">
+          <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <table className="min-w-full">
+                    <thead className="bg-white border-b">
                       <tr>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           SN.
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Products Name
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Category
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Image
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Stock
                         </th>
                         <th
                           scope="col"
-                          class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
                           Actions
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      {products?.dashboardProducts?.products?.map(
-                        (product, index) => (
-                          <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                              {index + 1}
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                              {product?.title?.length > 20 ? (
-                                <>{product?.title?.slice(0, 20)}...</>
-                              ) : (
-                                product?.title
-                              )}
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                              {product?.category?.length > 20 ? (
-                                <>{product?.category?.slice(0, 20)}...</>
-                              ) : (
-                                product?.category
-                              )}
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 whitespace-nowrap">
-                              <img
-                                src={product?.thumbnail}
-                                className="w-10 h-10 rounded-full"
-                                alt=""
-                              />
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {product?.stock}
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              Delete
-                            </td>
-                          </tr>
-                        )
-                      )}
+                      {products?.map((product, index) => (
+                        <tr
+                          key={index}
+                          className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                        >
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            {index + 1}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
+                            {product?.title?.length > 20 ? (
+                              <>{product?.title?.slice(0, 20)}...</>
+                            ) : (
+                              product?.title
+                            )}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
+                            {product?.category?.length > 20 ? (
+                              <>{product?.category?.slice(0, 20)}...</>
+                            ) : (
+                              product?.category
+                            )}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 whitespace-nowrap">
+                            <img
+                              src={product?.thumbnail}
+                              className="w-10 h-10 rounded-full"
+                              alt=""
+                            />
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {product?.stock}
+                          </td>
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            Delete
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -142,9 +141,7 @@ const CardTable = ({ products }) => {
                   <div>
                     <select
                       onChange={(e) => setSize(e.target.value)}
-                      defaultValue={
-                        products?.dashboardProducts?.products?.length
-                      }
+                      defaultValue={products?.length}
                       className="form-select appearance-none
       block
       w-20
@@ -169,8 +166,7 @@ const CardTable = ({ products }) => {
                   </div>
                 </div>
                 <p className="text-gray-500 mt-4 lg:mt-0">
-                  Showing {page + 1} to {pages} of{" "}
-                  {products?.dashboardProducts?.products?.length}
+                  Showing {page + 1} to {pages} of {products?.length}
                   <span className="ml-1">Entires</span>
                 </p>
               </div>
@@ -182,7 +178,7 @@ const CardTable = ({ products }) => {
                 >
                   <FaAngleLeft />
                 </button>
-                {[...Array(pages).keys()]?.map((n) => (
+                {[...Array(pages).keys()]?.map((_, n) => (
                   <button
                     onClick={() => setPage(n)}
                     key={n}
@@ -210,10 +206,4 @@ const CardTable = ({ products }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.dashboardProducts,
-  };
-};
-
-export default connect(mapStateToProps)(CardTable);
+export default CardTable;

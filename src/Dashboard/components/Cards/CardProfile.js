@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
-import { ProductsContext } from "../../../contexts/ProductsProvider";
-
-// components
+import useAuth from "../../../hooks/useAuth";
 
 export default function CardProfile() {
   const { user } = useContext(AuthContext);
-  const { userData } = useContext(ProductsContext);
+  const [userData] = useAuth(user?.email);
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">

@@ -17,12 +17,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <ProductsProvider>
+      <ProductsProvider>
+        <Provider store={store}>
           <App />
           <Toaster />
-        </ProductsProvider>
-      </Provider>
+        </Provider>
+      </ProductsProvider>
     </QueryClientProvider>
   </AuthProvider>
 );
