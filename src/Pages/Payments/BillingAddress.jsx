@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import { url } from "../../utils/BaseURL";
 
 const BillingAddress = () => {
   const { user } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const BillingAddress = () => {
       country: userData.country,
     };
 
-    fetch(`http://localhost:5000/billing`, {
+    fetch(`${url}/billing`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

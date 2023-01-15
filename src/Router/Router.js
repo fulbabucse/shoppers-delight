@@ -22,7 +22,6 @@ import ForgetPassword from "../Pages/User/ForgetPassword";
 import AdminRoute from "./AdminRoute";
 import Admin from "../Layout/Admin";
 import Dashboard from "../Dashboard/Views/Dashboard";
-import Maps from "../Dashboard/Views/Maps";
 import Settings from "../Dashboard/Views/Settings";
 import Tables from "../Dashboard/Views/Tables";
 
