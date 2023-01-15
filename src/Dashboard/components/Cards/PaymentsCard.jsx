@@ -19,7 +19,6 @@ const PaymentsCard = ({ payments }) => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(payments);
 
   return (
     <>

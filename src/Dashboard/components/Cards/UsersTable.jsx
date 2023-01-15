@@ -18,7 +18,6 @@ const UsersTable = ({ users }) => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(users?.users);
 
   return (
     <>

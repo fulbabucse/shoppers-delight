@@ -28,7 +28,6 @@ const SignUp = () => {
 
   if (token) {
     setIsProcessing(false);
-    toast.success("Successfully Account sign Up");
     return navigate(from, { replace: true });
   }
 
