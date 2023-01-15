@@ -1,1 +1,1 @@
-export const url = "https://shopper-s-delight-server.vercel.app";
+export const url = "http://localhost:5000";
