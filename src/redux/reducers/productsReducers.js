@@ -5,6 +5,7 @@ import {
   DETAILS_PRODUCT,
   LATEST_ARTICLE,
   NAVBAR_NEW_PRODUCTS,
+  PENDING_ORDERS,
   QUANTITY_DECREMENT,
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
@@ -154,19 +155,19 @@ export const navbarNewProductsReducer = (
   }
 };
 
-const initialDashboardProductsState = {
-  dashboardProducts: [],
+const initialPendingOrdersState = {
+  pendingOrders: [],
 };
 
-export const dashboardProductsReducer = (
-  state = initialDashboardProductsState,
+export const pendingOrdersReducer = (
+  state = initialPendingOrdersState,
   action
 ) => {
   switch (action.type) {
-    case DASHBOARD_ALL_PRODUCTS:
+    case PENDING_ORDERS:
       return {
         ...state,
-        dashboardProducts: action.payload,
+        pendingOrders: action.payload,
       };
     default:
       return state;

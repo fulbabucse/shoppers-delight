@@ -78,7 +78,7 @@ export default function Sidebar() {
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <h6 className="md:min-w-full text-blue-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Admin Layout Pages
             </h6>
             {/* Navigation */}
@@ -86,67 +86,69 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/dashboard") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
+                  className="text-xs uppercase py-3 font-bold block"
                   to="/admin/dashboard"
                 >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
                   Dashboard
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/settings") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
+                  className="text-xs uppercase py-3 font-bold block"
                   to="/admin/settings"
                 >
-                  <i
-                    className={
-                      "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/settings") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
                   Settings
+                </Link>
+              </li>
+
+              <hr className="my-4 md:min-w-full" />
+
+              {/* Heading */}
+              <h6 className="md:min-w-full text-blue-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+                Products Pages
+              </h6>
+
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/products"
+                >
+                  Products
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/admin/products"
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/add-product"
                 >
-                  <i
-                    className={
-                      "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/products") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Products
+                  Add Product
+                </Link>
+              </li>
+
+              {/* Divider */}
+              <hr className="my-4 md:min-w-full" />
+              {/* Heading */}
+              <h6 className="md:min-w-full text-blue-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+                Orders Pages
+              </h6>
+
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/pending-orders"
+                >
+                  Pending Orders
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/payments-complete"
+                >
+                  Payments Complete
                 </Link>
               </li>
             </ul>

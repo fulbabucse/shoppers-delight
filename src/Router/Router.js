@@ -24,6 +24,9 @@ import Admin from "../Layout/Admin";
 import Dashboard from "../Dashboard/Views/Dashboard";
 import Settings from "../Dashboard/Views/Settings";
 import Tables from "../Dashboard/Views/Tables";
+import PendingOrders from "../Dashboard/components/Orders/PendingOrders";
+import AddProduct from "../Dashboard/components/Products/AddProducts";
+import PaymentsOrders from "../Dashboard/components/Payments/PaymentOrders";
 
 export const router = createBrowserRouter([
   {
@@ -121,6 +124,9 @@ export const router = createBrowserRouter([
       { path: "/admin/dashboard", element: <Dashboard /> },
       { path: "/admin/settings", element: <Settings /> },
       { path: "/admin/products", element: <Tables /> },
+      { path: "/admin/pending-orders", element: <PendingOrders /> },
+      { path: "/admin/add-product", element: <AddProduct /> },
+      { path: "/admin/payments-complete", element: <PaymentsOrders /> },
     ],
   },
 ]);

@@ -9,7 +9,7 @@ import {
   SIMILAR_PRODUCTS,
   CART_PRODUCT,
   NAVBAR_NEW_PRODUCTS,
-  DASHBOARD_ALL_PRODUCTS,
+  PENDING_ORDERS,
 } from "../actionTypes/actionTypes";
 
 export const detailsProduct = (product) => {
@@ -79,9 +79,9 @@ export const navbarNewProducts = (products) => {
   };
 };
 
-export const dashboardAllProducts = (products) => {
+export const pendingOrders = (products) => {
   return {
-    type: DASHBOARD_ALL_PRODUCTS,
+    type: PENDING_ORDERS,
     payload: products,
   };
 };

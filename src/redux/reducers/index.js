@@ -2,10 +2,10 @@ import { combineReducers } from "redux";
 import {
   cartProductsReducer,
   categoryProductsReducer,
-  dashboardProductsReducer,
   detailsProductReducer,
   latestArticleReducer,
   navbarNewProductsReducer,
+  pendingOrdersReducer,
   productQuantityReducer,
   similarProductsReducer,
   topProductsReducer,
@@ -20,5 +20,5 @@ export const reducers = combineReducers({
   similarProducts: similarProductsReducer,
   cartProducts: cartProductsReducer,
   newProducts: navbarNewProductsReducer,
-  dashboardProducts: dashboardProductsReducer,
+  pendingOrders: pendingOrdersReducer,
 });
