@@ -1,4 +1,5 @@
 import {
+  ALL_USERS,
   CART_PRODUCT,
   CATEGORY_PRODUCTS,
   COMPLETE_PAYMENTS,
@@ -188,6 +189,22 @@ export const completePaymentsReducer = (
       return {
         ...state,
         completePayments: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialUsersState = {
+  users: [],
+};
+
+export const usersReducer = (state = initialUsersState, action) => {
+  switch (action.type) {
+    case ALL_USERS:
+      return {
+        ...state,
+        users: action.payload,
       };
     default:
       return state;

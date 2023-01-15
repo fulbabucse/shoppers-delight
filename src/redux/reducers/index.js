@@ -10,6 +10,7 @@ import {
   productQuantityReducer,
   similarProductsReducer,
   topProductsReducer,
+  usersReducer,
 } from "./productsReducers";
 
 export const reducers = combineReducers({
@@ -23,4 +24,5 @@ export const reducers = combineReducers({
   newProducts: navbarNewProductsReducer,
   pendingOrders: pendingOrdersReducer,
   completePayments: completePaymentsReducer,
+  users: usersReducer,
 });

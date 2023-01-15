@@ -1,14 +1,12 @@
 import React from "react";
-import PendingOrdersTable from "../Cards/PendingOrdersTable";
+import UsersTable from "../Cards/UsersTable";
 
-// components
-
-export default function Orders() {
+export default function Users() {
   return (
     <>
       <div className="flex flex-wrap mt-4">
         <div className="w-full mb-12 px-4">
-          <PendingOrdersTable />
+          <UsersTable />
         </div>
       </div>
     </>

@@ -11,6 +11,7 @@ import {
   NAVBAR_NEW_PRODUCTS,
   PENDING_ORDERS,
   COMPLETE_PAYMENTS,
+  ALL_USERS,
 } from "../actionTypes/actionTypes";
 
 export const detailsProduct = (product) => {
@@ -91,5 +92,12 @@ export const completePayments = (payments) => {
   return {
     type: COMPLETE_PAYMENTS,
     payload: payments,
+  };
+};
+
+export const allUsers = (users) => {
+  return {
+    type: ALL_USERS,
+    payload: users,
   };
 };

@@ -1,23 +1,24 @@
 import axios from "axios";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { pendingOrders } from "../../../redux/actions/actions";
+import { allUsers } from "../../../redux/actions/actions";
 import { url } from "../../../utils/BaseURL";
 
-const PendingOrdersTable = ({ orders }) => {
+const UsersTable = ({ users }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     axios
-      .get(`${url}/cart`, {
+      .get(`${url}/users`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
         },
       })
-      .then((data) => dispatch(pendingOrders(data.data)))
+      .then((data) => dispatch(allUsers(data.data)))
       .catch((err) => console.log(err));
   }, []);
+
+  console.log(users?.users);
 
   return (
     <>
@@ -26,7 +27,7 @@ const PendingOrdersTable = ({ orders }) => {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-lg text-gray-700">
-                Pending Orders
+                All Users List
               </h3>
             </div>
           </div>
@@ -50,13 +51,14 @@ const PendingOrdersTable = ({ orders }) => {
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          Products Name
+                          Name
                         </th>
+
                         <th
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          Category
+                          Email
                         </th>
                         <th
                           scope="col"
@@ -64,22 +66,17 @@ const PendingOrdersTable = ({ orders }) => {
                         >
                           Image
                         </th>
+
                         <th
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          Buyer Email
-                        </th>
-                        <th
-                          scope="col"
-                          className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                        >
-                          Actions
+                          User Type
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      {orders.pendingOrders?.map((order, index) => (
+                      {users?.users?.map((user, index) => (
                         <tr
                           key={index}
                           className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
@@ -88,35 +85,31 @@ const PendingOrdersTable = ({ orders }) => {
                             {index + 1}
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                            {order?.title?.length > 20 ? (
-                              <>{order?.title?.slice(0, 20)}...</>
+                            {user?.name?.length > 20 ? (
+                              <>{user?.name?.slice(0, 20)}...</>
                             ) : (
-                              order?.title
+                              user?.name
                             )}
                           </td>
-                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                            {order?.category?.length > 20 ? (
-                              <>{order?.category?.slice(0, 20)}...</>
-                            ) : (
-                              order?.category
-                            )}
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {user?.email}
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 whitespace-nowrap">
                             <img
-                              src={order?.thumbnail}
+                              src={user?.photoURL}
                               className="w-10 h-10 rounded-full"
                               alt=""
                             />
                           </td>
-                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {order?.email?.length > 10 ? (
-                              <>{order?.email?.slice(0, 10)}...</>
-                            ) : (
-                              order?.email
-                            )}
-                          </td>
-                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            Unpaid
+
+                          <td
+                            className={`${
+                              user?.role
+                                ? "text-sm text-blue-500 px-6 py-4 whitespace-nowrap capitalize font-semibold"
+                                : "text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize"
+                            }`}
+                          >
+                            {user?.role ? user?.role : "Normal"}
                           </td>
                         </tr>
                       ))}
@@ -134,8 +127,8 @@ const PendingOrdersTable = ({ orders }) => {
 
 const mapStateToProps = (state) => {
   return {
-    orders: state.pendingOrders,
+    users: state.users,
   };
 };
 
-export default connect(mapStateToProps)(PendingOrdersTable);
+export default connect(mapStateToProps)(UsersTable);

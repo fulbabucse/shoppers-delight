@@ -27,6 +27,7 @@ import Tables from "../Dashboard/Views/Tables";
 import PendingOrders from "../Dashboard/components/Orders/PendingOrders";
 import AddProduct from "../Dashboard/components/Products/AddProducts";
 import PaymentsOrders from "../Dashboard/components/Payments/PaymentOrders";
+import Users from "../Dashboard/components/Users/Users";
 
 export const router = createBrowserRouter([
   {
@@ -127,6 +128,7 @@ export const router = createBrowserRouter([
       { path: "/admin/pending-orders", element: <PendingOrders /> },
       { path: "/admin/add-product", element: <AddProduct /> },
       { path: "/admin/payments-complete", element: <PaymentsOrders /> },
+      { path: "/admin/all-users", element: <Users /> },
     ],
   },
 ]);
