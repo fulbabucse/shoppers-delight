@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import UserDropdown from "../Dropdown/UserDropdown";
 
 export default function AdminNavbar() {
@@ -8,12 +9,12 @@ export default function AdminNavbar() {
       <nav className="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
         <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
           {/* Brand */}
-          <a
+          <Link
+            to="/"
             className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-            onClick={(e) => e.preventDefault()}
           >
-            Dashboard
-          </a>
+            Home
+          </Link>
           {/* Form */}
           <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
             <div className="relative flex w-full flex-wrap items-stretch">

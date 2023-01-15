@@ -23,9 +23,7 @@ const CardTable = ({ products }) => {
     fetchProducts();
   }, [page, size]);
 
-  const pages = Math.ceil(products.dashboardProducts?.count / size);
-
-  console.log(pages);
+  const pages = Math.ceil(products?.dashboardProducts?.count / size);
 
   const handlePrev = () => {
     setPage(page - 1);
@@ -101,14 +99,14 @@ const CardTable = ({ products }) => {
                               {index + 1}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                              {product?.title.length > 20 ? (
+                              {product?.title?.length > 20 ? (
                                 <>{product?.title?.slice(0, 20)}...</>
                               ) : (
                                 product?.title
                               )}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                              {product?.category.length > 20 ? (
+                              {product?.category?.length > 20 ? (
                                 <>{product?.category?.slice(0, 20)}...</>
                               ) : (
                                 product?.category
