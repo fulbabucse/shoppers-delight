@@ -5,13 +5,13 @@ import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { ProductsContext } from "../../contexts/ProductsProvider";
 import SingleCartCard from "../Shared/SingleCartCard";
 import { url } from "../../utils/BaseURL";
+import useAuth from "../../hooks/useAuth";
 
 const Cart = () => {
   const { user } = useContext(AuthContext);
-  const { userData } = useContext(ProductsContext);
+  const [userData] = useAuth(user?.email);
 
   const {
     data: products = [],
@@ -33,6 +33,9 @@ const Cart = () => {
   const handleCartProductDelete = (id) => {
     fetch(`${url}/cart/${id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
