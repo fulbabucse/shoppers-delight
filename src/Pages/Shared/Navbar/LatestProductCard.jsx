@@ -4,7 +4,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const NavbarProductCard = ({ product }) => {
+const LatestProductCard = ({ product }) => {
   const { _id, title, thumbnail, price, rating, discountPercentage } = product;
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
@@ -60,4 +60,4 @@ const NavbarProductCard = ({ product }) => {
   );
 };
 
-export default NavbarProductCard;
+export default LatestProductCard;

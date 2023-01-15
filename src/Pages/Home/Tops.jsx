@@ -53,12 +53,12 @@ const Tops = ({ products }) => {
   return (
     <div className="px-4 lg:px-0 lg:pb-10">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font">
+        <h1 className="text-xl lg:text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font">
           Top Feature Products
         </h1>
         <Link
           to="/products"
-          className="flex gap-1 items-center hover:text-red-500 transition-all duration-300 font-medium"
+          className="text-sm flex gap-1 items-center hover:text-red-500 transition-all duration-300 font-medium"
         >
           <span>All Products</span>
           <span>

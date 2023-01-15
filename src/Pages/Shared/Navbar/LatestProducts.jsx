@@ -7,9 +7,9 @@ import { navbarNewProducts } from "../../../redux/actions/actions";
 import "../../../assets/styles.css";
 import { FaAngleRight } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import NavbarProductCard from "./NavbarProductCard";
+import LatestProductCard from "./LatestProductCard";
 
-const NavbarProducts = ({ products }) => {
+const LatestProducts = ({ products }) => {
   const location = useLocation();
   const responsive = {
     desktop: {
@@ -39,14 +39,14 @@ const NavbarProducts = ({ products }) => {
   }, [location?.pathname]);
 
   return (
-    <div className="my-10">
+    <div className="my-10 px-4 lg:px-0">
       <div className="flex justify-between items-center mb-1">
-        <h1 className="text-2xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 roboto-font">
+        <h1 className="text-xl lg:text-2xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 roboto-font">
           Latest Products
         </h1>
         <Link
           to="/products"
-          className="flex gap-1 items-center hover:text-red-500 transition-all duration-300 font-medium"
+          className="text-sm flex gap-1 items-center hover:text-red-500 transition-all duration-300 font-medium"
         >
           <span>All Products</span>
           <span>
@@ -71,7 +71,7 @@ const NavbarProducts = ({ products }) => {
         itemclassName="carousel-item-padding-40-px"
       >
         {products?.newProducts?.map((product) => (
-          <NavbarProductCard key={product?._id} product={product} />
+          <LatestProductCard key={product?._id} product={product} />
         ))}
       </Carousel>
     </div>
@@ -84,4 +84,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(NavbarProducts);
+export default connect(mapStateToProps)(LatestProducts);
