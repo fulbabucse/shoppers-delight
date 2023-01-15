@@ -65,11 +65,8 @@ export default function HeaderStats() {
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              {statsData?.map((stats) => (
-                <div
-                  key={stats?.id}
-                  className="w-full lg:w-6/12 xl:w-3/12 px-4"
-                >
+              {statsData?.map((stats, index) => (
+                <div key={index} className="w-full lg:w-6/12 xl:w-3/12 px-4">
                   <CardStats stats={stats} />
                 </div>
               ))}

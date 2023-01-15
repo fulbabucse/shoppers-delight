@@ -1,6 +1,7 @@
 import {
   CART_PRODUCT,
   CATEGORY_PRODUCTS,
+  DASHBOARD_ALL_PRODUCTS,
   DETAILS_PRODUCT,
   LATEST_ARTICLE,
   NAVBAR_NEW_PRODUCTS,
@@ -147,6 +148,25 @@ export const navbarNewProductsReducer = (
       return {
         ...state,
         newProducts: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const initialDashboardProductsState = {
+  dashboardProducts: [],
+};
+
+export const dashboardProductsReducer = (
+  state = initialDashboardProductsState,
+  action
+) => {
+  switch (action.type) {
+    case DASHBOARD_ALL_PRODUCTS:
+      return {
+        ...state,
+        dashboardProducts: action.payload,
       };
     default:
       return state;

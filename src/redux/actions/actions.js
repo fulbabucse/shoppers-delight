@@ -9,6 +9,7 @@ import {
   SIMILAR_PRODUCTS,
   CART_PRODUCT,
   NAVBAR_NEW_PRODUCTS,
+  DASHBOARD_ALL_PRODUCTS,
 } from "../actionTypes/actionTypes";
 
 export const detailsProduct = (product) => {
@@ -74,6 +75,13 @@ export const cartProducts = (products) => {
 export const navbarNewProducts = (products) => {
   return {
     type: NAVBAR_NEW_PRODUCTS,
+    payload: products,
+  };
+};
+
+export const dashboardAllProducts = (products) => {
+  return {
+    type: DASHBOARD_ALL_PRODUCTS,
     payload: products,
   };
 };
