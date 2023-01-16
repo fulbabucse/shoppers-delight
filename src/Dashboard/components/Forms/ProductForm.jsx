@@ -199,10 +199,10 @@ const ProductForm = ({ categories }) => {
                     {categories?.categories?.map((category) => (
                       <option
                         key={category?._id}
-                        defaultValue={category?.link}
+                        defaultValue={category?.name}
                         className="capitalize"
                       >
-                        {category?.name}
+                        {category?.link}
                       </option>
                     ))}
                   </select>
