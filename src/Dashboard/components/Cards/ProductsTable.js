@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { url } from "../../../utils/BaseURL";
 
-const CardTable = () => {
+const ProductsTable = () => {
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(20);
   const [products, setProducts] = useState([]);
@@ -206,4 +206,4 @@ const CardTable = () => {
   );
 };
 
-export default CardTable;
+export default ProductsTable;

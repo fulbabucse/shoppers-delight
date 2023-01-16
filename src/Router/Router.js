@@ -23,7 +23,7 @@ import AdminRoute from "./AdminRoute";
 import Admin from "../Layout/Admin";
 import Dashboard from "../Dashboard/Views/Dashboard";
 import Settings from "../Dashboard/Views/Settings";
-import Tables from "../Dashboard/Views/Tables";
+import DashboardAllProducts from "../Dashboard/Views/DashboardAllProducts";
 import PendingOrders from "../Dashboard/components/Orders/PendingOrders";
 import AddProduct from "../Dashboard/components/Products/AddProducts";
 import PaymentsOrders from "../Dashboard/components/Payments/PaymentOrders";
@@ -116,21 +116,85 @@ export const router = createBrowserRouter([
   },
   {
     path: "admin",
+    errorElement: <ErrorPage />,
     element: (
       <AdminRoute>
         <Admin />
       </AdminRoute>
     ),
     children: [
-      { path: "/admin", element: <Dashboard /> },
-      { path: "/admin/dashboard", element: <Dashboard /> },
-      { path: "/admin/settings", element: <Settings /> },
-      { path: "/admin/products", element: <Tables /> },
-      { path: "/admin/pending-orders", element: <PendingOrders /> },
-      { path: "/admin/add-product", element: <AddProduct /> },
-      { path: "/admin/payments-complete", element: <PaymentsOrders /> },
-      { path: "/admin/all-users", element: <Users /> },
-      { path: "/admin/add-category", element: <AddCategory /> },
+      {
+        path: "/admin",
+        element: (
+          <AdminRoute>
+            <Dashboard />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/dashboard",
+        element: (
+          <AdminRoute>
+            <Dashboard />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/settings",
+        element: (
+          <AdminRoute>
+            <Settings />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/products",
+        element: (
+          <AdminRoute>
+            <DashboardAllProducts />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/pending-orders",
+        element: (
+          <AdminRoute>
+            <PendingOrders />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/add-product",
+        element: (
+          <AdminRoute>
+            <AddProduct />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/payments-complete",
+        element: (
+          <AdminRoute>
+            <PaymentsOrders />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/all-users",
+        element: (
+          <AdminRoute>
+            <Users />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/add-category",
+        element: (
+          <AdminRoute>
+            <AddCategory />
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);
