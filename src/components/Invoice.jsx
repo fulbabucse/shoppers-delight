@@ -1,12 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useRef } from "react";
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import ReactToPrint from "react-to-print";
 import logo from "../assets/images/logo/shoppers-logo.png";
+import { AuthContext } from "../contexts/AuthProvider";
+import useAuth from "../hooks/useAuth";
 import { url } from "../utils/BaseURL";
 
 const Invoice = () => {
+  const { user } = useContext(AuthContext);
+  const [userData] = useAuth(user?.email);
   const printRef = useRef();
   const { id } = useParams();
   const { data: order = {} } = useQuery({
@@ -77,9 +82,9 @@ const Invoice = () => {
                   </div>
                   <div className="text-sm font-light text-slate-500">
                     <p className="text-sm font-normal text-slate-700">
-                      Invoice Number
+                      Phone Number
                     </p>
-                    <p>{invoiceNo}</p>
+                    <p>{userData?.phone}</p>
 
                     <p className="mt-2 text-sm font-normal text-slate-700">
                       Date of Issue
