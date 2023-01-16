@@ -28,6 +28,7 @@ import PendingOrders from "../Dashboard/components/Orders/PendingOrders";
 import AddProduct from "../Dashboard/components/Products/AddProducts";
 import PaymentsOrders from "../Dashboard/components/Payments/PaymentOrders";
 import Users from "../Dashboard/components/Users/Users";
+import AddCategory from "../Dashboard/components/Category/AddCategory";
 
 export const router = createBrowserRouter([
   {
@@ -129,6 +130,7 @@ export const router = createBrowserRouter([
       { path: "/admin/add-product", element: <AddProduct /> },
       { path: "/admin/payments-complete", element: <PaymentsOrders /> },
       { path: "/admin/all-users", element: <Users /> },
+      { path: "/admin/add-category", element: <AddCategory /> },
     ],
   },
 ]);

@@ -106,6 +106,22 @@ export default function Sidebar() {
 
               {/* Heading */}
               <h6 className="md:min-w-full text-blue-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+                Category Pages
+              </h6>
+
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/add-category"
+                >
+                  Add Category
+                </Link>
+              </li>
+
+              <hr className="my-4 md:min-w-full" />
+
+              {/* Heading */}
+              <h6 className="md:min-w-full text-blue-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
                 Products Pages
               </h6>
 

@@ -5,7 +5,7 @@ import { url } from "../../../utils/BaseURL";
 
 const CardTable = () => {
   const [page, setPage] = useState(0);
-  const [size, setSize] = useState(10);
+  const [size, setSize] = useState(20);
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
 
@@ -159,9 +159,9 @@ const CardTable = () => {
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       aria-label="Default select example"
                     >
-                      <option value="10">10</option>
                       <option value="20">20</option>
                       <option value="30">30</option>
+                      <option value="50">40</option>
                     </select>
                   </div>
                 </div>

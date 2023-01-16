@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { connect, useDispatch } from "react-redux";
 import { productCategories } from "../../../redux/actions/actions";
 import { url } from "../../../utils/BaseURL";
@@ -24,7 +25,49 @@ const ProductForm = ({ categories }) => {
   }, []);
 
   const handleProductsPost = (productData) => {
-    console.log(productData);
+    if (productData.rating > 5) {
+      toast.error("Product Rating out of 5");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", productData.thumbnail[0]);
+
+    const imgURL = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
+    fetch(imgURL, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const product = {
+          title: productData.title,
+          category: productData.category,
+          description: productData.description,
+          brand: productData.brand,
+          price: productData.price,
+          stock: productData.stock,
+          rating: productData.rating,
+          thumbnail: data?.data?.url,
+          discountPercentage: productData.discountPercentage,
+        };
+        fetch(`${url}/products`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+          },
+          body: JSON.stringify(product),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.acknowledged) {
+              toast.success("Successfully added a new Product");
+            }
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -34,7 +77,7 @@ const ProductForm = ({ categories }) => {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-lg text-gray-700">
-                Product Information
+                New Product Information
               </h3>
             </div>
           </div>
@@ -280,7 +323,7 @@ const ProductForm = ({ categories }) => {
               </button>
               <button
                 type="reset"
-                className="bg-gray-200 text-gray-700 focus:text-red-500 border-gray-200 focus:border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
+                className="bg-red-200 text-red-700 border focus:text-red-500 border-red-200 focus:border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-red-500"
               >
                 Reset
               </button>
