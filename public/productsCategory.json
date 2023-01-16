@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Smartphones",
+    "link": "smartphones"
+  },
+  {
+    "name": "laptops",
+    "link": "laptops"
+  },
+  {
+    "name": "fragrances",
+    "link": "fragrances"
+  },
+  {
+    "name": "skincare",
+    "link": "skincare"
+  },
+  {
+    "name": "groceries",
+    "link": "groceries"
+  },
+  {
+    "name": "home decoration",
+    "link": "home-decoration"
+  },
+  {
+    "name": "furniture",
+    "link": "furniture"
+  },
+  {
+    "name": "tops",
+    "link": "tops"
+  },
+  {
+    "name": "womens dresses",
+    "link": "womens-dresses"
+  },
+  {
+    "name": "womens shoes",
+    "link": "womens-shoes"
+  },
+  {
+    "name": "mens shirts",
+    "link": "mens-shirts"
+  },
+  {
+    "name": "mens shoes",
+    "link": "mens-shoes"
+  },
+  {
+    "name": "mens watches",
+    "link": "mens-watches"
+  },
+  {
+    "name": "womens watches",
+    "link": "womens-watches"
+  },
+  {
+    "name": "womens bags",
+    "link": "womens-bags"
+  },
+  {
+    "name": "womens jewellery",
+    "link": "womens-jewellery"
+  },
+  {
+    "name": "sunglasses",
+    "link": "sunglasses"
+  },
+  {
+    "name": "automotive",
+    "link": "automotive"
+  },
+  {
+    "name": "motorcycle",
+    "link": "motorcycle"
+  },
+  {
+    "name": "lighting",
+    "link": "lighting"
+  }
+]

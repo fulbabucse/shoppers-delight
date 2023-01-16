@@ -255,7 +255,7 @@ const Review = ({ product }) => {
       "
                         id="exampleFormControlTextarea13"
                         rows="3"
-                        placeholder="Enter Message"
+                        placeholder="Leave a review"
                       ></textarea>
                       {errors.message && (
                         <p className="text-red-400 text-sm font-medium">

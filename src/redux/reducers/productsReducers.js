@@ -8,6 +8,7 @@ import {
   LATEST_ARTICLE,
   NAVBAR_NEW_PRODUCTS,
   PENDING_ORDERS,
+  PRODUCT_CATEGORIES,
   QUANTITY_DECREMENT,
   QUANTITY_INCREMENT,
   REMOVE_SELECTED_PRODUCT,
@@ -205,6 +206,26 @@ export const usersReducer = (state = initialUsersState, action) => {
       return {
         ...state,
         users: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+// Admin Dashboard
+const initialCategoriesState = {
+  categories: [],
+};
+
+export const productCategoriesReducer = (
+  state = initialCategoriesState,
+  action
+) => {
+  switch (action.type) {
+    case PRODUCT_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
       };
     default:
       return state;

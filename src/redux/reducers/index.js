@@ -7,6 +7,7 @@ import {
   latestArticleReducer,
   navbarNewProductsReducer,
   pendingOrdersReducer,
+  productCategoriesReducer,
   productQuantityReducer,
   similarProductsReducer,
   topProductsReducer,
@@ -25,4 +26,7 @@ export const reducers = combineReducers({
   pendingOrders: pendingOrdersReducer,
   completePayments: completePaymentsReducer,
   users: usersReducer,
+
+  // Admin Dashboard
+  productCategories: productCategoriesReducer,
 });

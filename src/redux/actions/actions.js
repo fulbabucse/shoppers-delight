@@ -12,6 +12,7 @@ import {
   PENDING_ORDERS,
   COMPLETE_PAYMENTS,
   ALL_USERS,
+  PRODUCT_CATEGORIES,
 } from "../actionTypes/actionTypes";
 
 export const detailsProduct = (product) => {
@@ -99,5 +100,13 @@ export const allUsers = (users) => {
   return {
     type: ALL_USERS,
     payload: users,
+  };
+};
+
+// Admin Dashboard
+export const productCategories = (categories) => {
+  return {
+    type: PRODUCT_CATEGORIES,
+    payload: categories,
   };
 };
