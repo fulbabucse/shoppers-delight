@@ -334,7 +334,7 @@ const CategoryAccordion = () => {
         </div>
       </div>
 
-      {/* Automobile */}
+      {/* Smart Homes */}
       <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
         <h2 className="accordion-header mb-0" id="flush-headingTwo">
           <button
@@ -358,7 +358,7 @@ const CategoryAccordion = () => {
             aria-expanded="false"
             aria-controls="flush-collapseTwo"
           >
-            Automotive
+            Smart Homes
           </button>
         </h2>
         <div
@@ -368,10 +368,151 @@ const CategoryAccordion = () => {
         >
           <div className="accordion-body py-4 px-5">
             <Link
+              to="/products/category/furniture"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Furniture
+            </Link>
+            <Link
+              to="/products/category/home-decoration"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Home Decoration
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Electronics */}
+      <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
+        <h2 className="accordion-header mb-0" id="flush-headingTwo">
+          <button
+            className="accordion-button
+      collapsed
+      relative
+      flex
+      items-center
+      w-full
+      py-3
+      px-3
+      text-sm text-gray-800 text-left
+      bg-white
+      border-0
+      rounded-none
+      transition
+      focus:outline-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#eight"
+            aria-expanded="false"
+            aria-controls="flush-collapseTwo"
+          >
+            Electronics
+          </button>
+        </h2>
+        <div
+          id="eight"
+          className="accordion-collapse border-0 collapse"
+          aria-labelledby="flush-headingTwo"
+        >
+          <div className="accordion-body py-4 px-5">
+            <Link
+              to="/products/category/lighting"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Lighting
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Groceries */}
+      <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
+        <h2 className="accordion-header mb-0" id="flush-headingTwo">
+          <button
+            className="accordion-button
+      collapsed
+      relative
+      flex
+      items-center
+      w-full
+      py-3
+      px-3
+      text-sm text-gray-800 text-left
+      bg-white
+      border-0
+      rounded-none
+      transition
+      focus:outline-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nine"
+            aria-expanded="false"
+            aria-controls="flush-collapseTwo"
+          >
+            Groceries
+          </button>
+        </h2>
+        <div
+          id="nine"
+          className="accordion-collapse border-0 collapse"
+          aria-labelledby="flush-headingTwo"
+        >
+          <div className="accordion-body py-4 px-5">
+            <Link
+              to="/products/category/groceries"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              Groceries
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Automotive */}
+      <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white border border-gray-200">
+        <h2 className="accordion-header mb-0" id="flush-headingTwo">
+          <button
+            className="accordion-button
+      collapsed
+      relative
+      flex
+      items-center
+      w-full
+      py-3
+      px-3
+      text-sm text-gray-800 text-left
+      bg-white
+      border-0
+      rounded-none
+      transition
+      focus:outline-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#ten"
+            aria-expanded="false"
+            aria-controls="flush-collapseTwo"
+          >
+            Automotive
+          </button>
+        </h2>
+        <div
+          id="ten"
+          className="accordion-collapse border-0 collapse"
+          aria-labelledby="flush-headingTwo"
+        >
+          <div className="accordion-body py-4 px-5">
+            <Link
               to="/products/category/automotive"
               className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
             >
               automotive
+            </Link>
+            <Link
+              to="/products/category/motorcycle"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              Motorcycle
             </Link>
           </div>
         </div>
