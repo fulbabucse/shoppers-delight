@@ -239,6 +239,9 @@ const ProductForm = ({ categories }) => {
                     className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 capitalize"
                     id="product_category"
                   >
+                    <option value="Select One" selected>
+                      Select One
+                    </option>
                     {categories?.categories?.map((category) => (
                       <option
                         key={category?._id}
