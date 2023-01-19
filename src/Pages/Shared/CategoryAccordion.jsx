@@ -47,7 +47,31 @@ const CategoryAccordion = () => {
               to="/products/category/womens-dresses"
               className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
             >
-              - Dresses
+              - Dresses Materials
+            </Link>
+            <Link
+              to="/products/category/sarees"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Sarees
+            </Link>
+            <Link
+              to="/products/category/lehenga-cholis"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Lehenga Cholis
+            </Link>
+            <Link
+              to="/products/category/womens-jackets-coats"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Jackets & Coats
+            </Link>
+            <Link
+              to="/products/category/sleepwear"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Sleepwear
             </Link>
 
             <Link
@@ -66,7 +90,7 @@ const CategoryAccordion = () => {
               to="/products/category/womens-bags"
               className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
             >
-              - Bags
+              - Bags & Backpack
             </Link>
             <Link
               to="/products/category/tops"
@@ -117,6 +141,36 @@ const CategoryAccordion = () => {
           aria-labelledby="flush-headingTwo"
         >
           <div className="accordion-body py-4 px-5">
+            <Link
+              to="/products/category/t-shirts"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - T-Shirts
+            </Link>
+            <Link
+              to="/products/category/mens-jackets-blazers-coats"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Jackets, Blazers & Coats
+            </Link>
+            <Link
+              to="/products/category/mens-bags-backpack"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Bags & Backpack
+            </Link>
+            <Link
+              to="/products/category/wallets"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Wallets
+            </Link>
+            <Link
+              to="/products/category/belts"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Belts
+            </Link>
             <Link
               to="/products/category/mens-shirts"
               className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"

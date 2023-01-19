@@ -6,11 +6,15 @@ import "react-multi-carousel/lib/styles.css";
 import { navbarNewProducts } from "../../../redux/actions/actions";
 import "../../../assets/styles.css";
 import { FaAngleRight } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LatestProductCard from "./LatestProductCard";
+import { url } from "../../../utils/BaseURL";
+import { useState } from "react";
+import Spinner from "../../../components/Spinner";
 
 const LatestProducts = ({ products }) => {
-  const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -28,15 +32,26 @@ const LatestProducts = ({ products }) => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  // setLoading(true);
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get("newProducts.json")
+      .get(`${url}/products/all`)
       .then((res) => {
+        setLoading(true);
+        console.log(res);
         dispatch(navbarNewProducts(res.data));
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
-  }, [location?.pathname]);
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="my-10 px-4 lg:px-0">
@@ -70,7 +85,7 @@ const LatestProducts = ({ products }) => {
         dotListclassName="custom-dot-list-style"
         itemclassName="carousel-item-padding-40-px"
       >
-        {products?.newProducts?.map((product) => (
+        {products?.newProducts?.products?.slice(0, 20)?.map((product) => (
           <LatestProductCard key={product?._id} product={product} />
         ))}
       </Carousel>
