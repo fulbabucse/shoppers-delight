@@ -82,6 +82,7 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/dashboard"
                 >
@@ -93,6 +94,7 @@ export default function Sidebar() {
                 <Link
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/settings"
+                  onClick={() => setCollapseShow("hidden")}
                 >
                   Settings
                 </Link>
@@ -107,6 +109,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/all-categories"
                 >
@@ -115,6 +118,7 @@ export default function Sidebar() {
               </li>
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/add-category"
                 >
@@ -131,6 +135,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/sliders"
                 >
@@ -140,6 +145,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/add-slider"
                 >
@@ -156,6 +162,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/products"
                 >
@@ -165,6 +172,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/add-product"
                 >
@@ -181,6 +189,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/pending-orders"
                 >
@@ -190,6 +199,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-xs uppercase py-3 font-bold block"
                   to="/admin/payments-complete"
                 >
@@ -209,6 +219,7 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
                 <Link
+                  onClick={() => setCollapseShow("hidden")}
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
                   to="/admin/all-users"
                 >

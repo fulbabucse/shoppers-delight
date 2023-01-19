@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Timer from "../../components/Timer";
 
 const Discount = () => {
@@ -26,9 +27,11 @@ const Discount = () => {
             <Timer />
           </div>
           <div className="flex justify-center mt-2">
-            <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
-              Shop Now
-            </button>
+            <Link to="/products">
+              <button className="rounded-full bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

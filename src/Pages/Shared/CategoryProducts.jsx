@@ -29,6 +29,11 @@ const CategoryProducts = () => {
 
   return (
     <div>
+      <p className="text-center">
+        {products?.length === 0
+          ? "We're sorry. We cannot find any matches for your term."
+          : `${products?.length}  items found`}
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products?.map((product) => (
           <ProductCard product={product} key={product._id} />

@@ -157,6 +157,7 @@ const SignIn = () => {
                 {...register("email", {
                   required: "Email is required",
                 })}
+                defaultValue="fulbabucse@gmail.com"
                 className="bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
               />
               {errors.email && (
@@ -179,6 +180,7 @@ const SignIn = () => {
                   {...register("password", {
                     required: "Password is required",
                   })}
+                  defaultValue="F@him2"
                   className="bg-gray-200 border rounded  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 />
 

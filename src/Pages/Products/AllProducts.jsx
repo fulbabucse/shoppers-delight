@@ -47,14 +47,20 @@ const AllProducts = () => {
   return (
     <div>
       <div className="mb-2">
-        <p className="text-center">{products?.products?.length} items found</p>
+        <p className="text-center">
+          {products?.products?.length === 0
+            ? "We're sorry. We cannot find any matches for your term."
+            : `${products?.products?.length}  items found`}{" "}
+        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products?.products?.map((product, index) => (
           <ProductCard product={product} key={index} />
         ))}
       </div>
-      <div className="mt-3">
+      <div
+        className={`${products?.products?.length === 0 ? "hidden" : "mt-3"}`}
+      >
         <div className="flex flex-col lg:flex-row justify-between">
           <div className="flex justify-between items-center gap-10 text-sm">
             <div>
