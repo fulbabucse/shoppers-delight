@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -6,7 +7,17 @@ import { connect, useDispatch } from "react-redux";
 import { productCategories } from "../../../redux/actions/actions";
 import { url } from "../../../utils/BaseURL";
 
+const imgURL = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
+
 const ProductForm = ({ categories }) => {
+  const [imageOne, setImageOne] = useState(null);
+  const [imageTwo, setImageTwo] = useState(null);
+  const [imageThree, setImageThree] = useState(null);
+
+  const [imageOneURL, setImageOneURL] = useState("");
+  const [imageTwoURL, setImageTwoURL] = useState("");
+  const [imageThreeURL, setImageThreeURL] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -24,6 +35,22 @@ const ProductForm = ({ categories }) => {
     fetchCategories();
   }, []);
 
+  const handleImageOne = (e) => {
+    e.preventDefault();
+    const formDataOne = new FormData();
+    formDataOne.append("image", imageOne[0]);
+    fetch(imgURL, {
+      method: "POST",
+      body: formDataOne,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setImageOneURL(data.data.url);
+        toast.success("Image One Uploaded Complete");
+      })
+      .catch((err) => console.log(err));
+  };
+
   const handleProductsPost = (productData) => {
     if (productData.rating > 5) {
       toast.error("Product Rating out of 5");
@@ -33,7 +60,6 @@ const ProductForm = ({ categories }) => {
     const formData = new FormData();
     formData.append("image", productData.thumbnail[0]);
 
-    const imgURL = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
     fetch(imgURL, {
       method: "POST",
       body: formData,
@@ -50,7 +76,9 @@ const ProductForm = ({ categories }) => {
           rating: productData.rating,
           thumbnail: data?.data?.url,
           discountPercentage: productData.discountPercentage,
+          images: [imageOneURL, imageTwoURL, imageThreeURL, data?.data?.url],
         };
+        console.log(product);
         fetch(`${url}/products`, {
           method: "POST",
           headers: {
@@ -70,6 +98,37 @@ const ProductForm = ({ categories }) => {
       .catch((err) => console.log(err));
   };
 
+  const handleImageTwo = (e) => {
+    e.preventDefault();
+    const formDataTwo = new FormData();
+    formDataTwo.append("image", imageTwo[0]);
+    fetch(imgURL, {
+      method: "POST",
+      body: formDataTwo,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Image Two Uploaded Complete");
+        setImageTwoURL(data.data.url);
+      })
+      .catch((err) => console.log(err));
+  };
+  const handleImageThree = (e) => {
+    e.preventDefault();
+    const formDataThree = new FormData();
+    formDataThree.append("image", imageThree[0]);
+    fetch(imgURL, {
+      method: "POST",
+      body: formDataThree,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Image Three Uploaded Complete");
+        setImageThreeURL(data.data.url);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
@@ -83,6 +142,74 @@ const ProductForm = ({ categories }) => {
           </div>
         </div>
         <div className="block w-full overflow-x-auto px-8 pb-4">
+          {/* Uploads Images */}
+          <div>
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <form
+                onSubmit={handleImageOne}
+                className="w-full md:w-1/3 px-3 mb-6 md:mb-0"
+              >
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="product_image_one"
+                >
+                  Product Image One
+                </label>
+                <input
+                  name="name"
+                  onChange={(e) => setImageOne(e.target.files)}
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="product_image_one"
+                  type="file"
+                />
+                <button className="bg-gray-200 mt-3 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  Upload One
+                </button>
+              </form>
+
+              <form onSubmit={handleImageTwo} className="w-full md:w-1/3 px-3">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="product_image_two"
+                >
+                  Product Image Two
+                </label>
+                <input
+                  name="product_image_two"
+                  onChange={(e) => setImageTwo(e.target.files)}
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="product_image_two"
+                  type="file"
+                />
+                <button className="bg-gray-200 mt-3 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  Upload Two
+                </button>
+              </form>
+
+              {/* Image Number Three */}
+              <form
+                onSubmit={handleImageThree}
+                className="w-full md:w-1/3 px-3"
+              >
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="product_image_three"
+                >
+                  Product Image Three
+                </label>
+                <input
+                  name="product_image_three"
+                  onChange={(e) => setImageThree(e.target.files)}
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="product_image_three"
+                  type="file"
+                />
+                <button className="bg-gray-200 mt-3 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  Upload Three
+                </button>
+              </form>
+            </div>
+          </div>
           {/* Projects table */}
           <form onSubmit={handleSubmit(handleProductsPost)} className="w-full">
             <div className="flex flex-wrap -mx-3 mb-6">

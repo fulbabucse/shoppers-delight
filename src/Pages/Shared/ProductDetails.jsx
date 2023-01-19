@@ -20,7 +20,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import { url } from "../../utils/BaseURL";
-// import { useState } from "react";
+import { useState } from "react";
 
 const ProductDetails = ({ product, quantity }) => {
   const { user } = useContext(AuthContext);
@@ -36,11 +36,11 @@ const ProductDetails = ({ product, quantity }) => {
     description,
     brand,
     category,
-    // images = [],
+    images = [],
     discountPercentage,
   } = product;
 
-  // const [imageURL, setImageURL] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   const discountedPrice = price - price / discountPercentage;
 
@@ -134,13 +134,13 @@ const ProductDetails = ({ product, quantity }) => {
         <section className="text-gray-700 body-font overflow-hidden bg-transparent">
           <div className="container px-5 py-10 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
-              {/* {images && (
+              {images && (
                 <>
-                  <div className="flex items-center flex-wrap gap-4">
-                    <div className="grid grid-cols-1 gap-1">
+                  <div className="flex items-center gap-4">
+                    <div className="flex flex-col gap-1">
                       {images?.map((image, index) => {
                         return (
-                          <figure key={index}>
+                          <figure key={index} className="cursor-pointer">
                             <img
                               className="w-20 h-20 object-cover object-center rounded"
                               src={image}
@@ -152,25 +152,19 @@ const ProductDetails = ({ product, quantity }) => {
                       })}
                     </div>
                     <img
-                      className="lg:w-96 w-full h-96 object-cover object-center rounded"
+                      className="lg:w-96 w-72 h-auto object-cover object-center rounded"
                       src={imageURL || images[0]}
                       alt={title}
                     />
                   </div>
                 </>
-              )} */}
-
-              <img
-                className="lg:w-96 w-full h-96 object-cover object-center rounded border border-gray-200 p-4"
-                src={thumbnail}
-                alt={title}
-              />
+              )}
 
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-sm title-font text-gray-500 tracking-widest capitalize">
                   {brand}
                 </h2>
-                <h1 className="text-gray-900 text-xl lg:text-3xl title-font font-medium mb-1 capitalize">
+                <h1 className="text-gray-800 text-xl lg:text-2xl title-font font-medium mb-1 capitalize">
                   {title}
                 </h1>
                 <div className="flex mb-4">
@@ -217,7 +211,13 @@ const ProductDetails = ({ product, quantity }) => {
                     </p>
                   </span>
                 </div>
-                <p className="leading-relaxed text-justify">{description}</p>
+                <p className="leading-relaxed text-justify">
+                  {description.length > 150 ? (
+                    <>{description?.slice(0, 150)}...</>
+                  ) : (
+                    description
+                  )}
+                </p>
                 <div className="flex">
                   <div className="flex items-center space-x-4 my-4">
                     <div>

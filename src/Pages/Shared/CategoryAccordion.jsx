@@ -38,11 +38,18 @@ const CategoryAccordion = () => {
         >
           <div className="accordion-body py-4 px-5">
             <Link
+              to="/products/category/women-kurtas-kurtis-suits"
+              className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
+            >
+              - Women Kurtas Kurtis Suits
+            </Link>
+            <Link
               to="/products/category/womens-dresses"
               className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
             >
               - Dresses
             </Link>
+
             <Link
               to="/products/category/womens-shoes"
               className="flex flex-col my-2 text-sm hover:text-red-500 capitalize"
