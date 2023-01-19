@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebar from "../Dashboard/components/Sidebar/Sidebar";
-import AdminNavbar from "../Dashboard/components/Navbar/AdminNavbar";
-import HeaderStats from "../Dashboard/components/Headers/HeaderStats";
 import { Outlet } from "react-router-dom";
-import FooterAdmin from "../Dashboard/components/Footers/FooterAdmin";
+import AdminNavbar from "../Dashboard/Shared/AdminNavbar";
+import FooterAdmin from "../Dashboard/Shared/FooterAdmin";
+import HeaderStats from "../Dashboard/Shared/HeaderStats";
+import Sidebar from "../Dashboard/Shared/Sidebar";
 
 const Admin = () => {
   return (

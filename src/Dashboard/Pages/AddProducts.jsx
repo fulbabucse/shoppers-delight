@@ -1,16 +1,14 @@
 import React from "react";
-import CategoryForm from "../Forms/CategoryForm";
+import ProductForm from "../components/Forms/ProductForm";
 
-const AddCategory = () => {
+export default function AddProduct() {
   return (
     <>
       <div className="flex flex-wrap mt-4">
         <div className="w-full mb-12 px-4">
-          <CategoryForm />
+          <ProductForm />
         </div>
       </div>
     </>
   );
-};
-
-export default AddCategory;
+}

@@ -23,12 +23,15 @@ import AdminRoute from "./AdminRoute";
 import Admin from "../Layout/Admin";
 import Dashboard from "../Dashboard/Views/Dashboard";
 import Settings from "../Dashboard/Views/Settings";
+import AddCategory from "../Dashboard/Pages/AddCategory";
+import Users from "../Dashboard/Pages/Users";
+import PaymentsOrders from "../Dashboard/Pages/PaymentOrders";
+import AddProduct from "../Dashboard/Pages/AddProducts";
+import PendingOrders from "../Dashboard/Pages/PendingOrders";
 import DashboardAllProducts from "../Dashboard/Views/DashboardAllProducts";
-import PendingOrders from "../Dashboard/components/Orders/PendingOrders";
-import AddProduct from "../Dashboard/components/Products/AddProducts";
-import PaymentsOrders from "../Dashboard/components/Payments/PaymentOrders";
-import Users from "../Dashboard/components/Users/Users";
-import AddCategory from "../Dashboard/components/Category/AddCategory";
+import HomeSlider from "../Dashboard/Pages/HomeSlider";
+import Sliders from "../Dashboard/Pages/Sliders";
+import Categories from "../Dashboard/Pages/Categories";
 
 export const router = createBrowserRouter([
   {
@@ -192,6 +195,30 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddCategory />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/add-slider",
+        element: (
+          <AdminRoute>
+            <HomeSlider />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/sliders",
+        element: (
+          <AdminRoute>
+            <Sliders />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/all-categories",
+        element: (
+          <AdminRoute>
+            <Categories />
           </AdminRoute>
         ),
       },

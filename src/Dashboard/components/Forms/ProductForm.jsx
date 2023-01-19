@@ -5,9 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { connect, useDispatch } from "react-redux";
 import { productCategories } from "../../../redux/actions/actions";
-import { url } from "../../../utils/BaseURL";
-
-const imgURL = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
+import { imgURL, url } from "../../../utils/BaseURL";
 
 const ProductForm = ({ categories }) => {
   const [imageOne, setImageOne] = useState(null);

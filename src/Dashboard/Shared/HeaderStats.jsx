@@ -5,7 +5,7 @@ import {
   FaShoppingBag,
   FaPercent,
 } from "react-icons/fa";
-import CardStats from "../Cards/CardStats";
+import CardStats from "../components/Cards/CardStats";
 
 // components
 

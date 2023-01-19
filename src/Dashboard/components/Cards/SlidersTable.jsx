@@ -1,39 +1,21 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import { toast } from "react-hot-toast";
-import { FaAngleLeft, FaAngleRight, FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import { url } from "../../../utils/BaseURL";
 
-const ProductsTable = () => {
-  const [refetch, setRefetch] = useState(true);
-  const [page, setPage] = useState(0);
-  const [size, setSize] = useState(20);
-  const [products, setProducts] = useState([]);
-  const [count, setCount] = useState(0);
+const SlidersTable = () => {
+  const { data: sliders = [], refetch } = useQuery({
+    queryKey: ["sliders"],
+    queryFn: async () => {
+      const res = await fetch(`${url}/sliders`);
+      const data = await res.json();
+      return data;
+    },
+  });
 
-  useEffect(() => {
-    fetch(`${url}/products/all?page=${page}&size=${size}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products);
-        setCount(data.count);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [page, size, refetch]);
-
-  const pages = Math.ceil(count / size);
-
-  const handlePrev = () => {
-    setPage(page - 1);
-  };
-  const handleNext = () => {
-    setPage(page + 1);
-  };
-
-  const handleProductDelete = (id) => {
-    fetch(`${url}/products/${id}`, {
+  const handleSliderDelete = (id) => {
+    fetch(`${url}/sliders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
@@ -43,7 +25,7 @@ const ProductsTable = () => {
       .then((result) => {
         if (result.deletedCount > 0) {
           toast.success("Successfully deleted 1 Slider");
-          setRefetch(false);
+          refetch();
         }
       })
       .catch((err) => console.log(err));
@@ -56,13 +38,13 @@ const ProductsTable = () => {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-lg text-gray-700">
-                Products List
+                Sliders List
               </h3>
             </div>
           </div>
         </div>
         <div className="block w-full overflow-x-auto px-8">
-          {/* Projects table */}
+          {/* sliders table */}
           <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -80,13 +62,13 @@ const ProductsTable = () => {
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          Products Name
+                          Title
                         </th>
                         <th
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          Category
+                          Sub-Title
                         </th>
                         <th
                           scope="col"
@@ -98,18 +80,18 @@ const ProductsTable = () => {
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          Stock
+                          Price
                         </th>
                         <th
                           scope="col"
-                          className="text-sm font-medium text-gray-900 px-6 py-4 text-center"
+                          className="text-sm font-medium  text-gray-900 px-6 py-4 text-center"
                         >
                           Actions
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      {products?.map((product, index) => (
+                      {sliders?.map((slider, index) => (
                         <tr
                           key={index}
                           className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
@@ -118,32 +100,32 @@ const ProductsTable = () => {
                             {index + 1}
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                            {product?.title?.length > 20 ? (
-                              <>{product?.title?.slice(0, 20)}...</>
+                            {slider?.title?.length > 20 ? (
+                              <>{slider?.title?.slice(0, 20)}...</>
                             ) : (
-                              product?.title
+                              slider?.title
                             )}
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                            {product?.category?.length > 20 ? (
-                              <>{product?.category?.slice(0, 20)}...</>
+                            {slider?.sub_title?.length > 20 ? (
+                              <>{slider?.sub_title?.slice(0, 20)}...</>
                             ) : (
-                              product?.category
+                              slider?.sub_title
                             )}
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 whitespace-nowrap">
                             <img
-                              src={product?.thumbnail}
+                              src={slider?.image}
                               className="w-10 h-10 rounded-full"
                               alt=""
                             />
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {product?.stock}
+                            {slider?.price}
                           </td>
                           <td className="text-sm text-gray-900 text-center font-light px-6 py-4 whitespace-nowrap">
                             <button
-                              onClick={() => handleProductDelete(product?._id)}
+                              onClick={() => handleSliderDelete(slider?._id)}
                               className="bg-red-500 p-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full"
                             >
                               <FaTrashAlt />
@@ -157,77 +139,10 @@ const ProductsTable = () => {
               </div>
             </div>
           </div>
-
-          <div className="my-5">
-            <div className="flex flex-col lg:flex-row justify-between">
-              <div className="flex justify-between items-center gap-10 text-sm">
-                <div>
-                  <div>
-                    <select
-                      onChange={(e) => setSize(e.target.value)}
-                      defaultValue={products?.length}
-                      className="form-select appearance-none
-      block
-      w-20
-      px-3
-      py-1
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      aria-label="Default select example"
-                    >
-                      <option value="20">20</option>
-                      <option value="30">30</option>
-                      <option value="50">40</option>
-                    </select>
-                  </div>
-                </div>
-                <p className="text-gray-500 mt-4 lg:mt-0">
-                  Showing {page + 1} to {pages} of {products?.length}
-                  <span className="ml-1">Entires</span>
-                </p>
-              </div>
-              <nav className="flex justify-center items-center text-gray-600 mt-8 lg:mt-0">
-                <button
-                  onClick={() => handlePrev()}
-                  disabled={page === 0}
-                  className="p-2 mr-4 rounded hover:bg-gray-100"
-                >
-                  <FaAngleLeft />
-                </button>
-                {[...Array(pages).keys()]?.map((_, n) => (
-                  <button
-                    onClick={() => setPage(n)}
-                    key={n}
-                    className={`${
-                      page === n &&
-                      "px-4 py-2 bg-gray-200 text-gray-900 font-medium hover:bg-gray-300"
-                    } hover:bg-gray-300 px-4 py-2`}
-                  >
-                    {n + 1}
-                  </button>
-                ))}
-                <button
-                  onClick={() => handleNext()}
-                  disabled={page + 1 === pages}
-                  className="p-2 ml-4 rounded hover:bg-gray-100"
-                >
-                  <FaAngleRight />
-                </button>
-              </nav>
-            </div>
-          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default ProductsTable;
+export default SlidersTable;

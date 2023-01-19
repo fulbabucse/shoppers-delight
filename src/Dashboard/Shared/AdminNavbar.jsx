@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import UserDropdown from "../Dropdown/UserDropdown";
+import UserDropdown from "../components/Dropdown/UserDropdown";
 
 export default function AdminNavbar() {
   return (

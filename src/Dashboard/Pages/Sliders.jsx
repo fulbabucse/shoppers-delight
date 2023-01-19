@@ -1,14 +1,16 @@
 import React from "react";
-import UsersTable from "../Cards/UsersTable";
+import SlidersTable from "../components/Cards/SlidersTable";
 
-export default function Users() {
+const Sliders = () => {
   return (
     <>
       <div className="flex flex-wrap mt-4">
         <div className="w-full mb-12 px-4">
-          <UsersTable />
+          <SlidersTable />
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Sliders;

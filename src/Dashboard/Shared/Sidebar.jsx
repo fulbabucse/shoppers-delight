@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import UserDropdown from "../Dropdown/UserDropdown";
+import UserDropdown from "../components/Dropdown/UserDropdown";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Sidebar() {
@@ -108,9 +108,42 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/all-categories"
+                >
+                  All Categories
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
                   to="/admin/add-category"
                 >
                   Add Category
+                </Link>
+              </li>
+
+              {/* Divider */}
+              <hr className="my-4 md:min-w-full" />
+              {/* Heading */}
+              <h6 className="md:min-w-full text-blue-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+                Sliders Pages
+              </h6>
+
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/sliders"
+                >
+                  Sliders
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className="text-xs uppercase py-3 font-bold block"
+                  to="/admin/add-slider"
+                >
+                  Add Slider
                 </Link>
               </li>
 

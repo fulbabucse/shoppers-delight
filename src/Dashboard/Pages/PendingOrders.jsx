@@ -1,14 +1,14 @@
 import React from "react";
-import PaymentsCard from "../Cards/PaymentsCard";
+import PendingOrdersTable from "../components/Cards/PendingOrdersTable";
 
 // components
 
-export default function PaymentsOrders() {
+export default function PendingOrders() {
   return (
     <>
       <div className="flex flex-wrap mt-4">
         <div className="w-full mb-12 px-4">
-          <PaymentsCard />
+          <PendingOrdersTable />
         </div>
       </div>
     </>
