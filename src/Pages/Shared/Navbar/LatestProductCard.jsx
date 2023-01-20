@@ -26,12 +26,14 @@ const LatestProductCard = ({ product }) => {
   return (
     <section className="mx-auto border bg-white w-full">
       <div className="h-fit group">
-        <div className="relative overflow-hidden">
-          <img
-            className="h-[160px] w-full object-cover"
-            src={thumbnail}
-            alt={title}
-          />
+        <div className="relative overflow-hidden cursor-pointer">
+          <figure className="h-[350px] w-full">
+            <img
+              className="w-full h-full object-cover"
+              src={thumbnail}
+              alt={title}
+            />
+          </figure>
           <div className="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
             <Link to={`/product/id/${_id}`}>
               <button className="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
@@ -44,8 +46,8 @@ const LatestProductCard = ({ product }) => {
           <h2 className="text-sm capitalize">
             {title.length > 25 ? <>{title?.slice(0, 25)}...</> : title}
           </h2>
-          <p className="text-lg font-medium mr-1 inline-block">
-            ${Math.ceil(discountedPrice)}
+          <p className="text-lg font-medium text-gray-700 mr-1 inline-block">
+            ${Math.floor(discountedPrice)}
           </p>
           <del className="text-red-700 text-sm">${price}</del>
           <div className="flex items-center space-x-1">
