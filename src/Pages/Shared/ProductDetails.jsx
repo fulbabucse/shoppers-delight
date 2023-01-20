@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import {
   detailsProduct,
   quantityDecrement,
@@ -21,6 +22,7 @@ import { toast } from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import { url } from "../../utils/BaseURL";
 import { useState } from "react";
+import InnerImageZoom from "react-inner-image-zoom";
 
 const ProductDetails = ({ product, quantity }) => {
   const { user } = useContext(AuthContext);
@@ -155,11 +157,22 @@ const ProductDetails = ({ product, quantity }) => {
                       })}
                     </div>
                     <div className="overflow-hidden transition-all duration-300">
-                      <img
+                      <InnerImageZoom
+                        src={imageURL || images[0]}
+                        width={400}
+                        height={500}
+                        hasSpacer={true}
+                        zoomSrc={imageURL || images[0]}
+                        zoomType="hover"
+                        fadeDuration={150}
+                        zoomPreload={true}
+                        fullscreenOnMobile={false}
+                      />
+                      {/* <img
                         className="lg:w-96 w-72 h-auto object-cover object-center rounded hover:scale-150 transition-all duration-1000 ease-in-out transform-gpu"
                         src={imageURL || images[0]}
                         alt={title}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </>
