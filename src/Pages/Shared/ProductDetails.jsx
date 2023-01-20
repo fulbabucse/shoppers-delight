@@ -42,7 +42,7 @@ const ProductDetails = ({ product, quantity }) => {
 
   const [imageURL, setImageURL] = useState("");
 
-  const discountedPrice = price - price / discountPercentage;
+  const discountedPrice = (price / 100) * (100 - discountPercentage);
 
   const subUrl = `${url}/products/${id}`;
   const fetchSingleProduct = async () => {
@@ -99,7 +99,7 @@ const ProductDetails = ({ product, quantity }) => {
       brand,
       category,
       createAt,
-      price: Math.ceil(discountedPrice * quantity.quantity),
+      price: Math.floor(discountedPrice * quantity.quantity),
       quantity: quantity.quantity,
       email: user?.email,
     };
@@ -224,7 +224,7 @@ const ProductDetails = ({ product, quantity }) => {
                       <div className="rounded-lg bg-gray-100 flex py-2 px-3">
                         <span className="text-red-400 mr-1 mt-1">$</span>
                         <span className="font-bold text-red-600 text-3xl">
-                          {Math.ceil(discountedPrice)}
+                          {Math.floor(discountedPrice)}
                         </span>
                       </div>
                     </div>

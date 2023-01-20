@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useToken from "../../hooks/useToken";
-import { url } from "../../utils/BaseURL";
+import { imgURL, url } from "../../utils/BaseURL";
 
 const SignUp = () => {
   const { signUpEmailPassword, updateUserProfile, userAccountVerify } =
@@ -37,8 +37,7 @@ const SignUp = () => {
 
     setIsProcessing(true);
 
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_KEY}`;
-    fetch(url, {
+    fetch(imgURL, {
       method: "POST",
       body: formData,
     })
