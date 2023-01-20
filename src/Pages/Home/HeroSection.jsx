@@ -58,9 +58,9 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center w-full h-96 lg:w-1/2">
+                <div className="flex items-center justify-center w-full h-96 lg:w-1/2 overflow-hidden hover:bg-primaryColor transition-all duration-300">
                   <img
-                    className="object-cover w-full h-full max-w-2xl rounded-md"
+                    className="object-cover w-full h-full max-w-2xl rounded-md hover:scale-125 transition-all duration-1000 ease-in-out transform-gpu"
                     src={data.image}
                     alt="apple watch photo"
                   />

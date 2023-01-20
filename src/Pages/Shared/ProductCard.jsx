@@ -27,14 +27,14 @@ const ProductCard = ({ product }) => {
     <section className="mx-auto border bg-white w-full">
       <div className="h-fit group">
         <div className="relative overflow-hidden cursor-pointer">
-          <figure className="h-[350px] w-full">
+          <figure className="h-[350px] w-full overflow-hidden">
             <img
               className="w-full h-full object-cover"
               src={thumbnail}
               alt={title}
             />
           </figure>
-          <div className="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="absolute h-full w-full bg-black/20 flex items-center justify-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 hover:scale-110 transition-all duration-500 ease-in-out transform-gpu">
             <Link to={`/product/id/${_id}`}>
               <button className="bg-red-500 px-5 py-2 font-medium text-white transition hover:bg-red-600 text-sm rounded-full">
                 Quick View

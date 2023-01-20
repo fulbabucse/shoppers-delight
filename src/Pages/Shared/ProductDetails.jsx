@@ -140,9 +140,12 @@ const ProductDetails = ({ product, quantity }) => {
                     <div className="flex flex-col gap-1">
                       {images?.map((image, index) => {
                         return (
-                          <figure key={index} className="cursor-pointer">
+                          <figure
+                            key={index}
+                            className="cursor-pointer overflow-hidden hover:bg-primaryColor transition-all duration-300"
+                          >
                             <img
-                              className="w-20 h-20 object-cover object-center rounded"
+                              className="w-20 h-20 object-cover object-center rounded hover:scale-110 transition-all duration-1000 ease-in-out transform-gpu"
                               src={image}
                               alt={title}
                               onClick={() => setImageURL(image)}
@@ -151,11 +154,13 @@ const ProductDetails = ({ product, quantity }) => {
                         );
                       })}
                     </div>
-                    <img
-                      className="lg:w-96 w-72 h-auto object-cover object-center rounded"
-                      src={imageURL || images[0]}
-                      alt={title}
-                    />
+                    <div className="overflow-hidden transition-all duration-300">
+                      <img
+                        className="lg:w-96 w-72 h-auto object-cover object-center rounded hover:scale-150 transition-all duration-1000 ease-in-out transform-gpu"
+                        src={imageURL || images[0]}
+                        alt={title}
+                      />
+                    </div>
                   </div>
                 </>
               )}
