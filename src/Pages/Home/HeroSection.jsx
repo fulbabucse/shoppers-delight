@@ -38,7 +38,15 @@ const HeroSection = () => {
       >
         {sliders?.map((data) => (
           <SwiperSlide key={data._id}>
-            <div>
+            <div
+              data-aos-offset="200"
+              data-aos="zoom-out"
+              data-aos-delay="70"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="false"
+            >
               <div className="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-10 lg:flex-row lg:items-center">
                 <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
                   <div className="max-w-lg lg:mx-12 lg:order-2">

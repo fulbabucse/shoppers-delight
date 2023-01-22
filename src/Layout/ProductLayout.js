@@ -15,7 +15,15 @@ const ProductLayout = () => {
       <Helmet>
         <title>Products - Shopper's Delight</title>
       </Helmet>
-      <div className="lg:max-w-sm mt-3 lg:mt-0 w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md">
+      <div
+        className="lg:max-w-sm mt-3 lg:mt-0 w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md"
+        data-aos="fade-right"
+        data-aos-delay="50"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >
         <div className="mb-3">
           <h1 className="text-lg font-medium text-gray-600 dark:text-gray-50 roboto-font">
             Categories
@@ -99,7 +107,15 @@ const ProductLayout = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 mt-3 lg:mt-0">
+      <div
+        className="flex-1 mt-3 lg:mt-0"
+        data-aos="fade-left"
+        data-aos-delay="50"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >
         <Outlet />
       </div>
     </div>

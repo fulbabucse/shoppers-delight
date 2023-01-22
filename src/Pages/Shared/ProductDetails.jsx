@@ -124,7 +124,14 @@ const ProductDetails = ({ product, quantity }) => {
   };
 
   return (
-    <div>
+    <div
+      data-aos="zoom-out"
+      data-aos-delay="50"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <Helmet>
         <title>Product Details - Shopper's Delight</title>
       </Helmet>

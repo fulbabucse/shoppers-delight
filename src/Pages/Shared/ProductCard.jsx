@@ -24,7 +24,15 @@ const ProductCard = ({ product }) => {
   const discountedPrice = (price / 100) * (100 - discountPercentage);
 
   return (
-    <section className="mx-auto border bg-white w-full">
+    <section
+      className="mx-auto border bg-white w-full"
+      data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="h-fit group">
         <div className="relative overflow-hidden cursor-pointer">
           <figure className="h-[350px] w-full overflow-hidden">

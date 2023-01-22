@@ -45,7 +45,14 @@ const AllProducts = () => {
   }
 
   return (
-    <div>
+    <div
+      data-aos="fade-left"
+      data-aos-delay="50"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="mb-2">
         <p className="text-center">
           {products?.products?.length === 0

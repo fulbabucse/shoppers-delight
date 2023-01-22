@@ -54,7 +54,16 @@ const LatestProducts = ({ products }) => {
   }
 
   return (
-    <div className="my-10 px-4 lg:px-0">
+    <div
+      className="my-10 px-4 lg:px-0"
+      data-aos-offset="200"
+      data-aos="zoom-out"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="flex justify-between items-center mb-1">
         <h1 className="text-xl lg:text-2xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 roboto-font">
           Latest Products

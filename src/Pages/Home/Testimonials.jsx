@@ -60,7 +60,16 @@ const Testimonials = () => {
     },
   ];
   return (
-    <div className="mt-8 px-4 lg:px-0">
+    <div
+      className="mt-8 px-4 lg:px-0"
+      data-aos-offset="200"
+      data-aos="fade-up-right"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <h1 className="text-xl lg:text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font text-center">
         Testimonials
       </h1>

@@ -10,7 +10,16 @@ import { Pagination, Autoplay } from "swiper";
 
 const Collections = () => {
   return (
-    <div className="collectionsStyles my-8 lg:mt-0">
+    <div
+      className="collectionsStyles my-8 lg:mt-0"
+      data-aos-offset="200"
+      data-aos="zoom-out-up"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
         <Swiper
           pagination={true}

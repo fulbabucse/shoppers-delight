@@ -5,7 +5,16 @@ const Footer = () => {
     <footer aria-label="Site Footer" className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8">
         <div className="mt-16 grid grid-cols-1 gap-8 border-t border-gray-100 pt-16 md:grid-cols-4 lg:grid-cols-6">
-          <div className="text-center sm:text-left">
+          <div
+            className="text-center sm:text-left"
+            data-aos-offset="200"
+            data-aos="fade-right"
+            data-aos-delay="70"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             <p className="text-lg font-medium text-gray-900">About Us</p>
 
             <nav aria-label="Footer About Nav" className="mt-8">
@@ -49,7 +58,16 @@ const Footer = () => {
             </nav>
           </div>
 
-          <div className="text-center sm:text-left">
+          <div
+            className="text-center sm:text-left"
+            data-aos-offset="200"
+            data-aos="fade-right"
+            data-aos-delay="70"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             <p className="text-lg font-medium text-gray-900">Our Services</p>
 
             <nav aria-label="Footer Services Nav" className="mt-8">
@@ -93,7 +111,16 @@ const Footer = () => {
             </nav>
           </div>
 
-          <div className="text-center sm:text-left">
+          <div
+            className="text-center sm:text-left"
+            data-aos-offset="200"
+            data-aos="zoom-out"
+            data-aos-delay="70"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             <p className="text-lg font-medium text-gray-900">Resources</p>
 
             <nav aria-label="Footer Resources Nav" className="mt-8">
@@ -146,7 +173,16 @@ const Footer = () => {
             </nav>
           </div>
 
-          <div className="text-center sm:text-left">
+          <div
+            className="text-center sm:text-left"
+            data-aos-offset="200"
+            data-aos="zoom-out"
+            data-aos-delay="70"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             <p className="text-lg font-medium text-gray-900">Helpful Links</p>
 
             <nav aria-label="Footer Helpful Nav" className="mt-8">
@@ -172,7 +208,16 @@ const Footer = () => {
             </nav>
           </div>
 
-          <div className="text-center sm:text-left md:col-span-4 lg:col-span-2">
+          <div
+            className="text-center sm:text-left md:col-span-4 lg:col-span-2"
+            data-aos-offset="200"
+            data-aos="fade-left"
+            data-aos-delay="70"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             <p className="text-lg font-medium text-gray-900">Stay in Touch</p>
 
             <div className="mx-auto mt-8 max-w-md sm:ml-0">

@@ -42,7 +42,16 @@ const Features = () => {
     },
   ];
   return (
-    <div className="feature-bg 2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto mt-7">
+    <div
+      className="feature-bg 2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto mt-7"
+      data-aos-offset="200"
+      data-aos="fade-up-left"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="container">
         <section className="text-gray-800 text-center">
           <div

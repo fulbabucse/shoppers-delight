@@ -36,7 +36,16 @@ const LatestArticle = ({ articles }) => {
   }, []);
 
   return (
-    <div className="bg-white p-3 rounded-md mx-4 lg:mx-0">
+    <div
+      className="bg-white p-3 rounded-md mx-4 lg:mx-0"
+      data-aos-offset="200"
+      data-aos="fade-up"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div>
         <h1 className="text-xl lg:text-3xl font-medium tracking-wide text-gray-800 dark:text-gray-50 bebas-neu-font mb-2">
           Latest News

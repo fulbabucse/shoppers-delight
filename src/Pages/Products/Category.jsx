@@ -6,7 +6,14 @@ const Category = () => {
     <>
       <div>
         <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
-          <div>
+          <div
+            data-aos="fade-right"
+            data-aos-delay="50"
+            data-aos-duration="2000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             <h1 className="text-xl lg:text-3xl font-medium tracking-wide text-gray-800 dark:text-gray-50 bebas-neu-font">
               Top Categories
             </h1>
@@ -18,7 +25,16 @@ const Category = () => {
           <div className="lg:flex items-stretch mt-4">
             <div className="lg:w-1/2">
               <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 space-y-4 lg:space-y-0">
-                <section className="mx-auto relative">
+                <section
+                  className="mx-auto relative"
+                  data-aos-offset="200"
+                  data-aos="fade-right"
+                  data-aos-delay="70"
+                  data-aos-duration="2000"
+                  data-aos-easing="ease-in-out"
+                  data-aos-mirror="true"
+                  data-aos-once="false"
+                >
                   <div className="w-full group">
                     <div className="relative overflow-hidden">
                       <img
@@ -40,7 +56,16 @@ const Category = () => {
                   </div>
                 </section>
 
-                <section className="mx-auto relative">
+                <section
+                  className="mx-auto relative"
+                  data-aos-offset="200"
+                  data-aos="fade-right"
+                  data-aos-delay="70"
+                  data-aos-duration="2000"
+                  data-aos-easing="ease-in-out"
+                  data-aos-mirror="true"
+                  data-aos-once="false"
+                >
                   <div className="w-full group">
                     <div className="relative overflow-hidden">
                       <img
@@ -64,7 +89,16 @@ const Category = () => {
               </div>
 
               {/* Women's Fashion */}
-              <section className="mx-auto relative mt-4 lg:mt-8">
+              <section
+                className="mx-auto relative mt-4 lg:mt-8"
+                data-aos-offset="200"
+                data-aos="fade-right"
+                data-aos-delay="70"
+                data-aos-duration="2000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+              >
                 <div className="w-full group">
                   <div className="relative overflow-hidden">
                     <img
@@ -88,7 +122,15 @@ const Category = () => {
             </div>
 
             <div className="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
-              <section className="mx-auto relative">
+              <section
+                data-aos-offset="200"
+                data-aos="fade-up"
+                data-aos-delay="70"
+                data-aos-duration="2000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+              >
                 <div className="w-full group">
                   <div className="relative overflow-hidden">
                     <img
@@ -110,7 +152,16 @@ const Category = () => {
                 </div>
               </section>
 
-              <div className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4 space-y-4 lg:space-y-0">
+              <div
+                className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4 space-y-4 lg:space-y-0"
+                data-aos-offset="200"
+                data-aos="fade-left"
+                data-aos-delay="70"
+                data-aos-duration="2000"
+                data-aos-easing="ease-in-out"
+                data-aos-mirror="true"
+                data-aos-once="false"
+              >
                 <section className="mx-auto relative">
                   <div className="w-full group">
                     <div className="relative overflow-hidden">

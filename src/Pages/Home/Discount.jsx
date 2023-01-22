@@ -4,7 +4,16 @@ import Timer from "../../components/Timer";
 
 const Discount = () => {
   return (
-    <div className="2xl:mx-auto 2xl:container py-10 lg:px-20 md:px-6 px-4 w-96 sm:w-auto">
+    <div
+      className="2xl:mx-auto 2xl:container py-10 lg:px-20 md:px-6 px-4 w-96 sm:w-auto"
+      data-aos-offset="200"
+      data-aos="fade-left"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div>
           <img

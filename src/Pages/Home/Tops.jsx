@@ -51,7 +51,16 @@ const Tops = ({ products }) => {
   }
 
   return (
-    <div className="px-4 lg:px-0 lg:pb-10">
+    <div
+      className="px-4 lg:px-0 lg:pb-10"
+      data-aos-offset="200"
+      data-aos="fade-up"
+      data-aos-delay="70"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <div className="flex justify-between items-center">
         <h1 className="text-xl lg:text-3xl font-medium tracking-wide leading-9 text-gray-800 dark:text-gray-50 bebas-neu-font">
           Top Feature Products
