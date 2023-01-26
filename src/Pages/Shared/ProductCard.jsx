@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
       className="mx-auto border bg-white w-full"
       data-aos="fade-up"
       data-aos-delay="50"
-      data-aos-duration="2000"
+      data-aos-duration="1500"
       data-aos-easing="ease-in-out"
       data-aos-mirror="true"
       data-aos-once="false"

@@ -7,9 +7,9 @@ const Category = () => {
       <div>
         <div className="2xl:mx-auto 2xl:container lg:px-20 md:py-12 md:px-6 px-4 w-96 sm:w-auto">
           <div
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-delay="50"
-            data-aos-duration="2000"
+            data-aos-duration="1500"
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
             data-aos-once="false"
@@ -28,9 +28,9 @@ const Category = () => {
                 <section
                   className="mx-auto relative"
                   data-aos-offset="200"
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                   data-aos-delay="70"
-                  data-aos-duration="2000"
+                  data-aos-duration="1500"
                   data-aos-easing="ease-in-out"
                   data-aos-mirror="true"
                   data-aos-once="false"
@@ -59,9 +59,9 @@ const Category = () => {
                 <section
                   className="mx-auto relative"
                   data-aos-offset="200"
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                   data-aos-delay="70"
-                  data-aos-duration="2000"
+                  data-aos-duration="1500"
                   data-aos-easing="ease-in-out"
                   data-aos-mirror="true"
                   data-aos-once="false"
@@ -92,9 +92,9 @@ const Category = () => {
               <section
                 className="mx-auto relative mt-4 lg:mt-8"
                 data-aos-offset="200"
-                data-aos="fade-right"
+                data-aos="fade-up"
                 data-aos-delay="70"
-                data-aos-duration="2000"
+                data-aos-duration="1500"
                 data-aos-easing="ease-in-out"
                 data-aos-mirror="true"
                 data-aos-once="false"
@@ -126,7 +126,7 @@ const Category = () => {
                 data-aos-offset="200"
                 data-aos="fade-up"
                 data-aos-delay="70"
-                data-aos-duration="2000"
+                data-aos-duration="1500"
                 data-aos-easing="ease-in-out"
                 data-aos-mirror="true"
                 data-aos-once="false"
@@ -155,9 +155,9 @@ const Category = () => {
               <div
                 className="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4 space-y-4 lg:space-y-0"
                 data-aos-offset="200"
-                data-aos="fade-left"
+                data-aos="fade-up"
                 data-aos-delay="70"
-                data-aos-duration="2000"
+                data-aos-duration="1500"
                 data-aos-easing="ease-in-out"
                 data-aos-mirror="true"
                 data-aos-once="false"

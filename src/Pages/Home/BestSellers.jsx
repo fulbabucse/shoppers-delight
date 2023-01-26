@@ -27,9 +27,9 @@ const BestSellers = () => {
     <div
       className="px-4 lg:px-0"
       data-aos-offset="200"
-      data-aos="fade-right"
+      data-aos="fade-up"
       data-aos-delay="70"
-      data-aos-duration="2000"
+      data-aos-duration="1500"
       data-aos-easing="ease-in-out"
       data-aos-mirror="true"
       data-aos-once="false"

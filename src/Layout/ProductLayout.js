@@ -17,9 +17,9 @@ const ProductLayout = () => {
       </Helmet>
       <div
         className="lg:max-w-sm mt-3 lg:mt-0 w-full lg:flex flex-col bg-white p-3 gap-3 rounded-md"
-        data-aos="fade-right"
+        data-aos="fade-up"
         data-aos-delay="50"
-        data-aos-duration="2000"
+        data-aos-duration="1500"
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false"
@@ -109,9 +109,9 @@ const ProductLayout = () => {
       </div>
       <div
         className="flex-1 mt-3 lg:mt-0"
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-delay="50"
-        data-aos-duration="2000"
+        data-aos-duration="1500"
         data-aos-easing="ease-in-out"
         data-aos-mirror="true"
         data-aos-once="false"
