@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import UserDropdown from "../components/Dropdown/UserDropdown";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -42,12 +42,16 @@ export default function Sidebar() {
             <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
-                  <Link
-                    className="md:block text-left md:pb-2 text-red-500 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+                  <NavLink
+                    // className={`({ isActive }) =>
+                    // isActive ? activeClassName : undefined`}
+
+                    // className="md:block text-left md:pb-2 text-red-500 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     to="/admin/dashboard"
+                    className="md:block text-left md:pb-2 text-red-500 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 hover:bg-gray-100"
                   >
                     Shopper's Delight
-                  </Link>
+                  </NavLink>
                 </div>
                 <div className="w-6/12 flex justify-end">
                   <button
@@ -79,25 +83,33 @@ export default function Sidebar() {
             </h6>
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none space-y-1">
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/dashboard"
                 >
                   Dashboard
-                </Link>
+                </NavLink>
               </li>
 
               <li className="items-center">
-                <Link
-                  className="text-xs uppercase py-3 font-bold block"
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/settings"
                   onClick={() => setCollapseShow("hidden")}
                 >
                   Settings
-                </Link>
+                </NavLink>
               </li>
 
               <hr className="my-4 md:min-w-full" />
@@ -108,22 +120,30 @@ export default function Sidebar() {
               </h6>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/all-categories"
                 >
                   All Categories
-                </Link>
+                </NavLink>
               </li>
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/add-category"
                 >
                   Add Category
-                </Link>
+                </NavLink>
               </li>
 
               {/* Divider */}
@@ -134,23 +154,31 @@ export default function Sidebar() {
               </h6>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/sliders"
                 >
                   Sliders
-                </Link>
+                </NavLink>
               </li>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/add-slider"
                 >
                   Add Slider
-                </Link>
+                </NavLink>
               </li>
 
               <hr className="my-4 md:min-w-full" />
@@ -161,23 +189,31 @@ export default function Sidebar() {
               </h6>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/products"
                 >
                   Products
-                </Link>
+                </NavLink>
               </li>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/add-product"
                 >
                   Add Product
-                </Link>
+                </NavLink>
               </li>
 
               {/* Divider */}
@@ -188,23 +224,31 @@ export default function Sidebar() {
               </h6>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/pending-orders"
                 >
                   Pending Orders
-                </Link>
+                </NavLink>
               </li>
 
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/payments-complete"
                 >
                   Payments Complete
-                </Link>
+                </NavLink>
               </li>
             </ul>
 
@@ -218,14 +262,18 @@ export default function Sidebar() {
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
-                <Link
+                <NavLink
                   onClick={() => setCollapseShow("hidden")}
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                  }
                   to="/admin/all-users"
                 >
                   <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{" "}
                   All Users
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

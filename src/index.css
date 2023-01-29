@@ -45,6 +45,11 @@ code {
   font-family: "Roboto", sans-serif;
 }
 
+.isActive {
+  background-color: rgb(120, 126, 255) !important;
+  color: #fff !important;
+}
+
 /* ::-webkit-scrollbar {
   width: 1rem;
 }
