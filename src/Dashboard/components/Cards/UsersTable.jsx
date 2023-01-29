@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { allUsers } from "../../../redux/actions/actions";
 import { url } from "../../../utils/BaseURL";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { AiOutlineUserAdd } from "react-icons/ai";
 
 const UsersTable = ({ users }) => {
   const dispatch = useDispatch();
@@ -17,7 +19,6 @@ const UsersTable = ({ users }) => {
       .then((data) => dispatch(allUsers(data.data)))
       .catch((err) => console.log(err));
   }, []);
-
 
   return (
     <>
@@ -70,7 +71,7 @@ const UsersTable = ({ users }) => {
                           scope="col"
                           className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                         >
-                          User Type
+                          Role
                         </th>
                       </tr>
                     </thead>
@@ -104,11 +105,25 @@ const UsersTable = ({ users }) => {
                           <td
                             className={`${
                               user?.role
-                                ? "text-sm text-blue-500 px-6 py-4 whitespace-nowrap capitalize font-semibold"
-                                : "text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize"
+                                ? "text-sm text-orange-500 px-6 py-4 whitespace-nowrap capitalize font-semibold"
+                                : "text-sm text-blue-500 font-medium px-6 py-4 whitespace-nowrap capitalize"
                             }`}
                           >
-                            {user?.role ? user?.role : "Normal"}
+                            {user?.role === "admin" ? (
+                              <>
+                                <div className="flex items-center gap-1">
+                                  <MdOutlineAdminPanelSettings className="text-xl" />
+                                  <p>Admin</p>
+                                </div>
+                              </>
+                            ) : (
+                              <>
+                                <div className="flex items-center gap-1">
+                                  <AiOutlineUserAdd className="text-xl" />
+                                  <p>Subscriber</p>
+                                </div>
+                              </>
+                            )}
                           </td>
                         </tr>
                       ))}
