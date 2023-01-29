@@ -3,12 +3,27 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserDropdown from "../components/Dropdown/UserDropdown";
 import { FaBars, FaTimes } from "react-icons/fa";
+import {
+  AiOutlineHome,
+  AiFillSetting,
+  AiOutlineAppstoreAdd,
+  AiOutlineUserSwitch,
+} from "react-icons/ai";
+import { BiCategoryAlt } from "react-icons/bi";
+import { BsSliders } from "react-icons/bs";
+import {
+  MdProductionQuantityLimits,
+  MdAddchart,
+  MdPendingActions,
+  MdPayment,
+  MdAdd,
+} from "react-icons/md";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = useState("hidden");
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-72 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           {/* Toggler */}
           <button
@@ -39,14 +54,10 @@ export default function Sidebar() {
             }
           >
             {/* Collapse header */}
-            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
+            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blue-200">
               <div className="flex flex-wrap">
                 <div className="w-6/12">
                   <NavLink
-                    // className={`({ isActive }) =>
-                    // isActive ? activeClassName : undefined`}
-
-                    // className="md:block text-left md:pb-2 text-red-500 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     to="/admin/dashboard"
                     className="md:block text-left md:pb-2 text-red-500 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0 hover:bg-gray-100"
                   >
@@ -89,11 +100,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/dashboard"
                 >
+                  <span>
+                    <AiOutlineHome className="text-xl" />
+                  </span>
                   Dashboard
                 </NavLink>
               </li>
@@ -102,12 +116,15 @@ export default function Sidebar() {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/settings"
                   onClick={() => setCollapseShow("hidden")}
                 >
+                  <span>
+                    <AiFillSetting className="text-xl" />
+                  </span>
                   Settings
                 </NavLink>
               </li>
@@ -124,11 +141,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/all-categories"
                 >
+                  <span>
+                    <BiCategoryAlt className="text-xl" />
+                  </span>
                   All Categories
                 </NavLink>
               </li>
@@ -137,11 +157,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/add-category"
                 >
+                  <span>
+                    <AiOutlineAppstoreAdd className="text-xl" />
+                  </span>
                   Add Category
                 </NavLink>
               </li>
@@ -158,11 +181,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/sliders"
                 >
+                  <span>
+                    <BsSliders className="text-xl" />
+                  </span>
                   Sliders
                 </NavLink>
               </li>
@@ -172,11 +198,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/add-slider"
                 >
+                  <span>
+                    <MdAddchart className="text-xl" />
+                  </span>
                   Add Slider
                 </NavLink>
               </li>
@@ -193,11 +222,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/products"
                 >
+                  <span>
+                    <MdProductionQuantityLimits className="text-xl" />
+                  </span>
                   Products
                 </NavLink>
               </li>
@@ -207,11 +239,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/add-product"
                 >
+                  <span>
+                    <MdAdd className="text-xl" />
+                  </span>
                   Add Product
                 </NavLink>
               </li>
@@ -228,11 +263,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/pending-orders"
                 >
+                  <span>
+                    <MdPendingActions className="text-xl" />
+                  </span>
                   Pending Orders
                 </NavLink>
               </li>
@@ -242,11 +280,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/payments-complete"
                 >
+                  <span>
+                    <MdPayment className="text-xl" />
+                  </span>
                   Payments Complete
                 </NavLink>
               </li>
@@ -266,11 +307,14 @@ export default function Sidebar() {
                   onClick={() => setCollapseShow("hidden")}
                   className={({ isActive }) =>
                     isActive
-                      ? "isActive text-sm py-3 px-3 font-medium  block tracking-widest rounded-md"
-                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md"
+                      ? "isActive text-sm py-3 px-3 font-medium tracking-widest rounded-md flex items-center gap-1"
+                      : "text-sm py-3 px-3 font-medium  block tracking-widest hover:bg-gray-100 hover:text-[rgba(76, 78, 100, 0.87)] rounded-md flex items-center gap-1"
                   }
                   to="/admin/all-users"
                 >
+                  <span>
+                    <AiOutlineUserSwitch className="text-xl" />
+                  </span>
                   <i className="fas fa-fingerprint text-blueGray-400 mr-2 text-sm"></i>{" "}
                   All Users
                 </NavLink>

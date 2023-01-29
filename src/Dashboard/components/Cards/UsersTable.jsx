@@ -4,7 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { allUsers } from "../../../redux/actions/actions";
 import { url } from "../../../utils/BaseURL";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineUserAdd, AiOutlineHome } from "react-icons/ai";
 
 const UsersTable = ({ users }) => {
   const dispatch = useDispatch();
