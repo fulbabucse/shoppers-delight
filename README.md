@@ -33,7 +33,7 @@ Backend
 3. Setup .env file
 	- PORT (exam: 5000)
 	- DB_USERNAME (User name from MongoDB database)
-	- DB_PASSWORD (Passwprd from MongoDB database)
+	- DB_PASSWORD (Password from MongoDB database)
 	- DATABASE_URI (Database URI link)
 	- SECRET_TOKEN for JWT
 	- STRIPE_SK (Stripe Secret key)
