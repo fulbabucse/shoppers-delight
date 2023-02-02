@@ -1,8 +1,8 @@
-# Shopper's Delight (eCommerce)
+# Shopper's Delight
 
 Shoppers Delight is an e-commerce website. This site's front end utilizes React and Redux. Node.js and Express.js manage the backend and MongoDB manages the Database. Authentication is handled by Google firebase. I used Stripe for taking payments.
 
-### Features
+## Features
 
 - Users can purchase products these products through checkout & payments with Stripe
 - Users can see their Orders/Payments Invoices.
@@ -12,17 +12,38 @@ Shoppers Delight is an e-commerce website. This site's front end utilizes React 
 - Properly Authorization is handled by Google firebase authentication.
 - Unauthorized users can’t visit restricted routes & normal users can’t visit the admin dashboard.
 - An admin can add new products and manage Products, categories, users, orders & payments via the dashboard.
+- Notus React Admin Panel.
 
-### Technologies
+## Installations
 
-Tailwind, Javascript, React Js, React Router, Redux, Axios, Swiper js, Express.js, Node.js, MongoDB, JWT, Millify, React Multi Carousel, React form hook, Firebase, React Query, React Range, React Icons, React Hot Toast, Stripe Payments, React to PDF
+```
+Frontend
+1. Clone the repository https://github.com/fulbabucse/shoppers-delight.git
+2. npm install
+3. Setup .env.local file
+	- Server base URL (exam: http://localhost:5000)
+	- Create a Firebase App
+	- Stripe Public Key
+	- ImgBB API Key
+4. npm start
 
-### Admin
+Backend
+1. Clone the repository branch shopper-v2.0 https://github.com/fulbabucse/shoppers-delight-server.git
+2. npm install
+3. Setup .env file
+	- PORT (exam: 5000)
+	- DB_USERNAME (User name from MongoDB database)
+	- DB_PASSWORD (Passwprd from MongoDB database)
+	- DATABASE_URI (Database URI link)
+	- SECRET_TOKEN for JWT
+	- STRIPE_SK (Stripe Secret key)
+	- STRIPE_PK (Stripe Public Key)
+	- Used Nodemon for Always auto start
+4. nodemon index.js
+```
 
-Email: fulbabucse@gmail.com
-Password: F@him2
+### Admin Login
 
-### Live link
-
-https://shoppers-delight.vercel.app
-https://shopper-delight-react.web.app
+| Role  |        Email         | Password |
+| :---- | :------------------: | -------: |
+| Admin | fulbabucse@gmail.com |   F@him2 |
