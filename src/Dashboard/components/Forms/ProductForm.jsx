@@ -8,13 +8,13 @@ import { productCategories } from "../../../redux/actions/actions";
 import { imgURL, url } from "../../../utils/BaseURL";
 
 const ProductForm = ({ categories }) => {
-  const [imageOne, setImageOne] = useState(null);
-  const [imageTwo, setImageTwo] = useState(null);
-  const [imageThree, setImageThree] = useState(null);
+  // const [imageOne, setImageOne] = useState(null);
+  // const [imageTwo, setImageTwo] = useState(null);
+  // const [imageThree, setImageThree] = useState(null);
 
-  const [imageOneURL, setImageOneURL] = useState("");
-  const [imageTwoURL, setImageTwoURL] = useState("");
-  const [imageThreeURL, setImageThreeURL] = useState("");
+  // const [imageOneURL, setImageOneURL] = useState("");
+  // const [imageTwoURL, setImageTwoURL] = useState("");
+  // const [imageThreeURL, setImageThreeURL] = useState("");
 
   const {
     register,
@@ -24,7 +24,11 @@ const ProductForm = ({ categories }) => {
   const dispatch = useDispatch();
 
   const fetchCategories = async () => {
-    const res = await fetch(`${url}/categories`);
+    const res = await fetch(`${url}/categories`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+      },
+    });
     const data = await res.json();
     dispatch(productCategories(data));
   };
@@ -33,21 +37,21 @@ const ProductForm = ({ categories }) => {
     fetchCategories();
   }, []);
 
-  const handleImageOne = (e) => {
-    e.preventDefault();
-    const formDataOne = new FormData();
-    formDataOne.append("image", imageOne[0]);
-    fetch(imgURL, {
-      method: "POST",
-      body: formDataOne,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setImageOneURL(data.data.url);
-        toast.success("Image One Uploaded Complete");
-      })
-      .catch((err) => console.log(err));
-  };
+  // const handleImageOne = (e) => {
+  //   e.preventDefault();
+  //   const formDataOne = new FormData();
+  //   formDataOne.append("image", imageOne[0]);
+  //   fetch(imgURL, {
+  //     method: "POST",
+  //     body: formDataOne,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setImageOneURL(data.data.url);
+  //       toast.success("Image One Uploaded Complete");
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   const handleProductsPost = (productData) => {
     if (productData.rating > 5) {
@@ -55,77 +59,84 @@ const ProductForm = ({ categories }) => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("image", productData.thumbnail[0]);
+    // const formData = new FormData();
+    // formData.append("image", productData.thumbnail[0]);
 
-    fetch(imgURL, {
+    // fetch(imgURL, {
+    //   method: "POST",
+    //   body: formData,
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "http://localhost:3000",
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    const product = {
+      title: productData.title,
+      category: productData.category,
+      description: productData.description,
+      brand: productData.brand,
+      price: productData.price,
+      stock: productData.stock,
+      rating: productData.rating,
+      thumbnail: productData.thumbnail,
+      discountPercentage: productData.discountPercentage,
+      images: [
+        productData.thumbnail,
+        productData.product_image_one,
+        productData.product_image_two,
+        productData.product_image_three,
+      ],
+    };
+    fetch(`${url}/products`, {
       method: "POST",
-      body: formData,
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+      },
+      body: JSON.stringify(product),
     })
       .then((res) => res.json())
-      .then((data) => {
-        const product = {
-          title: productData.title,
-          category: productData.category,
-          description: productData.description,
-          brand: productData.brand,
-          price: productData.price,
-          stock: productData.stock,
-          rating: productData.rating,
-          thumbnail: data?.data?.url,
-          discountPercentage: productData.discountPercentage,
-          images: [imageOneURL, imageTwoURL, imageThreeURL, data?.data?.url],
-        };
-        console.log(product);
-        fetch(`${url}/products`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-          },
-          body: JSON.stringify(product),
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            if (result.acknowledged) {
-              toast.success("Successfully added a new Product");
-            }
-          })
-          .catch((err) => console.log(err));
+      .then((result) => {
+        console.log(result);
+        toast.success("Successfully added a new Product");
       })
       .catch((err) => console.log(err));
+    // })
+    // .catch((err) => console.log(err));
   };
 
-  const handleImageTwo = (e) => {
-    e.preventDefault();
-    const formDataTwo = new FormData();
-    formDataTwo.append("image", imageTwo[0]);
-    fetch(imgURL, {
-      method: "POST",
-      body: formDataTwo,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Image Two Uploaded Complete");
-        setImageTwoURL(data.data.url);
-      })
-      .catch((err) => console.log(err));
-  };
-  const handleImageThree = (e) => {
-    e.preventDefault();
-    const formDataThree = new FormData();
-    formDataThree.append("image", imageThree[0]);
-    fetch(imgURL, {
-      method: "POST",
-      body: formDataThree,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Image Three Uploaded Complete");
-        setImageThreeURL(data.data.url);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const handleImageTwo = (e) => {
+  //   e.preventDefault();
+  //   const formDataTwo = new FormData();
+  //   formDataTwo.append("image", imageTwo[0]);
+  //   fetch(imgURL, {
+  //     method: "POST",
+  //     body: formDataTwo,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       toast.success("Image Two Uploaded Complete");
+  //       setImageTwoURL(data.data.url);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+  // const handleImageThree = (e) => {
+  //   e.preventDefault();
+  //   const formDataThree = new FormData();
+  //   formDataThree.append("image", imageThree[0]);
+  //   fetch(imgURL, {
+  //     method: "POST",
+  //     body: formDataThree,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       toast.success("Image Three Uploaded Complete");
+  //       setImageThreeURL(data.data.url);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>
@@ -141,9 +152,9 @@ const ProductForm = ({ categories }) => {
         </div>
         <div className="block w-full overflow-x-auto px-8 pb-4">
           {/* Uploads Images */}
-          <div>
-            <div className="flex flex-wrap -mx-3 mb-6">
-              <form
+          {/* <div>
+            <div className="flex flex-wrap -mx-3 mb-6"> */}
+          {/* <form
                 onSubmit={handleImageOne}
                 className="w-full md:w-1/3 px-3 mb-6 md:mb-0"
               >
@@ -163,9 +174,9 @@ const ProductForm = ({ categories }) => {
                 <button className="bg-gray-200 mt-3 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                   Upload One
                 </button>
-              </form>
+              </form> */}
 
-              <form onSubmit={handleImageTwo} className="w-full md:w-1/3 px-3">
+          {/* <form onSubmit={handleImageTwo} className="w-full md:w-1/3 px-3">
                 <label
                   className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                   htmlFor="product_image_two"
@@ -182,10 +193,10 @@ const ProductForm = ({ categories }) => {
                 <button className="bg-gray-200 mt-3 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                   Upload Two
                 </button>
-              </form>
+              </form> */}
 
-              {/* Image Number Three */}
-              <form
+          {/* Image Number Three */}
+          {/* <form
                 onSubmit={handleImageThree}
                 className="w-full md:w-1/3 px-3"
               >
@@ -207,7 +218,7 @@ const ProductForm = ({ categories }) => {
                 </button>
               </form>
             </div>
-          </div>
+          </div> */}
           {/* Projects table */}
           <form onSubmit={handleSubmit(handleProductsPost)} className="w-full">
             <div className="flex flex-wrap -mx-3 mb-6">
@@ -326,6 +337,76 @@ const ProductForm = ({ categories }) => {
               </div>
             </div>
 
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="product_image_one"
+                >
+                  Image 1
+                </label>
+                <input
+                  {...register("product_image_one", {
+                    required: "Image is required",
+                  })}
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="product_image_one"
+                  type="text"
+                  placeholder="Image 1"
+                />
+                {errors.product_image_one && (
+                  <p className="text-red-400 text-xs font-medium">
+                    {errors.product_image_one?.message}
+                  </p>
+                )}
+              </div>
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="product_image_two"
+                >
+                  Image 2
+                </label>
+                <input
+                  {...register("product_image_two", {
+                    required: "Image is required",
+                  })}
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="product_image_two"
+                  type="text"
+                  placeholder="Image 2"
+                />
+                {errors.product_image_two && (
+                  <p className="text-red-400 text-xs font-medium">
+                    {errors.product_image_two?.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  htmlFor="product_image_three"
+                >
+                  Image 3
+                </label>
+                <input
+                  {...register("product_image_three", {
+                    required: "Image is required",
+                  })}
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="product_image_three"
+                  type="text"
+                  placeholder="Image 3"
+                />
+                {errors.product_image_three && (
+                  <p className="text-red-400 text-xs font-medium">
+                    {errors.product_image_three?.message}
+                  </p>
+                )}
+              </div>
+            </div>
+
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                 <label
@@ -405,10 +486,10 @@ const ProductForm = ({ categories }) => {
                   {...register("thumbnail", {
                     required: "Thumbnail is required",
                   })}
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2.5 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="product_thumbnail"
-                  type="file"
-                  multiple="multiple"
+                  type="text"
+                  placeholder="Product Thumbnail"
                 />
                 {errors.thumbnail && (
                   <p className="text-red-400 text-xs font-medium">

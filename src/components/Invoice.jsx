@@ -17,7 +17,11 @@ const Invoice = () => {
   const { data: order = {} } = useQuery({
     queryKey: ["payments", id],
     queryFn: async () => {
-      const res = await fetch(`${url}/payments/${id}`);
+      const res = await fetch(`${url}/payments/invoice/${id}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },

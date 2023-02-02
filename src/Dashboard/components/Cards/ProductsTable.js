@@ -40,11 +40,9 @@ const ProductsTable = () => {
       },
     })
       .then((res) => res.json())
-      .then((result) => {
-        if (result.deletedCount > 0) {
-          toast.success("Successfully deleted 1 Slider");
-          setRefetch(false);
-        }
+      .then(() => {
+        toast.success("Successfully deleted 1 Slider");
+        setRefetch(false);
       })
       .catch((err) => console.log(err));
   };

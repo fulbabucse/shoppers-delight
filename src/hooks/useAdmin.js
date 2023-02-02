@@ -8,7 +8,7 @@ const useAdmin = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`${url}/users/admin?email=${email}`, {
+      fetch(`${url}/admin?email=${email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
         },

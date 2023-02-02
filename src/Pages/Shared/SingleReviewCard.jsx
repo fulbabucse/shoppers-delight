@@ -3,7 +3,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const SingleReviewCard = ({ review }) => {
-  const { name, image, joinDate, rating, message, createAt } = review;
+  const { name, image, joinDate, rating, message, posted_date } = review;
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
@@ -44,7 +44,7 @@ const SingleReviewCard = ({ review }) => {
       </div>
       <footer className="mb-2 text-sm text-gray-500 dark:text-gray-400">
         <p>
-          Reviewed on <span>{createAt}</span>
+          Reviewed on <span>{posted_date}</span>
         </p>
       </footer>
       <p className="mb-2 font-light text-gray-500 dark:text-gray-400 text-sm">

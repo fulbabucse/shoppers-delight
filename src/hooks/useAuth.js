@@ -5,7 +5,7 @@ const useAuth = (email) => {
   const { data: userData = [], refetch } = useQuery({
     queryKey: ["billing", "email", email],
     queryFn: async () => {
-      const res = await fetch(`${url}/billing?email=${email}`, {
+      const res = await fetch(`${url}/payments/billing?email=${email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
         },

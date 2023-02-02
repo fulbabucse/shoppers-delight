@@ -11,39 +11,38 @@ const HomeSliderForm = () => {
   } = useForm();
 
   const handleSliderAdd = (sliderData) => {
-    const formData = new FormData();
-    formData.append("image", sliderData.image[0]);
+    // const formData = new FormData();
+    // formData.append("image", sliderData.image[0]);
 
-    fetch(imgURL, {
+    // fetch(imgURL, {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    const sliderInfo = {
+      title: sliderData.title,
+      sub_title: sliderData.sub_title,
+      price: sliderData.price,
+      link: sliderData.link,
+      image: sliderData.image,
+    };
+    fetch(`${url}/sliders`, {
       method: "POST",
-      body: formData,
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+      },
+      body: JSON.stringify(sliderInfo),
     })
       .then((res) => res.json())
-      .then((data) => {
-        const sliderInfo = {
-          title: sliderData.title,
-          sub_title: sliderData.sub_title,
-          price: sliderData.price,
-          link: sliderData.link,
-          image: data.data.url,
-        };
-        fetch(`${url}/sliders`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-          },
-          body: JSON.stringify(sliderInfo),
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            if (result.acknowledged) {
-              toast.success("Successfully added a new Slider");
-            }
-          })
-          .catch((err) => console.log(err));
+      .then(() => {
+        toast.success("Successfully added a new Slider");
       })
       .catch((err) => console.log(err));
+    // })
+    // .catch((err) => console.log(err));
   };
   return (
     <>
@@ -165,9 +164,10 @@ const HomeSliderForm = () => {
                   {...register("image", {
                     required: "Image is required",
                   })}
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2.5 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="slider_image"
-                  type="file"
+                  type="text"
+                  placeholder="Image"
                 />
                 {errors.image && (
                   <p className="text-red-400 text-xs font-medium">

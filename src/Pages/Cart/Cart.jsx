@@ -38,11 +38,9 @@ const Cart = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Cart item delete success !!!");
-          refetch();
-        }
+      .then(() => {
+        toast.success("Cart item delete success !!!");
+        refetch();
       })
       .catch((err) => console.error(err));
   };

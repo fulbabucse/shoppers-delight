@@ -8,7 +8,11 @@ const CategoriesTable = () => {
   const { data: categories = [], refetch } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch(`${url}/categories`);
+      const res = await fetch(`${url}/categories`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
@@ -22,11 +26,9 @@ const CategoriesTable = () => {
       },
     })
       .then((res) => res.json())
-      .then((result) => {
-        if (result.deletedCount > 0) {
-          toast.success("Successfully deleted 1 Slider");
-          refetch();
-        }
+      .then(() => {
+        toast.success("Successfully deleted 1 Slider");
+        refetch();
       })
       .catch((err) => console.log(err));
   };

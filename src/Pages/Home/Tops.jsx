@@ -17,7 +17,7 @@ const Tops = ({ products }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${url}/feature-products`)
+      .get(`${url}/products/feature-products`)
       .then((res) => {
         setLoading(false);
         dispatch(topProducts(res.data));

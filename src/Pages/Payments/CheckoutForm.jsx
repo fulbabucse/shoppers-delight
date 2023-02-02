@@ -53,7 +53,6 @@ const CheckoutForm = ({ products, price }) => {
           day: "numeric",
         }),
         price,
-        createAt: new Date().getTime(),
         transectionId: paymentIntent.id,
       };
       fetch(`${url}/payments`, {
@@ -65,22 +64,21 @@ const CheckoutForm = ({ products, price }) => {
         body: JSON.stringify(paymentInfo),
       })
         .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            fetch(`${url}/cart/clear-after-payments?email=${user?.email}`, {
-              method: "DELETE",
-              headers: {
-                authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
-              },
+        .then(() => {
+          fetch(`${url}/cart/clear-after-payments/${user?.email}`, {
+            method: "DELETE",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+            },
+          })
+            .then((res) => res.json())
+            .then((deleteData) => {
+              if (deleteData.deletedCount > 0) {
+                navigate("/payments-success");
+                // http://localhost:5000/cart/clear-after-payments/farhanahmedcse@gmail.com
+              }
             })
-              .then((res) => res.json())
-              .then((deleteData) => {
-                if (deleteData.deletedCount > 0) {
-                  navigate("/payments-success");
-                }
-              })
-              .catch((err) => console.error(err));
-          }
+            .catch((err) => console.error(err));
         })
         .catch((err) => console.log(err));
     } else {

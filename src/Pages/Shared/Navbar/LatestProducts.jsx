@@ -39,7 +39,6 @@ const LatestProducts = ({ products }) => {
       .get(`${url}/products/all`)
       .then((res) => {
         setLoading(true);
-        console.log(res);
         dispatch(navbarNewProducts(res.data));
         setLoading(false);
       })

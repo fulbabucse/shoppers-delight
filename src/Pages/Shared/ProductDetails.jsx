@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import {
   detailsProduct,
@@ -49,7 +49,11 @@ const ProductDetails = ({ product, quantity }) => {
   const subUrl = `${url}/products/${id}`;
   const fetchSingleProduct = async () => {
     const res = await axios
-      .get(subUrl)
+      .get(subUrl, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      })
       .catch((err) => console.log(err.message));
     dispatch(detailsProduct(res.data));
   };
@@ -57,7 +61,11 @@ const ProductDetails = ({ product, quantity }) => {
   const { data: similarProducts = [], isLoading } = useQuery({
     queryKey: ["category", category],
     queryFn: async () => {
-      const res = await fetch(`${url}/products/similar/${category}`);
+      const res = await fetch(`${url}/products/similar/${category}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
@@ -68,7 +76,7 @@ const ProductDetails = ({ product, quantity }) => {
     return () => {
       dispatch(removeSelectedProduct());
     };
-  }, [id]);
+  }, [id, dispatch]);
 
   const ratingStar = Array.from({ length: 5 }, (_, i) => {
     let number = i + 0.5;
@@ -90,7 +98,6 @@ const ProductDetails = ({ product, quantity }) => {
     return <Spinner />;
   }
 
-  const createAt = new Date().getTime();
   const handleAddToCart = () => {
     const cartProduct = {
       productId: _id,
@@ -100,7 +107,6 @@ const ProductDetails = ({ product, quantity }) => {
       rating,
       brand,
       category,
-      createAt,
       price: Math.floor(discountedPrice * quantity.quantity),
       quantity: quantity.quantity,
       email: user?.email,
@@ -110,15 +116,14 @@ const ProductDetails = ({ product, quantity }) => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
       },
       body: JSON.stringify(cartProduct),
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Product Cart Complete !!!");
-          navigate("/cart");
-        }
+      .then(() => {
+        toast.success("Product Cart Complete !!!");
+        navigate("/cart");
       })
       .catch((err) => console.error(err));
   };
@@ -295,12 +300,24 @@ const ProductDetails = ({ product, quantity }) => {
                       </svg>
                     </button>
                   </div>
-                  <button
-                    onClick={() => handleAddToCart()}
-                    className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full"
-                  >
-                    Add to Cart
-                  </button>
+                  {user?.email ? (
+                    <>
+                      <button
+                        onClick={() => handleAddToCart()}
+                        className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full"
+                      >
+                        Add to Cart
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Link to="/sign-in">
+                        <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded-full">
+                          Add to Cart
+                        </button>
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

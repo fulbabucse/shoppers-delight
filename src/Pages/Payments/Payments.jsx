@@ -26,7 +26,7 @@ const Payments = () => {
   });
 
   useEffect(() => {
-    fetch(`${url}/config`, {
+    fetch(`${url}/payments/config`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
       },
@@ -51,7 +51,7 @@ const Payments = () => {
   const totalPrice = price + tax + shipping;
 
   useEffect(() => {
-    fetch(`${url}/create-payment-intent`, {
+    fetch(`${url}/payments/create-payment-intent`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

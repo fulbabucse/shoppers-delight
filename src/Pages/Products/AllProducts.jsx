@@ -15,11 +15,13 @@ const AllProducts = () => {
   const startPrice = Math.ceil(newPrice[0]);
   const endPrice = Math.ceil(newPrice[1]);
 
+  // products?start=50&end=100&page=0&size=5&rating=4
+
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["products", startPrice, endPrice, ratingStar, page, size],
     queryFn: async () => {
       const res = await fetch(
-        `${url}/products?start=${startPrice}&end=${endPrice}&rating=${ratingStar}&page=${page}&size=${size}`,
+        `${url}/products?start=${startPrice}&end=${endPrice}&page=${page}&size=${size}&rating=${ratingStar}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,

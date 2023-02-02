@@ -10,7 +10,7 @@ const PaymentsCard = ({ payments }) => {
 
   useEffect(() => {
     axios
-      .get(`${url}/complete/payments`, {
+      .get(`${url}/payments/all`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
         },
@@ -18,7 +18,6 @@ const PaymentsCard = ({ payments }) => {
       .then((data) => dispatch(completePayments(data.data)))
       .catch((err) => console.log(err));
   }, []);
-
 
   return (
     <>

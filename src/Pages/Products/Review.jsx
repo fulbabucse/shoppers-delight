@@ -40,7 +40,7 @@ const Review = ({ product }) => {
       joinDate: user?.metadata?.creationTime,
       rating: userData.rating,
       message: userData.message,
-      createAt: new Date().toLocaleDateString("en-us", {
+      posted_date: new Date().toLocaleDateString("en-us", {
         year: "numeric",
         month: "short",
         day: "numeric",
@@ -51,7 +51,9 @@ const Review = ({ product }) => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
       },
+
       body: JSON.stringify(review),
     })
       .then((res) => res.json())

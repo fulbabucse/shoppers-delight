@@ -27,7 +27,7 @@ const BillingAddress = () => {
       country: userData.country,
     };
 
-    fetch(`${url}/billing`, {
+    fetch(`${url}/payments/billing`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -36,10 +36,8 @@ const BillingAddress = () => {
       body: JSON.stringify(billingData),
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          navigate("/checkout/payments");
-        }
+      .then(() => {
+        navigate("/checkout/payments");
       })
       .catch((err) => console.error(err));
   };

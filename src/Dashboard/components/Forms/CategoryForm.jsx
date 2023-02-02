@@ -20,10 +20,8 @@ const CategoryForm = () => {
       body: JSON.stringify(categoryData),
     })
       .then((res) => res.json())
-      .then((result) => {
-        if (result.acknowledged) {
-          toast.success("Successfully added a new Category");
-        }
+      .then(() => {
+        toast.success("Successfully added a new Category");
       })
       .catch((err) => console.error(err));
   };

@@ -10,9 +10,13 @@ const Purchase = () => {
   const { user } = useContext(AuthContext);
 
   const { data: orders = [], isLoading } = useQuery({
-    queryKey: ["payments", "email", user?.email],
+    queryKey: ["payments", "invoice", "email", user?.email],
     queryFn: async () => {
-      const res = await fetch(`${url}/payments?email=${user?.email}`);
+      const res = await fetch(`${url}/payments/invoice?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("ShopperToken")}`,
+        },
+      });
       const data = await res.json();
       return data;
     },
