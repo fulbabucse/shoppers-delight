@@ -11,7 +11,7 @@ const SmallTimer = () => {
   let timeInterVal;
 
   const startFlashSaleTime = () => {
-    const countDownDate = new Date("May 28,2023").getTime();
+    const countDownDate = new Date("Oct 28,2023").getTime();
     timeInterVal = setInterval(() => {
       const nowTime = new Date().getTime();
       const timeDistance = countDownDate - nowTime;
